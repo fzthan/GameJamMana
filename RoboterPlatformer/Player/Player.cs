@@ -21,6 +21,7 @@ public partial class Player : CharacterBody3D
 	public float JetPackForce = 1.0f;
 	private bool HasDoubleJumped = false;
 #endregion
+
 #region dashing
 	public bool IsDashing = false;
 	[Export]
@@ -91,6 +92,7 @@ public partial class Player : CharacterBody3D
 	{
 		Vector3 velocity = Velocity;
 
+
 		if(!IsDashing) {
 #region verticality
 			// Add the gravity.
@@ -136,7 +138,6 @@ public partial class Player : CharacterBody3D
 				velocity.X = direction.X * DashSpeed;
 				velocity.Z = direction.Z * DashSpeed;
 			}
-
 		} else {
 				Vector3 fwdVector = (-Transform.Basis.Z).Rotated(new Vector3(0, 1, 0), PlayerPivot.Rotation.Y);
 				velocity.X = fwdVector.X * DashSpeed;
