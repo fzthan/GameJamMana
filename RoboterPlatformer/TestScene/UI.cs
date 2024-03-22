@@ -15,6 +15,6 @@ public partial class UI : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		fuelDisplay.Text = "Fuel: " + player.JetPackStamina.ToString();
+		fuelDisplay.Text = "Fuel: " + Mathf.Floor(player.JetPackStamina).ToString();
 	}
 }
