@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://0ij4koquohr3"]
+[gd_scene load_steps=5 format=3 uid="uid://0ij4koquohr3"]
 
 [ext_resource type="PackedScene" uid="uid://djv4w8iahv6ct" path="res://Player/player.tscn" id="1_i7ls2"]
+[ext_resource type="PackedScene" uid="uid://bgipgg2h4qmut" path="res://ElectroSpike/electro_spike.tscn" id="2_njpln"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dtqc5"]
 size = Vector3(15, 1, 15)
@@ -26,3 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6318, 6.28217)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.857518, -0.366463, 0.361066, 0, 0.701842, 0.712332, -0.514455, -0.610838, 0.601842, 0, -1.76354, 0.722017)
+
+[node name="electroSpike" parent="." instance=ExtResource("2_njpln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3022, 1.41137, 0)
