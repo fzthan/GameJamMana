@@ -21,7 +21,7 @@ shape = SubResource("BoxShape3D_g511g")
 
 [node name="Player" parent="." instance=ExtResource("1_i7ls2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58265, 0)
-JetPackForce = 5.0
+JetPackForce = 8.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.857518, -0.366463, 0.361066, 0, 0.701842, 0.712332, -0.514455, -0.610838, 0.601842, 0, -1.76354, 0.722017)
