@@ -1,13 +1,13 @@
 using Godot;
 using Vector3 = Godot.Vector3;
 using Vector2 = Godot.Vector2;
-using System.Xml.Serialization;
-using System.Numerics;
 
 public partial class Player : CharacterBody3D
 {
 	[Export]
-	public float Health = 10.0f;
+	private float Health = 10.0f;
+	[Signal]
+	public delegate void HealthChangedEventHandler(float oldValue, float newValue);
 	[Export]
 	public const float Speed = 5.0f;
 #region jumping-jetpack
@@ -40,6 +40,18 @@ public partial class Player : CharacterBody3D
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+
+	public void TakeDamage(float amount) {
+		float oldHealth = Health;
+		Health -= amount;
+		EmitSignal(SignalName.HealthChanged, oldHealth, Health);
+	}
+
+	public void Heal(float amount) {
+		float oldHealth = Health;
+		Health += amount;
+		EmitSignal(SignalName.HealthChanged, oldHealth, Health);
+	}
 
     public override void _Ready()
     {
