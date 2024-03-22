@@ -2,7 +2,11 @@ using Godot;
 
 public partial class Player : CharacterBody3D
 {
+	[Export]
+	public float Health = 10.0f;
+	[Export]
 	public const float Speed = 5.0f;
+	[Export]
 	public const float JumpVelocity = 4.5f;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
