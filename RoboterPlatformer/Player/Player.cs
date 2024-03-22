@@ -11,7 +11,7 @@ public partial class Player : CharacterBody3D
 	[Export]
 	public const float JumpVelocity = 4.5f;
 	[Export]
-	public const float DoubleJumpForce = 4.5f;
+	public const float DoubleJumpForce = 6.5f;
 	[Export]
 	public float JetPackStamina = 50.0f;
 	[Export]
@@ -72,8 +72,11 @@ public partial class Player : CharacterBody3D
 			JetPackStamina = 50.0f;
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("move_jump") && IsOnFloor()) {
-			velocity.Y = JumpVelocity;
+		if (Input.IsActionJustPressed("move_jump")) {
+			if(IsOnFloor())
+				velocity.Y = JumpVelocity;
+			else if(!HasDoubleJumped)
+				velocity.Y = DoubleJumpForce;
 		}
 		else if (Input.IsActionPressed("move_float") && !IsOnFloor() && JetPackStamina > 0) {
 			velocity.Y += JetPackForce * (float)delta;
