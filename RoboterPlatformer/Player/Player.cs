@@ -13,6 +13,7 @@ public partial class Player : CharacterBody3D
 	public float JetPackStamina = 50.0f;
 	[Export]
 	public float JetPackForce = 1.0f;
+	private Timer JetPackTimer;
 
 	private Node3D PlayerPivot {get; set;}
 
@@ -33,6 +34,7 @@ public partial class Player : CharacterBody3D
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
 		PlayerPivot = GetNode<Node3D>("Pivot");
+		JetPackTimer = GetNode<Timer>("JetPackTimer");
     }
 
     public override void _Input(InputEvent @event)
@@ -67,9 +69,11 @@ public partial class Player : CharacterBody3D
 			JetPackStamina = 50.0f;
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("move_jump") && IsOnFloor())
+		if (Input.IsActionJustPressed("move_jump") && IsOnFloor()) {
 			velocity.Y = JumpVelocity;
-		else if (Input.IsActionPressed("move_jump") && !IsOnFloor() && JetPackStamina > 0) {
+			JetPackTimer.Start();
+		}
+		else if (Input.IsActionPressed("move_jump") && !IsOnFloor() && JetPackStamina > 0 && JetPackTimer.IsStopped()) {
 			velocity.Y += JetPackForce;
 			JetPackStamina -= JetPackForce;
 		}
