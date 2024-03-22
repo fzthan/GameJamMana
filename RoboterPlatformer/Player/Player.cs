@@ -68,15 +68,19 @@ public partial class Player : CharacterBody3D
 		// Add the gravity.
 		if (!IsOnFloor())
 			velocity.Y -= gravity * (float)delta;
-		else
+		else {
 			JetPackStamina = 50.0f;
+			HasDoubleJumped = false;
+		}
 
 		// Handle Jump.
 		if (Input.IsActionJustPressed("move_jump")) {
 			if(IsOnFloor())
 				velocity.Y = JumpVelocity;
-			else if(!HasDoubleJumped)
+			else if(!HasDoubleJumped) {
 				velocity.Y = DoubleJumpForce;
+				HasDoubleJumped = true;	
+			}
 		}
 		else if (Input.IsActionPressed("move_float") && !IsOnFloor() && JetPackStamina > 0) {
 			velocity.Y += JetPackForce * (float)delta;
