@@ -74,8 +74,8 @@ public partial class Player : CharacterBody3D
 			JetPackTimer.Start();
 		}
 		else if (Input.IsActionPressed("move_jump") && !IsOnFloor() && JetPackStamina > 0 && JetPackTimer.IsStopped()) {
-			velocity.Y += JetPackForce;
-			JetPackStamina -= JetPackForce;
+			velocity.Y += JetPackForce * (float)delta;
+			JetPackStamina -= JetPackForce * (float)delta;
 		}
 
 		// Get the input direction and handle the movement/deceleration.
