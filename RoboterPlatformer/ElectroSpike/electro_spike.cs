@@ -12,11 +12,10 @@ public partial class electro_spike : Area3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		playerNode = GetNode<Player>("/root/Test/Player");
 	}
 
 	public void _on_body_entered(Player body){
-		if(body == playerNode && active){
+		if(body is Player && active){
 			body.Health -= damage;
 		}
 	}
