@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dfu7uup4wsrtq"]
+
+[node name="EngineParticle" type="Node3D"]
