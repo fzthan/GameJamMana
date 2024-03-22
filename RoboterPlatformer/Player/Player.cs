@@ -7,8 +7,17 @@ public partial class Player : CharacterBody3D
 	public float Health = 10.0f;
 	[Export]
 	public const float Speed = 5.0f;
+#region jumping-jetpack
 	[Export]
 	public const float JumpVelocity = 4.5f;
+	[Export]
+	public const float DoubleJumpForce = 6.5f;
+	[Export]
+	public float JetPackStamina = 50.0f;
+	[Export]
+	public float JetPackForce = 1.0f;
+	private bool HasDoubleJumped = false;
+#endregion
 
 	private Node3D PlayerPivot {get; set;}
 
@@ -59,10 +68,24 @@ public partial class Player : CharacterBody3D
 		// Add the gravity.
 		if (!IsOnFloor())
 			velocity.Y -= gravity * (float)delta;
+		else {
+			JetPackStamina = 50.0f;
+			HasDoubleJumped = false;
+		}
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("move_jump") && IsOnFloor())
-			velocity.Y = JumpVelocity;
+		if (Input.IsActionJustPressed("move_jump")) {
+			if(IsOnFloor())
+				velocity.Y = JumpVelocity;
+			else if(!HasDoubleJumped) {
+				velocity.Y = DoubleJumpForce;
+				HasDoubleJumped = true;	
+			}
+		}
+		else if (Input.IsActionPressed("move_float") && !IsOnFloor() && JetPackStamina > 0) {
+			velocity.Y += JetPackForce * (float)delta;
+			JetPackStamina -= JetPackForce * (float)delta;
+		}
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
