@@ -27,8 +27,3 @@ shape = SubResource("CapsuleShape3D_qq64u")
 
 [node name="Camera3D" type="Camera3D" parent="PlayerCameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
-
-[node name="JetPackTimer" type="Timer" parent="."]
-process_callback = 0
-wait_time = 0.25
-one_shot = true
