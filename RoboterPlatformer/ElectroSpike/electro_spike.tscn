@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://ElectroSpike/electro_spike.cs" id="1_swhhw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j23en"]
+size = Vector3(1.5, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a82au"]
 

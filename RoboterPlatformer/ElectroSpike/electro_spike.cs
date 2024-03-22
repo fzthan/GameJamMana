@@ -5,7 +5,10 @@ using System;
 public partial class electro_spike : Area3D
 {
 	CharacterBody3D playerNode;
-	float damage = 1;
+	[Export]
+	private float damage = 1;
+	[Export]
+	public bool active = true;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -13,9 +16,8 @@ public partial class electro_spike : Area3D
 	}
 
 	public void _on_body_entered(Player body){
-		if(body == playerNode){
+		if(body == playerNode && active){
 			body.Health -= damage;
-			GD.Print(body.Health);
 		}
 	}
 
