@@ -1,4 +1,5 @@
 using Godot;
+using Vector3 = Godot.Vector3;
 
 public partial class Player : CharacterBody3D
 {
@@ -8,6 +9,10 @@ public partial class Player : CharacterBody3D
 	public const float Speed = 5.0f;
 	[Export]
 	public const float JumpVelocity = 4.5f;
+
+	private Node3D PlayerPivot {get; set;}
+
+	private Vector3 direction = Vector3.Zero;
 
 #region Camera
 	[Export(PropertyHint.Range, "0.1,1.0")] public float camSensitivity = 0.3f;
@@ -23,6 +28,7 @@ public partial class Player : CharacterBody3D
     {
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
+		PlayerPivot = GetNode<Node3D>("Pivot");
     }
 
     public override void _Input(InputEvent @event)
@@ -35,6 +41,16 @@ public partial class Player : CharacterBody3D
 		camRot.X = Mathf.Clamp(camRot.X, minCamPitch, maxCamPitch);
 		PlayerCameraPivot.RotationDegrees = camRot;
 	}
+
+	public override void _Process(double delta)
+    {
+        if (direction != Vector3.Zero)
+		{
+			Vector3 bodyRotation = PlayerPivot.Rotation;
+			bodyRotation.Y = Mathf.LerpAngle(bodyRotation.Y,Mathf.Atan2(-direction.X, -direction.Z), (float)delta * Speed);
+			PlayerPivot.Rotation = bodyRotation;
+		}
+    }
 
     public override void _PhysicsProcess(double delta)
 	{
@@ -51,7 +67,7 @@ public partial class Player : CharacterBody3D
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_backward");
-		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+		direction = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, PlayerCameraPivot.Rotation.Y).Normalized();
 		if (direction != Vector3.Zero)
 		{
 			velocity.X = direction.X * Speed;
