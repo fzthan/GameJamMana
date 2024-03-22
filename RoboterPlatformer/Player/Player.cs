@@ -1,5 +1,6 @@
 using Godot;
 using Vector3 = Godot.Vector3;
+using Vector2 = Godot.Vector2;
 
 public partial class Player : CharacterBody3D
 {
