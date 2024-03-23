@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dokds22t8fc1w" path="res://Mats/Particles/Flare00.PNG" id="1_6ql17"]
 [ext_resource type="Material" uid="uid://byx68ushwfv06" path="res://Mats/asdf.tres" id="2_yjy2g"]
 [ext_resource type="Material" uid="uid://cca6w6s666x5v" path="res://Mats/Mat_Flare00.tres" id="3_qcres"]
-[ext_resource type="PackedScene" uid="uid://xelewe5fxwsy" path="res://RoboterRig.blend" id="4_jwb11"]
+[ext_resource type="PackedScene" uid="uid://bo0gbaynomwd0" path="res://Player/RoboTest.tscn" id="4_ycnqx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxi0g"]
 transparency = 1
@@ -108,7 +108,7 @@ draw_pass_1 = SubResource("QuadMesh_s4gev")
 [node name="Fire" type="GPUParticles3D" parent="."]
 material_override = ExtResource("3_qcres")
 emitting = false
-amount = 13
+amount = 30
 lifetime = 1.22
 one_shot = true
 explosiveness = 1.0
@@ -127,5 +127,4 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_lpjcb")
 draw_pass_1 = SubResource("QuadMesh_m28l2")
 
-[node name="RoboterRig" parent="." instance=ExtResource("4_jwb11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07922, 0)
+[node name="RoboterRig" parent="Smoke" instance=ExtResource("4_ycnqx")]

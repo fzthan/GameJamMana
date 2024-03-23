@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj36s2keis5cs"]
+[gd_scene load_steps=4 format=3 uid="uid://cj36s2keis5cs"]
 
 [ext_resource type="Script" path="res://TestScene/UI.cs" id="1_hl4cm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irel8"]
+bg_color = Color(0.607843, 0.639216, 0.690196, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycbjq"]
+bg_color = Color(0.537255, 0.713726, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="UI" type="Control"]
 process_mode = 3
@@ -11,19 +25,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hl4cm")
-
-[node name="FuelDisplay" type="Label" parent="."]
-layout_mode = 0
-offset_right = 93.0
-offset_bottom = 35.0
-text = "Fuel: 50"
-
-[node name="HealthDisplay" type="Label" parent="."]
-layout_mode = 0
-offset_top = 32.0
-offset_right = 90.0
-offset_bottom = 55.0
-text = "Health:"
 
 [node name="PauseMenu" type="Panel" parent="."]
 layout_mode = 1
@@ -58,6 +59,46 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Exit"
+
+[node name="InGame" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FuelDisplay" type="Label" parent="InGame"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 26.0
+offset_right = 61.0
+offset_bottom = 49.0
+text = "Fuel: 50"
+
+[node name="HealthDisplay" type="Label" parent="InGame"]
+layout_mode = 1
+offset_right = 56.0
+offset_bottom = 23.0
+text = "Health:"
+
+[node name="DashBar" type="ProgressBar" parent="InGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 98.0
+offset_right = 91.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_irel8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ycbjq")
+value = 50.0
+show_percentage = false
 
 [connection signal="button_down" from="PauseMenu/Container/Continue" to="." method="_OnContinueButtonDown"]
 [connection signal="button_down" from="PauseMenu/Container/Exit" to="." method="_OnExitButtonDown"]
