@@ -40,4 +40,8 @@ public partial class UI : Control
     Input.ActionPress("ui_cancel");
     Input.ActionRelease("ui_cancel");
   }
+
+  public void _OnExitButtonDown() {
+    GetTree().Quit();
+  }
 }

@@ -92,4 +92,5 @@ process_mode = 3
 player = NodePath("../Player")
 
 [connection signal="button_down" from="UI/PauseMenu/Container/Continue" to="UI" method="_OnContinueButtonDown"]
+[connection signal="button_down" from="UI/PauseMenu/Container/Exit" to="UI" method="_OnExitButtonDown"]
 [connection signal="GamePaused" from="GameController" to="UI" method="_OnGamePaused"]
