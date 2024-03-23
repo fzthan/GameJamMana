@@ -33,8 +33,18 @@ public partial class gameController : Node
 	}
 
 	private void OnPlayerHealthChanged(float oldHealth, float Health){
-		if(Health <= 0){
-			player.ResetAndReposition(activeCheckpoint.GlobalPosition);
+		if(Health <= 0) {
+      switch(activeCheckpoint.SpawnLocation) {
+        case Checkpoint.SPAWN_LOCATIONS.LEFT:
+        player.ResetAndReposition(activeCheckpoint.GetNode<Node3D>("SpawnLocations/Left").GlobalPosition);
+        break;
+        case Checkpoint.SPAWN_LOCATIONS.RIGHT:
+        player.ResetAndReposition(activeCheckpoint.GetNode<Node3D>("SpawnLocations/Right").GlobalPosition);
+        break;
+        case Checkpoint.SPAWN_LOCATIONS.FRONT:
+        player.ResetAndReposition(activeCheckpoint.GetNode<Node3D>("SpawnLocations/Front").GlobalPosition);
+        break;
+      }
 		}
 	}
 
