@@ -1,20 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://wa11714jq61"]
+[gd_scene load_steps=12 format=3 uid="uid://wa11714jq61"]
 
 [ext_resource type="PackedScene" uid="uid://barrpd4ea5wy5" path="res://gameController/gameController.tscn" id="1_hxclj"]
-[ext_resource type="PackedScene" uid="uid://djv4w8iahv6ct" path="res://Player/player.tscn" id="2_lhclg"]
+[ext_resource type="PackedScene" uid="uid://djv4w8iahv6ct" path="res://Prefabs/Player/player.tscn" id="2_lhclg"]
 [ext_resource type="PackedScene" uid="uid://cj36s2keis5cs" path="res://UI/ui.tscn" id="3_xseku"]
-[ext_resource type="PackedScene" uid="uid://fgvxmdcl4uug" path="res://Level/Elemets/platformSmall.tscn" id="4_7uvj2"]
-[ext_resource type="PackedScene" uid="uid://bgipgg2h4qmut" path="res://ElectroSpike/electro_spike.tscn" id="4_e5p6y"]
-[ext_resource type="PackedScene" uid="uid://cy3pw76gkfyey" path="res://Level/Elemets/platformMid.tscn" id="5_h5cf2"]
-[ext_resource type="PackedScene" uid="uid://ck4prduhhe2he" path="res://Level/Elemets/rampMid.tscn" id="6_mddd6"]
-[ext_resource type="PackedScene" uid="uid://i5rmvntvhpj4" path="res://Turret/Turret_Mock.tscn" id="8_obq7e"]
-[ext_resource type="PackedScene" uid="uid://dkrs76pv12o06" path="res://Level/Elemets/fallingPlatform.tscn" id="9_j2lah"]
+[ext_resource type="PackedScene" uid="uid://fgvxmdcl4uug" path="res://Prefabs/Level_Elements/Platforms/platformSmall.tscn" id="4_7uvj2"]
+[ext_resource type="PackedScene" uid="uid://bgipgg2h4qmut" path="res://Prefabs/Level_Elements/Obstacle/ElectroSpike/electro_spike.tscn" id="4_e5p6y"]
+[ext_resource type="PackedScene" uid="uid://cy3pw76gkfyey" path="res://Prefabs/Level_Elements/Platforms/platformMid.tscn" id="5_h5cf2"]
+[ext_resource type="PackedScene" uid="uid://ck4prduhhe2he" path="res://Prefabs/Level_Elements/Ramp/rampMid.tscn" id="6_mddd6"]
+[ext_resource type="PackedScene" uid="uid://i5rmvntvhpj4" path="res://Prefabs/Level_Elements/Obstacle/Turret/Turret_Mock.tscn" id="8_obq7e"]
+[ext_resource type="PackedScene" uid="uid://dkrs76pv12o06" path="res://Prefabs/Level_Elements/Platforms/Falling_Platform/fallingPlatform.tscn" id="9_j2lah"]
 [ext_resource type="PackedScene" uid="uid://nm3oi1edk43q" path="res://Fan/fan.tscn" id="10_f1aq7"]
+[ext_resource type="PackedScene" uid="uid://dm1abhwfs6uhi" path="res://Checkpoint/checkpoint.tscn" id="11_d3wwp"]
 
 [node name="Level0" type="Node"]
 
-[node name="GameController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_hxclj")]
+[node name="GameController" parent="." node_paths=PackedStringArray("player", "activeCheckpoint") instance=ExtResource("1_hxclj")]
 player = NodePath("../Player")
+activeCheckpoint = NodePath("../Checkpoint")
 
 [node name="Player" parent="." instance=ExtResource("2_lhclg")]
 transform = Transform3D(0.999938, 0, -0.0111176, 0, 1, 0, 0.0111176, 0, 0.999938, 22.2934, 22.2893, -101.215)
@@ -158,3 +160,6 @@ transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 30.738
 
 [node name="Fan2" parent="." instance=ExtResource("10_f1aq7")]
 transform = Transform3D(1, 0, 1.90739e-07, 0, 1, 0, -1.90739e-07, 0, 1, 37.7382, 21.9587, -104.391)
+
+[node name="Checkpoint" parent="." instance=ExtResource("11_d3wwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 22.3707, 0)
