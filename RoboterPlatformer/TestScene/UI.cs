@@ -10,8 +10,8 @@ public partial class UI : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		fuelDisplay = GetNode<Label>("FuelDisplay");
-    healthDisplay = GetNode<Label>("HealthDisplay");
+		fuelDisplay = GetNode<Label>("InGame/FuelDisplay");
+    healthDisplay = GetNode<Label>("InGame/HealthDisplay");
     PauseMenu = GetNode<Panel>("PauseMenu");
     PauseMenu.Visible = false;
 
