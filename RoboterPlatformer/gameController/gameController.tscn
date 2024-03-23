@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://gameController/gameController.cs" id="1_unarw"]
 
 [node name="GameController" type="Node"]
+process_mode = 3
 script = ExtResource("1_unarw")
