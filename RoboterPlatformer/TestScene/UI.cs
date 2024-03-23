@@ -7,6 +7,8 @@ public partial class UI : Control
 	private Label fuelDisplay;
   private Label healthDisplay;
   private Panel PauseMenu;
+  private ProgressBar DashBar;
+  private Timer dashCooldown;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,11 +17,14 @@ public partial class UI : Control
     PauseMenu = GetNode<Panel>("PauseMenu");
     PauseMenu.Visible = false;
 
+    DashBar = GetNode<ProgressBar>("InGame/DashBar");
+    DashBar.Value = 100;
+
     healthDisplay.Text = "Health: " + player.CurrentHealth.ToString();
 
     player.HealthChanged += OnHealthChanged;
-
-
+    player.DashStart += _OnDashStart;
+    dashCooldown = player.GetNode<Timer>("DashCooldown");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +32,13 @@ public partial class UI : Control
 	{
 		fuelDisplay.Text = "Fuel: " + Mathf.Floor(player.JetPackStamina).ToString();
 	}
+
+  public override void _PhysicsProcess(double delta)
+  {
+    if(!dashCooldown.IsStopped()) {
+      DashBar.Value = (1 - dashCooldown.TimeLeft / dashCooldown.WaitTime) * 100;
+    }
+  }
 
   public void OnHealthChanged(float oldValue, float newValue) {
     healthDisplay.Text = "Health: " + newValue.ToString();
@@ -45,5 +57,9 @@ public partial class UI : Control
 
   public void _OnExitButtonDown() {
     GetTree().Quit();
+  }
+
+  public void _OnDashStart() {
+    DashBar.Value = 0;
   }
 }

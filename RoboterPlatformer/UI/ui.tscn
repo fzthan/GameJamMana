@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj36s2keis5cs"]
+[gd_scene load_steps=4 format=3 uid="uid://cj36s2keis5cs"]
 
 [ext_resource type="Script" path="res://TestScene/UI.cs" id="1_hl4cm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irel8"]
+bg_color = Color(0.607843, 0.639216, 0.690196, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycbjq"]
+bg_color = Color(0.537255, 0.713726, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="UI" type="Control"]
 process_mode = 3
@@ -13,7 +27,6 @@ grow_vertical = 2
 script = ExtResource("1_hl4cm")
 
 [node name="PauseMenu" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,7 +82,7 @@ offset_right = 56.0
 offset_bottom = 23.0
 text = "Health:"
 
-[node name="ProgressBar" type="ProgressBar" parent="InGame"]
+[node name="DashBar" type="ProgressBar" parent="InGame"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -77,12 +90,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -90.0
-offset_top = 64.0
+offset_top = 98.0
 offset_right = 91.0
-offset_bottom = 78.0
+offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
-value = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_irel8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ycbjq")
+value = 50.0
 show_percentage = false
 
 [connection signal="button_down" from="PauseMenu/Container/Continue" to="." method="_OnContinueButtonDown"]

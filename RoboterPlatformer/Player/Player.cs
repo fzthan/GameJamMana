@@ -28,7 +28,7 @@ public partial class Player : CharacterBody3D
 #region dashing
 	public bool IsDashing = false;
 	[Export]
-	public float DashSpeed = 15.0f;
+	public float DashSpeed = 50.0f;
 	private Timer DashTimer;
 	private Timer DashCooldown;
   [Signal]
@@ -144,6 +144,7 @@ public partial class Player : CharacterBody3D
 			if(Input.IsActionJustPressed("move_dash") && DashCooldown.IsStopped()) {
 				IsDashing = true;
 				DashTimer.Start();
+        EmitSignal(SignalName.DashStart);
 				velocity.Y = 0.0f;
 				velocity.X = direction.X * DashSpeed;
 				velocity.Z = direction.Z * DashSpeed;
