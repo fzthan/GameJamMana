@@ -35,45 +35,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hl4cm")
 
-[node name="PauseMenu" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Container" type="VBoxContainer" parent="PauseMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Title" type="Label" parent="PauseMenu/Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Pause"
-
-[node name="Continue" type="Button" parent="PauseMenu/Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Continue"
-
-[node name="Help" type="Button" parent="PauseMenu/Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Help"
-
-[node name="Exit" type="Button" parent="PauseMenu/Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Exit"
-
 [node name="InGame" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -182,12 +143,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("6_fjjp6")
 
-[node name="Label" type="Label" parent="HelpPanel/Pause"]
+[node name="BackButton" type="Button" parent="HelpPanel/Pause"]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 10.0
+offset_top = 4.0
 offset_right = 243.0
-offset_bottom = 66.0
+offset_bottom = 60.0
 theme_override_font_sizes/font_size = 30
 text = "Pause/Back"
 
@@ -279,6 +240,46 @@ offset_bottom = 52.0
 theme_override_font_sizes/font_size = 30
 text = "Float"
 
+[node name="PauseMenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="PauseMenu/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Pause"
+
+[node name="Continue" type="Button" parent="PauseMenu/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Continue"
+
+[node name="Help" type="Button" parent="PauseMenu/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Help"
+
+[node name="Exit" type="Button" parent="PauseMenu/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit"
+
+[connection signal="button_down" from="HelpPanel/Pause/BackButton" to="." method="_OnHelpBackButtonDown"]
 [connection signal="button_down" from="PauseMenu/Container/Continue" to="." method="_OnContinueButtonDown"]
 [connection signal="button_down" from="PauseMenu/Container/Help" to="." method="_OnHelpButtonDown"]
 [connection signal="button_down" from="PauseMenu/Container/Exit" to="." method="_OnExitButtonDown"]

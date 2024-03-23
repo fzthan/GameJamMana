@@ -25,6 +25,7 @@ public partial class UI : Control
     player.HealthChanged += OnHealthChanged;
     player.DashStart += _OnDashStart;
     dashCooldown = player.GetNode<Timer>("DashCooldown");
+    GetNode<Panel>("HelpPanel").Visible = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,5 +62,15 @@ public partial class UI : Control
 
   public void _OnDashStart() {
     DashBar.Value = 0;
+  }
+
+  public void _OnHelpButtonDown() {
+    GetNode<Panel>("HelpPanel").Visible = true;
+    PauseMenu.Visible = false;
+  }
+
+  public void _OnHelpBackButtonDown() {
+    GetNode<Panel>("HelpPanel").Visible = false;
+    PauseMenu.Visible = true;
   }
 }
