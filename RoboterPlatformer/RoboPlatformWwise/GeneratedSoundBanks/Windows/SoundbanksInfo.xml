@@ -162,13 +162,13 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{0E7FB081-A8FA-686D-6D8C-00DE7CFFEA67}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{E0ACF559-AC8B-5003-949A-C6A4BC25300F}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
 				<File Id="697110714" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Idle_Jet.wav</ShortName>
-					<CachePath>SFX/Idle_Jet_FBC78EF0.wem</CachePath>
+					<CachePath>SFX/Idle_Jet_818F3B66.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -180,5 +180,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{252E65CA-3C39-3025-4FF7-5CABE71EAB1A}</FileHash>
+	<FileHash>{6751B4E7-819B-BD8F-C243-7F825F7E9FCD}</FileHash>
 </SoundBanksInfo>
