@@ -127,7 +127,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 21, -101)
 [node name="Turret_2" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8555, 27.887, -37.3632)
 skeleton = NodePath("../Turret_1")
-turret_Range = 40.0
 
 [node name="Turret_1" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8144, 19.4387, -105.445)
