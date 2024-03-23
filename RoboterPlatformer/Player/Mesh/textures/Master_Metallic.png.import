@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bisbsqawafud7"
-path.s3tc="res://.godot/imported/Circle03.png-d7fc3f799b95460998546fda7ccf2b7c.s3tc.ctex"
+uid="uid://cb1cy7rdwrffg"
+path.s3tc="res://.godot/imported/Master_Metallic.png-72a34cb9e06d3c088fd329d75ceb2e65.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mats/Circle03.png"
-dest_files=["res://.godot/imported/Circle03.png-d7fc3f799b95460998546fda7ccf2b7c.s3tc.ctex"]
+source_file="res://Player/Mesh/textures/Master_Metallic.png"
+dest_files=["res://.godot/imported/Master_Metallic.png-72a34cb9e06d3c088fd329d75ceb2e65.s3tc.ctex"]
 
 [params]
 

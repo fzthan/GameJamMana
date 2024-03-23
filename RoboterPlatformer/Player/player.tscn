@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://djv4w8iahv6ct"]
+[gd_scene load_steps=6 format=3 uid="uid://djv4w8iahv6ct"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_hfciw"]
 
@@ -7,9 +7,12 @@
 [sub_resource type="BoxMesh" id="BoxMesh_bomw2"]
 size = Vector3(2, 0.5, 0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hrp5o"]
+size = Vector3(2.05602, 0.507263, 0.562042)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qq64u"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_hfciw")
 
 [node name="Pivot" type="Node3D" parent="."]
@@ -20,7 +23,11 @@ mesh = SubResource("CapsuleMesh_b1wij")
 [node name="Arms" type="MeshInstance3D" parent="Pivot/Bean"]
 mesh = SubResource("BoxMesh_bomw2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionArms" type="CollisionShape3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00338483, 0.000152588, 0.00368905)
+shape = SubResource("BoxShape3D_hrp5o")
+
+[node name="CollisionBean" type="CollisionShape3D" parent="." groups=["player"]]
 shape = SubResource("CapsuleShape3D_qq64u")
 
 [node name="PlayerCameraPivot" type="Node3D" parent="."]
