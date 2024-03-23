@@ -4,8 +4,9 @@ using Vector2 = Godot.Vector2;
 
 public partial class Player : CharacterBody3D
 {
-	[Export]
 	private float Health = 10.0f;
+  [Export]
+  private const float startingHealth = 10.0f;
   public float CurrentHealth { get {return Health;}}
 	[Signal]
 	public delegate void HealthChangedEventHandler(float oldValue, float newValue);
@@ -62,17 +63,18 @@ public partial class Player : CharacterBody3D
 		EmitSignal(SignalName.HealthChanged, oldHealth, Health);
 	}
 
-    public override void _Ready()
-    {
-      Input.MouseMode = Input.MouseModeEnum.Captured;
-      PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
-      PlayerPivot = GetNode<Node3D>("Pivot");
-      DashTimer = GetNode<Timer>("DashTimer");
-      DashTimer.Timeout += OnDashTimerTimeout;
-      DashCooldown = GetNode<Timer>("DashCooldown");
-    }
+  public override void _Ready()
+  {
+    Input.MouseMode = Input.MouseModeEnum.Captured;
+    PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
+    PlayerPivot = GetNode<Node3D>("Pivot");
+    DashTimer = GetNode<Timer>("DashTimer");
+    DashTimer.Timeout += OnDashTimerTimeout;
+    DashCooldown = GetNode<Timer>("DashCooldown");
+    Health = startingHealth;
+  }
 
-    public override void _Input(InputEvent @event)
+  public override void _Input(InputEvent @event)
 	{
 		Vector3 camRot = PlayerCameraPivot.RotationDegrees;
 		if(@event is InputEventMouseMotion mouseMotion) {
@@ -162,4 +164,10 @@ public partial class Player : CharacterBody3D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
+
+  public void ResetAndReposition(Vector3 newPos) {
+    Health = startingHealth;
+    GlobalPosition = newPos;
+    EmitSignal(SignalName.HealthChanged, 0, Health);
+  }
 }

@@ -34,7 +34,7 @@ public partial class gameController : Node
 
 	private void OnPlayerHealthChanged(float oldHealth, float Health){
 		if(Health <= 0){
-			GD.Print("Dead!");
+			player.ResetAndReposition(activeCheckpoint.GlobalPosition);
 		}
 	}
 
