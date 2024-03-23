@@ -49,6 +49,8 @@ public partial class Player : CharacterBody3D
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
 	public void TakeDamage(float amount) {
+    if(IsDashing && DashTimer.TimeLeft / DashTimer.WaitTime >= 0.5)
+      return;
 		float oldHealth = Health;
 		Health -= amount;
 		EmitSignal(SignalName.HealthChanged, oldHealth, Health);
