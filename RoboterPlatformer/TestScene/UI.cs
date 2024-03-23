@@ -34,6 +34,8 @@ public partial class UI : Control
 
   public void _OnGamePaused(bool isPaused) {
     PauseMenu.Visible = isPaused;
+    if(isPaused)
+      PauseMenu.GetNode<Button>("Container/Continue").GrabFocus();
   }
 
   public void _OnContinueButtonDown() {
