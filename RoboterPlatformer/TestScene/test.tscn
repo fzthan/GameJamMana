@@ -36,5 +36,3 @@ player = NodePath("../Player")
 [node name="GameController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_3uwot")]
 process_mode = 3
 player = NodePath("../Player")
-
-[connection signal="GamePaused" from="GameController" to="UI" method="_OnGamePaused"]

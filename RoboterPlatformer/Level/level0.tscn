@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbnbc2ifdj70k"]
+[gd_scene load_steps=10 format=3 uid="uid://bybmq6hq0ralo"]
 
 [ext_resource type="PackedScene" uid="uid://barrpd4ea5wy5" path="res://gameController/gameController.tscn" id="1_hxclj"]
 [ext_resource type="PackedScene" uid="uid://djv4w8iahv6ct" path="res://Player/player.tscn" id="2_lhclg"]
@@ -127,11 +127,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 21, -101)
 [node name="Turret_2" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8555, 27.887, -37.3632)
 skeleton = NodePath("../Turret_1")
-turret_Range = 40.0
 
 [node name="Turret_1" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8144, 19.4387, -105.445)
-turret_Range = 40.0
 
 [node name="PlatformMid8" parent="." instance=ExtResource("5_h5cf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 21, -101)

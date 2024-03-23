@@ -15,6 +15,7 @@ public partial class UI : Control
 		fuelDisplay = GetNode<Label>("InGame/FuelDisplay");
     healthDisplay = GetNode<Label>("InGame/HealthDisplay");
     PauseMenu = GetNode<Panel>("PauseMenu");
+    GetNode<gameController>("../GameController").GamePaused += _OnGamePaused;
     PauseMenu.Visible = false;
 
     DashBar = GetNode<ProgressBar>("InGame/DashBar");
