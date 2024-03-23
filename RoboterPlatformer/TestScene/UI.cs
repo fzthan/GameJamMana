@@ -25,7 +25,7 @@ public partial class UI : Control
     player.HealthChanged += OnHealthChanged;
     player.DashStart += _OnDashStart;
     dashCooldown = player.GetNode<Timer>("DashCooldown");
-    GetNode<Panel>("HelpPanel").Visible = false;
+    PauseMenu.GetNode<Panel>("HelpPanel").Visible = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,8 +47,10 @@ public partial class UI : Control
 
   public void _OnGamePaused(bool isPaused) {
     PauseMenu.Visible = isPaused;
-    if(isPaused)
+    if(isPaused)  {
       PauseMenu.GetNode<Button>("Container/Continue").GrabFocus();
+      PauseMenu.GetNode<Panel>("HelpPanel").Visible = false;
+    }
   }
 
   public void _OnContinueButtonDown() {
@@ -65,12 +67,10 @@ public partial class UI : Control
   }
 
   public void _OnHelpButtonDown() {
-    GetNode<Panel>("HelpPanel").Visible = true;
-    PauseMenu.Visible = false;
+    PauseMenu.GetNode<Panel>("HelpPanel").Visible = true;
   }
 
   public void _OnHelpBackButtonDown() {
-    GetNode<Panel>("HelpPanel").Visible = false;
-    PauseMenu.Visible = true;
+    PauseMenu.GetNode<Panel>("HelpPanel").Visible = false;
   }
 }
