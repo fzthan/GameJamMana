@@ -28,9 +28,11 @@ public partial class Player : CharacterBody3D
 #region dashing
 	public bool IsDashing = false;
 	[Export]
-	public float DashSpeed = 15.0f;
+	public float DashSpeed = 50.0f;
 	private Timer DashTimer;
 	private Timer DashCooldown;
+  [Signal]
+  public delegate void DashStartEventHandler();
 #endregion
 	private Node3D PlayerPivot {get; set;}
 
@@ -60,12 +62,12 @@ public partial class Player : CharacterBody3D
 
     public override void _Ready()
     {
-		Input.MouseMode = Input.MouseModeEnum.Captured;
-		PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
-		PlayerPivot = GetNode<Node3D>("Pivot");
-		DashTimer = GetNode<Timer>("DashTimer");
-		DashTimer.Timeout += OnDashTimerTimeout;
-		DashCooldown = GetNode<Timer>("DashCooldown");
+      Input.MouseMode = Input.MouseModeEnum.Captured;
+      PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
+      PlayerPivot = GetNode<Node3D>("Pivot");
+      DashTimer = GetNode<Timer>("DashTimer");
+      DashTimer.Timeout += OnDashTimerTimeout;
+      DashCooldown = GetNode<Timer>("DashCooldown");
     }
 
     public override void _Input(InputEvent @event)
@@ -79,15 +81,13 @@ public partial class Player : CharacterBody3D
 		PlayerCameraPivot.RotationDegrees = camRot;
 	}
 
-	public override void _Process(double delta)
-    {
-        if (direction != Vector3.Zero)
-		{
+	public override void _Process(double delta) {
+    if (direction != Vector3.Zero) {
 			Vector3 bodyRotation = PlayerPivot.Rotation;
 			bodyRotation.Y = Mathf.LerpAngle(bodyRotation.Y,Mathf.Atan2(-direction.X, -direction.Z), (float)delta * Speed);
 			PlayerPivot.Rotation = bodyRotation;
 		}
-    }
+  }
 
 	public void OnDashTimerTimeout() {
 		DashCooldown.Start();
@@ -144,13 +144,14 @@ public partial class Player : CharacterBody3D
 			if(Input.IsActionJustPressed("move_dash") && DashCooldown.IsStopped()) {
 				IsDashing = true;
 				DashTimer.Start();
+        EmitSignal(SignalName.DashStart);
 				velocity.Y = 0.0f;
 				velocity.X = direction.X * DashSpeed;
 				velocity.Z = direction.Z * DashSpeed;
 			}
 		} else {
 				Vector3 fwdVector = (-Transform.Basis.Z).Rotated(new Vector3(0, 1, 0), PlayerPivot.Rotation.Y);
-        float timerProgress = Mathf.Clamp(Mathf.Pow((float)(DashTimer.TimeLeft / .5), 4), 0.1f, 1.0f);
+        float timerProgress = Mathf.Clamp(Mathf.Pow((float)(DashTimer.TimeLeft / DashTimer.WaitTime), 4), 0.1f, 1.0f);
 
         float _speed = timerProgress * DashSpeed;
 				velocity.X = fwdVector.X * _speed;
