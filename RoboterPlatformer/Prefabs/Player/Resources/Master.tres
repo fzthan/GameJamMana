@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://d25mr3w2t4lpk"]
+
+[ext_resource type="Texture2D" uid="uid://brfaeo404pxxi" path="res://Prefabs/Player/textures/Master_BaseColor.png" id="1_3skga"]
+[ext_resource type="Texture2D" uid="uid://bkm3w8ld6kh6q" path="res://Prefabs/Player/textures/Master_Emission.png" id="2_pjtqs"]
+[ext_resource type="Texture2D" uid="uid://bmcwdnhrntdvo" path="res://Prefabs/Player/textures/Master_Metallic.png" id="3_xbkwq"]
+[ext_resource type="Texture2D" uid="uid://bk1j4wsmxe3sy" path="res://Prefabs/Player/textures/Master_Normal.png" id="4_4t313"]
+[ext_resource type="Texture2D" uid="uid://boncpigvlbcy8" path="res://Prefabs/Player/textures/Master_Roughness.png" id="5_t1lua"]
+
+[resource]
+resource_name = "Master"
+cull_mode = 2
+albedo_texture = ExtResource("1_3skga")
+metallic = 1.0
+metallic_texture = ExtResource("3_xbkwq")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("5_t1lua")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_energy_multiplier = 2.9
+emission_texture = ExtResource("2_pjtqs")
+normal_enabled = true
+normal_texture = ExtResource("4_4t313")

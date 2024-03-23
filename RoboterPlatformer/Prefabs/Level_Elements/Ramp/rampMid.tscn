@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck4prduhhe2he"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_o0e0e"]
+left_to_right = 0.0
+size = Vector3(5, 2.5, 5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b7gqv"]
+margin = 0.0
+points = PackedVector3Array(2.5, -1.25, 2.5, 2.5, -1.25, -2.5, -2.5, -1.25, -2.5, -2.5, -1.25, 2.5, -2.5, 1.25, -2.5, -2.5, 1.25, 2.5)
+
+[node name="RampMid" type="StaticBody3D"]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_o0e0e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_b7gqv")
