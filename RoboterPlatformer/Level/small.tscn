@@ -29,7 +29,6 @@ transform = Transform3D(0.857518, -0.366463, 0.361066, 0, 0.701842, 0.712332, -0
 
 [node name="Turret" parent="." instance=ExtResource("2_x2mk7")]
 transform = Transform3D(-0.977416, 0, 0.211325, 0, 1, 0, -0.211325, 0, -0.977416, -1.189, 2.135, -5.76391)
-turret_Range = 5.0
 
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_xet0t")]
 player = NodePath("../Player")
