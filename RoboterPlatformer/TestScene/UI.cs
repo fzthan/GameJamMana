@@ -1,15 +1,20 @@
 using Godot;
-using System;
 
 public partial class UI : Control
 {
 	private Player player;
-	private TextEdit fuelDisplay;
+	private Label fuelDisplay;
+  private Label healthDisplay;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		player = GetNode<Player>("../Player");
-		fuelDisplay = GetNode<TextEdit>("FuelDisplay");
+		fuelDisplay = GetNode<Label>("FuelDisplay");
+    healthDisplay = GetNode<Label>("HealthDisplay");
+
+    healthDisplay.Text = "Health: " + player.CurrentHealth.ToString();
+
+    player.HealthChanged += OnHealthChanged;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,4 +22,8 @@ public partial class UI : Control
 	{
 		fuelDisplay.Text = "Fuel: " + Mathf.Floor(player.JetPackStamina).ToString();
 	}
+
+  public void OnHealthChanged(float oldValue, float newValue) {
+    healthDisplay.Text = "Health: " + newValue.ToString();
+  }
 }
