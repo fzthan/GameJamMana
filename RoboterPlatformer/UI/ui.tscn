@@ -12,19 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hl4cm")
 
-[node name="FuelDisplay" type="Label" parent="."]
-layout_mode = 0
-offset_right = 93.0
-offset_bottom = 35.0
-text = "Fuel: 50"
-
-[node name="HealthDisplay" type="Label" parent="."]
-layout_mode = 0
-offset_top = 32.0
-offset_right = 90.0
-offset_bottom = 55.0
-text = "Health:"
-
 [node name="PauseMenu" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -58,6 +45,28 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Exit"
+
+[node name="InGame" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FuelDisplay" type="Label" parent="InGame"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 26.0
+offset_right = 61.0
+offset_bottom = 49.0
+text = "Fuel: 50"
+
+[node name="HealthDisplay" type="Label" parent="InGame"]
+layout_mode = 1
+offset_right = 56.0
+offset_bottom = 23.0
+text = "Health:"
 
 [connection signal="button_down" from="PauseMenu/Container/Continue" to="." method="_OnContinueButtonDown"]
 [connection signal="button_down" from="PauseMenu/Container/Exit" to="." method="_OnExitButtonDown"]
