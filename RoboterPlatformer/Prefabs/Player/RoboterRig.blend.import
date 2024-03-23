@@ -33,7 +33,7 @@ _subresources={
 "materials": {
 "Master": {
 "use_external/enabled": true,
-"use_external/path": "res://Player/Mesh/Master.tres"
+"use_external/path": "res://Prefabs/Player/Resources/Master.tres"
 }
 }
 }

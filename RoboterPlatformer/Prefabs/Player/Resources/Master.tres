@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpsn2gfjudglm" path="res://Prefabs/Player/Resources/Master_Emission.png" id="2_a5ywg"]
 [ext_resource type="Texture2D" uid="uid://bx7w2jiu1itce" path="res://Prefabs/Player/Resources/Master_Roughness.png" id="3_vmpo8"]
 [ext_resource type="Texture2D" uid="uid://cb1cy7rdwrffg" path="res://Prefabs/Player/Resources/Master_Metallic.png" id="3_wjblm"]
-[ext_resource type="Texture2D" uid="uid://y5li75hld8en" path="res://Prefabs/Player/Resources/Master_Normal.png" id="4_khait"]
+[ext_resource type="Texture2D" uid="uid://bk1j4wsmxe3sy" path="res://Prefabs/Player/textures/Master_Normal.png" id="4_4t313"]
 
 [resource]
 resource_name = "Master"
@@ -19,4 +19,4 @@ emission_enabled = true
 emission_energy_multiplier = 2.9
 emission_texture = ExtResource("2_a5ywg")
 normal_enabled = true
-normal_texture = ExtResource("4_khait")
+normal_texture = ExtResource("4_4t313")
