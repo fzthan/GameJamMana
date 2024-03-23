@@ -22,6 +22,10 @@ public partial class gameController : Node
       isPaused = !isPaused;
       EmitSignal(SignalName.GamePaused, isPaused);
       GetTree().Paused = isPaused;
+      if(isPaused)
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+      else
+        Input.MouseMode = Input.MouseModeEnum.Captured;
     }
 	}
 
