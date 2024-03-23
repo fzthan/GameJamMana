@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Turret/Turret_Mock.gd" id="1_f7fii"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_8w28q"]
-height = 2.99
+[sub_resource type="BoxMesh" id="BoxMesh_diioa"]
+size = Vector3(1, 5, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185632, 2.43874, 10.5554)
-mesh = SubResource("CylinderMesh_8w28q")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185632, 2.03154, 9.66154)
+mesh = SubResource("BoxMesh_diioa")
 script = ExtResource("1_f7fii")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]

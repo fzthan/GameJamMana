@@ -16,6 +16,15 @@ func _ready():
 func _process(delta):
 	time_Elapsed += delta
 	
+	var direction = get_parent().get_node("Player").global_transform.origin
+	print(direction)
+	turret.look_at(direction, Vector3.UP)
+	
+	look_at(direction, Vector3.UP)
+	rotation.x = 0
+	rotation.z = 0
+	
+	
 	if (time_Elapsed >= 2.00):
 		time_Elapsed = 0
 		
