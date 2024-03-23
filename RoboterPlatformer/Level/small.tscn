@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://0ij4koquohr3"]
+
+[ext_resource type="PackedScene" uid="uid://djv4w8iahv6ct" path="res://Prefabs/Player/player.tscn" id="1_w7gyf"]
+[ext_resource type="PackedScene" uid="uid://i5rmvntvhpj4" path="res://Prefabs/Level_Elements/Obstacle/Turret/Turret_Mock.tscn" id="2_x2mk7"]
+[ext_resource type="PackedScene" uid="uid://cj36s2keis5cs" path="res://UI/ui.tscn" id="3_xet0t"]
+[ext_resource type="PackedScene" uid="uid://barrpd4ea5wy5" path="res://gameController/gameController.tscn" id="4_x70xx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dtqc5"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g511g"]
+size = Vector3(15, 1, 15)
+
+[node name="Test" type="Node"]
+
+[node name="Platform" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
+mesh = SubResource("BoxMesh_dtqc5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
+shape = SubResource("BoxShape3D_g511g")
+
+[node name="Player" parent="." instance=ExtResource("1_w7gyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6591, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.857518, -0.366463, 0.361066, 0, 0.701842, 0.712332, -0.514455, -0.610838, 0.601842, 0, -1.76354, 0.722017)
+
+[node name="Turret" parent="." instance=ExtResource("2_x2mk7")]
+transform = Transform3D(-0.977416, 0, 0.211325, 0, 1, 0, -0.211325, 0, -0.977416, -1.189, 2.135, -5.76391)
+
+[node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_xet0t")]
+player = NodePath("../Player")
+
+[node name="GameController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_x70xx")]
+process_mode = 3
+player = NodePath("../Player")
