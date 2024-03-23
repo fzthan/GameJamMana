@@ -17,7 +17,7 @@ public partial class electro_spike : Area3D
 	public void _on_body_entered(Node3D body){
 		if(body is Player && active){
 			Player obj = (Player)body;
-			obj.Health -= damage;
+			obj.TakeDamage(damage);
 		}
 	}
 

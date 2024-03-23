@@ -1,10 +1,13 @@
 using Godot;
 using Vector3 = Godot.Vector3;
+using Vector2 = Godot.Vector2;
 
 public partial class Player : CharacterBody3D
 {
 	[Export]
-	public float Health = 10.0f;
+	private float Health = 10.0f;
+	[Signal]
+	public delegate void HealthChangedEventHandler(float oldValue, float newValue);
 	[Export]
 	public const float Speed = 5.0f;
 #region jumping-jetpack
@@ -19,6 +22,12 @@ public partial class Player : CharacterBody3D
 	private bool HasDoubleJumped = false;
 #endregion
 
+#region dashing
+	public bool IsDashing = false;
+	[Export]
+	public const float DashSpeed = 10.0f;
+	private Timer DashTimer;
+#endregion
 	private Node3D PlayerPivot {get; set;}
 
 	private Vector3 direction = Vector3.Zero;
@@ -33,11 +42,25 @@ public partial class Player : CharacterBody3D
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
+	public void TakeDamage(float amount) {
+		float oldHealth = Health;
+		Health -= amount;
+		EmitSignal(SignalName.HealthChanged, oldHealth, Health);
+	}
+
+	public void Heal(float amount) {
+		float oldHealth = Health;
+		Health += amount;
+		EmitSignal(SignalName.HealthChanged, oldHealth, Health);
+	}
+
     public override void _Ready()
     {
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
 		PlayerPivot = GetNode<Node3D>("Pivot");
+		DashTimer = GetNode<Timer>("DashTimer");
+		DashTimer.Timeout += OnVoidTimerTimeout;
     }
 
     public override void _Input(InputEvent @event)
@@ -61,47 +84,65 @@ public partial class Player : CharacterBody3D
 		}
     }
 
+	public void OnVoidTimerTimeout() {
+		IsDashing = false;
+	}
+
     public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Velocity;
 
-		// Add the gravity.
-		if (!IsOnFloor())
-			velocity.Y -= gravity * (float)delta;
-		else {
-			JetPackStamina = 50.0f;
-			HasDoubleJumped = false;
-		}
 
-		// Handle Jump.
-		if (Input.IsActionJustPressed("move_jump")) {
-			if(IsOnFloor())
-				velocity.Y = JumpVelocity;
-			else if(!HasDoubleJumped) {
-				velocity.Y = DoubleJumpForce;
-				HasDoubleJumped = true;	
+		if(!IsDashing) {
+#region verticality
+			// Add the gravity.
+			if (!IsOnFloor())
+				velocity.Y -= gravity * (float)delta;
+			else {
+				JetPackStamina = 50.0f;
+				HasDoubleJumped = false;
 			}
-		}
-		else if (Input.IsActionPressed("move_float") && !IsOnFloor() && JetPackStamina > 0) {
-			velocity.Y += JetPackForce * (float)delta;
-			JetPackStamina -= JetPackForce * (float)delta;
-		}
 
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_backward");
-		direction = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, PlayerCameraPivot.Rotation.Y).Normalized();
-		if (direction != Vector3.Zero)
-		{
-			velocity.X = direction.X * Speed;
-			velocity.Z = direction.Z * Speed;
+			// Handle Jump.
+			if (Input.IsActionJustPressed("move_jump")) {
+				if(IsOnFloor())
+					velocity.Y = JumpVelocity;
+				else if(!HasDoubleJumped) {
+					velocity.Y = DoubleJumpForce;
+					HasDoubleJumped = true;	
+				}
+			}
+			else if (Input.IsActionPressed("move_float") && !IsOnFloor() && JetPackStamina > 0) {
+				velocity.Y += JetPackForce * (float)delta;
+				JetPackStamina -= JetPackForce * (float)delta;
+			}
+#endregion
+			// Get the input direction and handle the movement/deceleration.
+			// As good practice, you should replace UI actions with custom gameplay actions.
+			Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_backward");
+			direction = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, PlayerCameraPivot.Rotation.Y).Normalized();
+			if (direction != Vector3.Zero)
+			{
+				velocity.X = direction.X * Speed;
+				velocity.Z = direction.Z * Speed;
+			}
+			else
+			{
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+			}
+			if(Input.IsActionJustPressed("move_dash")) {
+				IsDashing = true;
+				DashTimer.Start();
+				velocity.Y = 0.0f;
+				velocity.X = direction.X * DashSpeed;
+				velocity.Z = direction.Z * DashSpeed;
+			}
+		} else {
+				Vector3 fwdVector = (-Transform.Basis.Z).Rotated(new Vector3(0, 1, 0), PlayerPivot.Rotation.Y);
+				velocity.X = fwdVector.X * DashSpeed;
+				velocity.Z = fwdVector.Z * DashSpeed;
 		}
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
-		}
-
 		Velocity = velocity;
 		MoveAndSlide();
 	}
