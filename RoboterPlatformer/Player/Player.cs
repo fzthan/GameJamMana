@@ -166,8 +166,8 @@ public partial class Player : CharacterBody3D
 	}
 
   public void ResetAndReposition(Vector3 newPos) {
-    Health = startingHealth;
     GlobalPosition = newPos;
+    Health = startingHealth;
     EmitSignal(SignalName.HealthChanged, 0, Health);
   }
 }
