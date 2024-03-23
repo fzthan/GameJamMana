@@ -1,15 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://dfu7uup4wsrtq"]
+[gd_scene load_steps=21 format=3 uid="uid://dfu7uup4wsrtq"]
 
-[ext_resource type="Texture2D" uid="uid://dokds22t8fc1w" path="res://Mats/Flare00.PNG" id="1_8i0ti"]
-[ext_resource type="Material" uid="uid://byx68ushwfv06" path="res://Mats/asdf.tres" id="2_hn4o0"]
-[ext_resource type="Material" uid="uid://cca6w6s666x5v" path="res://Mats/Mat_Flare00.tres" id="3_3p3rv"]
+[ext_resource type="Texture2D" uid="uid://dokds22t8fc1w" path="res://Mats/Particles/Flare00.PNG" id="1_6ql17"]
+[ext_resource type="Material" uid="uid://byx68ushwfv06" path="res://Mats/asdf.tres" id="2_yjy2g"]
+[ext_resource type="Material" uid="uid://cca6w6s666x5v" path="res://Mats/Mat_Flare00.tres" id="3_qcres"]
+[ext_resource type="PackedScene" uid="uid://xelewe5fxwsy" path="res://RoboterRig.blend" id="4_jwb11"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxi0g"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_8i0ti")
+albedo_texture = ExtResource("1_6ql17")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ath2q"]
 
@@ -22,8 +23,8 @@ curve = SubResource("Curve_ueomh")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_413d1"]
 gravity = Vector3(0, 0, 0)
-scale_min = 4.0
-scale_max = 4.0
+scale_min = 10.0
+scale_max = 10.0
 scale_curve = SubResource("CurveTexture_pc6lp")
 color = Color(2.5, 1, 0.5, 1)
 
@@ -32,14 +33,14 @@ color = Color(2.5, 1, 0.5, 1)
 [sub_resource type="Gradient" id="Gradient_8rrb2"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_mdecm"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aejcf"]
 gradient = SubResource("Gradient_8rrb2")
 
 [sub_resource type="Curve" id="Curve_dwb6q"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.51147, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.874618, 0.551995), -1.07089, -1.07089, 0, 0, Vector2(1, 0), -1.51147, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_h7v1g"]
+[sub_resource type="CurveTexture" id="CurveTexture_yq3jy"]
 curve = SubResource("Curve_dwb6q")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dyhn4"]
@@ -50,11 +51,11 @@ spread = 180.0
 initial_velocity_min = 0.5
 initial_velocity_max = 2.0
 gravity = Vector3(0, -2, 0)
-scale_min = 0.78
-scale_max = 1.5
-scale_curve = SubResource("CurveTexture_h7v1g")
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_yq3jy")
 color = Color(5, 2, 1, 1)
-color_ramp = SubResource("GradientTexture1D_mdecm")
+color_ramp = SubResource("GradientTexture1D_aejcf")
 
 [sub_resource type="QuadMesh" id="QuadMesh_wr5a8"]
 
@@ -62,7 +63,7 @@ color_ramp = SubResource("GradientTexture1D_mdecm")
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.79296, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_t0kkl"]
+[sub_resource type="CurveTexture" id="CurveTexture_6dhkg"]
 curve = SubResource("Curve_2obuj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lpjcb"]
@@ -73,28 +74,28 @@ spread = 180.0
 initial_velocity_min = 0.5
 initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
-scale_min = 3.0
-scale_max = 4.0
-scale_curve = SubResource("CurveTexture_t0kkl")
+scale_min = 10.0
+scale_max = 12.0
+scale_curve = SubResource("CurveTexture_6dhkg")
 color = Color(0, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_m28l2"]
 
-[node name="EngineParticle" type="Node3D"]
+[node name="Explosion" type="Node3D"]
 
 [node name="Sparks" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_cxi0g")
 emitting = false
-amount = 20
-lifetime = 0.6
+amount = 50
+lifetime = 1.12
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
-process_material = ExtResource("2_hn4o0")
+process_material = ExtResource("2_yjy2g")
 draw_pass_1 = SubResource("QuadMesh_ath2q")
 
 [node name="Flash" type="GPUParticles3D" parent="."]
-material_override = ExtResource("3_3p3rv")
+material_override = ExtResource("3_qcres")
 emitting = false
 amount = 1
 lifetime = 0.1
@@ -105,10 +106,10 @@ process_material = SubResource("ParticleProcessMaterial_413d1")
 draw_pass_1 = SubResource("QuadMesh_s4gev")
 
 [node name="Fire" type="GPUParticles3D" parent="."]
-material_override = ExtResource("3_3p3rv")
+material_override = ExtResource("3_qcres")
 emitting = false
 amount = 13
-lifetime = 0.55
+lifetime = 1.22
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
@@ -116,12 +117,15 @@ process_material = SubResource("ParticleProcessMaterial_dyhn4")
 draw_pass_1 = SubResource("QuadMesh_wr5a8")
 
 [node name="Smoke" type="GPUParticles3D" parent="."]
-material_override = ExtResource("3_3p3rv")
+material_override = ExtResource("3_qcres")
 emitting = false
-amount = 10
-lifetime = 0.8
+amount = 20
+lifetime = 1.5
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_lpjcb")
 draw_pass_1 = SubResource("QuadMesh_m28l2")
+
+[node name="RoboterRig" parent="." instance=ExtResource("4_jwb11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07922, 0)

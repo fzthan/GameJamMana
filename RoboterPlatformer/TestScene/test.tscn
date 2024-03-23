@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://0ij4koquohr3"]
+[gd_scene load_steps=6 format=3 uid="uid://0ij4koquohr3"]
 
 [ext_resource type="PackedScene" uid="uid://djv4w8iahv6ct" path="res://Player/player.tscn" id="1_i7ls2"]
 [ext_resource type="PackedScene" uid="uid://i5rmvntvhpj4" path="res://Turret/Turret_Mock.tscn" id="2_blvdu"]
@@ -22,16 +22,13 @@ shape = SubResource("BoxShape3D_g511g")
 
 [node name="Player" parent="." instance=ExtResource("1_i7ls2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58265, 0)
-JumpVelocity = 6.5
-DoubleJumpForce = 5.5
-JetPackForce = 8.0
-DashSpeed = 15.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.857518, -0.366463, 0.361066, 0, 0.701842, 0.712332, -0.514455, -0.610838, 0.601842, 0, -1.76354, 0.722017)
 
 [node name="Turret" parent="." instance=ExtResource("2_blvdu")]
-transform = Transform3D(-0.977416, 0, 0.211325, 0, 1, 0, -0.211325, 0, -0.977416, -1.44567, 2.46974, 5.62191)
+transform = Transform3D(-0.977416, 0, 0.211325, 0, 1, 0, -0.211325, 0, -0.977416, -1.1885, 0.400312, -5.83694)
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
