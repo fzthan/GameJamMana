@@ -35,4 +35,9 @@ public partial class UI : Control
   public void _OnGamePaused(bool isPaused) {
     PauseMenu.Visible = isPaused;
   }
+
+  public void _OnContinueButtonDown() {
+    Input.ActionPress("ui_cancel");
+    Input.ActionRelease("ui_cancel");
+  }
 }
