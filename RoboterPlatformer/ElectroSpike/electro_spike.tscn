@@ -6,6 +6,7 @@
 size = Vector3(1.5, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a82au"]
+size = Vector3(1.5, 1, 0.5)
 
 [node name="electroSpike" type="Area3D"]
 script = ExtResource("1_swhhw")
