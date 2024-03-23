@@ -3,3 +3,5 @@
 
 # Rider
 .idea/*
+
+.vscode/settings.json
