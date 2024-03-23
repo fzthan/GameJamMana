@@ -22,8 +22,9 @@ size = Vector3(1, 4, 1)
 
 [node name="CheckpointTest" type="Node"]
 
-[node name="GameController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_id1nn")]
+[node name="GameController" parent="." node_paths=PackedStringArray("player", "activeCheckpoint") instance=ExtResource("1_id1nn")]
 player = NodePath("../Player")
+activeCheckpoint = NodePath("../Checkpoint")
 
 [node name="Player" parent="." instance=ExtResource("2_gx556")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03131, 0)
@@ -56,4 +57,15 @@ checkedMaterial = SubResource("StandardMaterial3D_nhpqr")
 mesh = SubResource("BoxMesh_h8fta")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
+shape = SubResource("BoxShape3D_jxjfj")
+
+[node name="Checkpoint2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -10.2898)
+script = ExtResource("6_n4a08")
+checkedMaterial = SubResource("StandardMaterial3D_nhpqr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoint2"]
+mesh = SubResource("BoxMesh_h8fta")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2"]
 shape = SubResource("BoxShape3D_jxjfj")

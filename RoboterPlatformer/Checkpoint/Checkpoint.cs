@@ -6,7 +6,7 @@ public partial class Checkpoint : Area3D
   private Material checkedMaterial;
   [Signal]
   public delegate void PlayerRegisteredEventHandler(Checkpoint checkpoint);
-  public bool isActive;
+  private bool isActive;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -26,4 +26,12 @@ public partial class Checkpoint : Area3D
 	public override void _Process(double delta)
 	{
 	}
+
+  public void SetActive(bool active) {
+    isActive = active;
+    if(active)
+      GetChild<MeshInstance3D>(0).MaterialOverride = checkedMaterial;
+    else
+      GetChild<MeshInstance3D>(0).MaterialOverride = null;
+  }
 }
