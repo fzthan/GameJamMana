@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2264495988	Play_Idle_Jet			\Default Work Unit\Play_Idle_Jet	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	697110714	Idle_Jet	F:\Godot\Projekte\GameJamMana\RoboterPlatformer\RoboPlatformWwise\.cache\Windows\SFX\Idle_Jet_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Idle_Jet		699500
+
