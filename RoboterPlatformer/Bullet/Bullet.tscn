@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://10n877l1fgxk"]
+
+[ext_resource type="Script" path="res://Bullet/Bullet.gd" id="1_tsfel"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r7mwx"]
+size = Vector3(0.05, 0.05, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3xsx"]
+albedo_color = Color(0.835294, 0.698039, 0.286275, 1)
+emission_enabled = true
+emission = Color(0.368627, 0.909804, 0.262745, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jiw21"]
+albedo_color = Color(1, 0.678431, 0.0313726, 1)
+emission_enabled = true
+emission = Color(0.403922, 0.839216, 0.109804, 1)
+emission_energy_multiplier = 8.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2yf7d"]
+direction = Vector3(0, 0, 1)
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -8, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_su05j"]
+size = Vector3(0.03, 0.01, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jev2w"]
+albedo_color = Color(1, 0.117647, 0.12549, 1)
+emission_enabled = true
+emission = Color(0.811765, 0.121569, 0.145098, 1)
+emission_energy_multiplier = 8.0
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_tsfel")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_r7mwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_r3xsx")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -0.6)
+
+[node name="Yellow" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0227767, 6.10352e-05, 0.681223)
+material_override = SubResource("StandardMaterial3D_jiw21")
+amount = 80
+lifetime = 3.0
+explosiveness = 1.0
+visibility_aabb = AABB(-400, -400, -400, 800, 800, 800)
+process_material = SubResource("ParticleProcessMaterial_2yf7d")
+draw_pass_1 = SubResource("BoxMesh_su05j")
+
+[node name="Red" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.687527)
+material_override = SubResource("StandardMaterial3D_jev2w")
+amount = 80
+lifetime = 3.0
+explosiveness = 1.0
+visibility_aabb = AABB(-400, -400, -400, 800, 800, 800)
+process_material = SubResource("ParticleProcessMaterial_2yf7d")
+draw_pass_1 = SubResource("BoxMesh_su05j")
