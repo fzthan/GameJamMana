@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cj36s2keis5cs"]
 
-[ext_resource type="Script" path="res://Level/UI.cs" id="1_hl4cm"]
+[ext_resource type="Script" path="res://UI/UI.cs" id="1_jc25i"]
 [ext_resource type="Texture2D" uid="uid://deltrg2dxh25n" path="res://UI/Resources/keyboard_w.svg" id="2_pcxir"]
 [ext_resource type="Texture2D" uid="uid://clpvpe81eiy5p" path="res://UI/Resources/keyboard_a.svg" id="3_5nsyb"]
 [ext_resource type="Texture2D" uid="uid://brmsl020h2mns" path="res://UI/Resources/keyboard_s.svg" id="4_8gvj1"]
@@ -33,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hl4cm")
+script = ExtResource("1_jc25i")
 
 [node name="InGame" type="Control" parent="."]
 layout_mode = 1
