@@ -2,6 +2,7 @@ using Godot;
 
 public partial class UI : Control
 {
+  [Export]
 	private Player player;
 	private Label fuelDisplay;
   private Label healthDisplay;
@@ -9,7 +10,6 @@ public partial class UI : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		player = GetNode<Player>("../Player");
 		fuelDisplay = GetNode<Label>("FuelDisplay");
     healthDisplay = GetNode<Label>("HealthDisplay");
     PauseMenu = GetNode<Panel>("PauseMenu");
