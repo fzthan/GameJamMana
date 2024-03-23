@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="RoboterPlatformer"
-run/main_scene="res://TestScene/test.tscn"
+run/main_scene="res://Level/small.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
-config/icon="res://Mats/icon.svg"
 
 [dotnet]
 
