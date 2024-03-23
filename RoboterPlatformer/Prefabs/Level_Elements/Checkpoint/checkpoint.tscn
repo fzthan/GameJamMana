@@ -1,27 +1,49 @@
 [gd_scene load_steps=6 format=3 uid="uid://dm1abhwfs6uhi"]
 
 [ext_resource type="Script" path="res://Prefabs/Level_Elements/Checkpoint/Checkpoint.cs" id="1_aslfu"]
+[ext_resource type="PackedScene" uid="uid://c26adix7751lm" path="res://Prefabs/Level_Elements/Checkpoint/Resources/checkpointSpawn.blend" id="2_tffha"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhpqr"]
-albedo_color = Color(0, 0.764706, 0.203922, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tcvgf"]
+height = 3.15783
+radius = 1.60768
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16kfe"]
-albedo_color = Color(0, 0.411765, 0.890196, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q834s"]
+height = 2.52269
+radius = 0.854962
 
-[sub_resource type="BoxMesh" id="BoxMesh_h8fta"]
-material = SubResource("StandardMaterial3D_16kfe")
-size = Vector3(1, 4, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jxjfj"]
-size = Vector3(1, 4, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fmmpw"]
+height = 0.172751
+radius = 1.57819
 
 [node name="Checkpoint" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 0)
 script = ExtResource("1_aslfu")
-checkedMaterial = SubResource("StandardMaterial3D_nhpqr")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_h8fta")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_jxjfj")
+shape = SubResource("CylinderShape3D_tcvgf")
+
+[node name="SpawnLocations" type="Node3D" parent="."]
+
+[node name="Left" type="Node3D" parent="SpawnLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35497, 0, 0)
+
+[node name="Right" type="Node3D" parent="SpawnLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13138, 0, 0)
+
+[node name="Front" type="Node3D" parent="SpawnLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.38573)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="checkpointSpawn" parent="StaticBody3D" instance=ExtResource("2_tffha")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.55889, 0)
+
+[node name="Tube" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_q834s")
+
+[node name="Base" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53501, 0)
+shape = SubResource("CylinderShape3D_fmmpw")
+
+[node name="Top" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49054, 0)
+shape = SubResource("CylinderShape3D_fmmpw")

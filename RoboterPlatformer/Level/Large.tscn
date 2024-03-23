@@ -162,4 +162,5 @@ transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 30.738
 transform = Transform3D(1, 0, 1.90739e-07, 0, 1, 0, -1.90739e-07, 0, 1, 37.7382, 21.9587, -104.391)
 
 [node name="Checkpoint" parent="." instance=ExtResource("11_d3wwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 22.3707, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 21.8296, 0)
+SpawnLocation = 4
