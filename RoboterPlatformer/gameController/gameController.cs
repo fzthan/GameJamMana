@@ -7,10 +7,11 @@ public partial class gameController : Node
 	Player player;
   [Signal]
   public delegate void GamePausedEventHandler(bool isPaused);
+  [Signal]
+  public delegate void PlayerDeadEventHandler(bool playerDead);
   [Export]
   public Checkpoint activeCheckpoint;
   private int live = 2;
-
   private bool isPaused = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -49,6 +50,7 @@ public partial class gameController : Node
       }
 		}else if(Health <= 0 && live < 2){
       GD.Print("No live");
+      EmitSignal(SignalName.PlayerDead, true);
     }
 	}
 
