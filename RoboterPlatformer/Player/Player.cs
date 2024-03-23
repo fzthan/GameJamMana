@@ -31,6 +31,8 @@ public partial class Player : CharacterBody3D
 	public float DashSpeed = 15.0f;
 	private Timer DashTimer;
 	private Timer DashCooldown;
+  [Signal]
+  public delegate void DashStartEventHandler();
 #endregion
 	private Node3D PlayerPivot {get; set;}
 
@@ -60,12 +62,12 @@ public partial class Player : CharacterBody3D
 
     public override void _Ready()
     {
-		Input.MouseMode = Input.MouseModeEnum.Captured;
-		PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
-		PlayerPivot = GetNode<Node3D>("Pivot");
-		DashTimer = GetNode<Timer>("DashTimer");
-		DashTimer.Timeout += OnDashTimerTimeout;
-		DashCooldown = GetNode<Timer>("DashCooldown");
+      Input.MouseMode = Input.MouseModeEnum.Captured;
+      PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
+      PlayerPivot = GetNode<Node3D>("Pivot");
+      DashTimer = GetNode<Timer>("DashTimer");
+      DashTimer.Timeout += OnDashTimerTimeout;
+      DashCooldown = GetNode<Timer>("DashCooldown");
     }
 
     public override void _Input(InputEvent @event)
@@ -79,15 +81,13 @@ public partial class Player : CharacterBody3D
 		PlayerCameraPivot.RotationDegrees = camRot;
 	}
 
-	public override void _Process(double delta)
-    {
-        if (direction != Vector3.Zero)
-		{
+	public override void _Process(double delta) {
+    if (direction != Vector3.Zero) {
 			Vector3 bodyRotation = PlayerPivot.Rotation;
 			bodyRotation.Y = Mathf.LerpAngle(bodyRotation.Y,Mathf.Atan2(-direction.X, -direction.Z), (float)delta * Speed);
 			PlayerPivot.Rotation = bodyRotation;
 		}
-    }
+  }
 
 	public void OnDashTimerTimeout() {
 		DashCooldown.Start();
