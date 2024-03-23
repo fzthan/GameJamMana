@@ -27,6 +27,7 @@ public partial class Player : CharacterBody3D
 	[Export]
 	public const float DashSpeed = 10.0f;
 	private Timer DashTimer;
+	private Timer DashCooldown;
 #endregion
 	private Node3D PlayerPivot {get; set;}
 
@@ -60,7 +61,8 @@ public partial class Player : CharacterBody3D
 		PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
 		PlayerPivot = GetNode<Node3D>("Pivot");
 		DashTimer = GetNode<Timer>("DashTimer");
-		DashTimer.Timeout += OnVoidTimerTimeout;
+		DashTimer.Timeout += OnDashTimerTimeout;
+		DashCooldown = GetNode<Timer>("DashCooldown");
     }
 
     public override void _Input(InputEvent @event)
@@ -84,7 +86,8 @@ public partial class Player : CharacterBody3D
 		}
     }
 
-	public void OnVoidTimerTimeout() {
+	public void OnDashTimerTimeout() {
+		DashCooldown.Start();
 		IsDashing = false;
 	}
 
@@ -131,7 +134,7 @@ public partial class Player : CharacterBody3D
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 			}
-			if(Input.IsActionJustPressed("move_dash")) {
+			if(Input.IsActionJustPressed("move_dash") && DashCooldown.IsStopped()) {
 				IsDashing = true;
 				DashTimer.Start();
 				velocity.Y = 0.0f;

@@ -31,3 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
