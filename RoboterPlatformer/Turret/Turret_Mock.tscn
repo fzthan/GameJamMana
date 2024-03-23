@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://i5rmvntvhpj4"]
+
+[ext_resource type="Script" path="res://Turret/Turret_Mock.gd" id="1_f7fii"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8w28q"]
+height = 2.99
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185632, 2.43874, 10.5554)
+mesh = SubResource("CylinderMesh_8w28q")
+script = ExtResource("1_f7fii")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133083, 1.00989, -1.08539)
+target_position = Vector3(0, 0, -1)

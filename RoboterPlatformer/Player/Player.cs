@@ -6,27 +6,31 @@ public partial class Player : CharacterBody3D
 {
 	[Export]
 	private float Health = 10.0f;
+  public float CurrentHealth { get {return Health;}}
 	[Signal]
 	public delegate void HealthChangedEventHandler(float oldValue, float newValue);
 	[Export]
 	public const float Speed = 5.0f;
+  [Export]
+  public const int LowerBound = -10;
 #region jumping-jetpack
 	[Export]
-	public const float JumpVelocity = 4.5f;
+	public float JumpVelocity = 6.5f;
 	[Export]
-	public const float DoubleJumpForce = 6.5f;
+	public float DoubleJumpForce = 5.5f;
 	[Export]
 	public float JetPackStamina = 50.0f;
 	[Export]
-	public float JetPackForce = 1.0f;
+	public float JetPackForce = 8.0f;
 	private bool HasDoubleJumped = false;
 #endregion
 
 #region dashing
 	public bool IsDashing = false;
 	[Export]
-	public const float DashSpeed = 10.0f;
+	public float DashSpeed = 15.0f;
 	private Timer DashTimer;
+	private Timer DashCooldown;
 #endregion
 	private Node3D PlayerPivot {get; set;}
 
@@ -60,7 +64,8 @@ public partial class Player : CharacterBody3D
 		PlayerCameraPivot = GetNode<Node3D>("PlayerCameraPivot");
 		PlayerPivot = GetNode<Node3D>("Pivot");
 		DashTimer = GetNode<Timer>("DashTimer");
-		DashTimer.Timeout += OnVoidTimerTimeout;
+		DashTimer.Timeout += OnDashTimerTimeout;
+		DashCooldown = GetNode<Timer>("DashCooldown");
     }
 
     public override void _Input(InputEvent @event)
@@ -84,12 +89,17 @@ public partial class Player : CharacterBody3D
 		}
     }
 
-	public void OnVoidTimerTimeout() {
+	public void OnDashTimerTimeout() {
+		DashCooldown.Start();
 		IsDashing = false;
 	}
 
-    public override void _PhysicsProcess(double delta)
+  public override void _PhysicsProcess(double delta)
 	{
+    if(GlobalPosition.Y <= LowerBound) {
+      TakeDamage(Health + 1);
+    }
+
 		Vector3 velocity = Velocity;
 
 
@@ -109,7 +119,7 @@ public partial class Player : CharacterBody3D
 					velocity.Y = JumpVelocity;
 				else if(!HasDoubleJumped) {
 					velocity.Y = DoubleJumpForce;
-					HasDoubleJumped = true;	
+					HasDoubleJumped = true;
 				}
 			}
 			else if (Input.IsActionPressed("move_float") && !IsOnFloor() && JetPackStamina > 0) {
@@ -131,7 +141,7 @@ public partial class Player : CharacterBody3D
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 			}
-			if(Input.IsActionJustPressed("move_dash")) {
+			if(Input.IsActionJustPressed("move_dash") && DashCooldown.IsStopped()) {
 				IsDashing = true;
 				DashTimer.Start();
 				velocity.Y = 0.0f;
@@ -140,8 +150,11 @@ public partial class Player : CharacterBody3D
 			}
 		} else {
 				Vector3 fwdVector = (-Transform.Basis.Z).Rotated(new Vector3(0, 1, 0), PlayerPivot.Rotation.Y);
-				velocity.X = fwdVector.X * DashSpeed;
-				velocity.Z = fwdVector.Z * DashSpeed;
+        float timerProgress = Mathf.Clamp(Mathf.Pow((float)(DashTimer.TimeLeft / .5), 4), 0.1f, 1.0f);
+
+        float _speed = timerProgress * DashSpeed;
+				velocity.X = fwdVector.X * _speed;
+				velocity.Z = fwdVector.Z * _speed;
 		}
 		Velocity = velocity;
 		MoveAndSlide();
