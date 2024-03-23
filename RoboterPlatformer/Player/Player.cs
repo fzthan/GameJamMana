@@ -112,7 +112,7 @@ public partial class Player : CharacterBody3D
 					velocity.Y = JumpVelocity;
 				else if(!HasDoubleJumped) {
 					velocity.Y = DoubleJumpForce;
-					HasDoubleJumped = true;	
+					HasDoubleJumped = true;
 				}
 			}
 			else if (Input.IsActionPressed("move_float") && !IsOnFloor() && JetPackStamina > 0) {
