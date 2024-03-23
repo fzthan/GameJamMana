@@ -23,7 +23,6 @@ public partial class UI : Control
 
     healthDisplay.Text = "Health: " + player.CurrentHealth.ToString();
 
-    player.HealthChanged += OnHealthChanged;
     player.DashStart += _OnDashStart;
     dashCooldown = player.GetNode<Timer>("DashCooldown");
     PauseMenu.GetNode<Panel>("HelpPanel").Visible = false;
@@ -33,6 +32,7 @@ public partial class UI : Control
 	public override void _Process(double delta)
 	{
 		fuelDisplay.Text = "Fuel: " + Mathf.Floor(player.JetPackStamina).ToString();
+    healthDisplay.Text = "Health: " + player.CurrentHealth.ToString();
 	}
 
   public override void _PhysicsProcess(double delta)
@@ -40,10 +40,6 @@ public partial class UI : Control
     if(!dashCooldown.IsStopped()) {
       DashBar.Value = (1 - dashCooldown.TimeLeft / dashCooldown.WaitTime) * 100;
     }
-  }
-
-  public void OnHealthChanged(float oldValue, float newValue) {
-    healthDisplay.Text = "Health: " + newValue.ToString();
   }
 
   public void _OnGamePaused(bool isPaused) {
