@@ -15,20 +15,20 @@ public partial class Player : CharacterBody3D
   public const int LowerBound = -10;
 #region jumping-jetpack
 	[Export]
-	public float JumpVelocity = 4.5f;
+	public float JumpVelocity = 6.5f;
 	[Export]
-	public float DoubleJumpForce = 6.5f;
+	public float DoubleJumpForce = 5.5f;
 	[Export]
 	public float JetPackStamina = 50.0f;
 	[Export]
-	public float JetPackForce = 1.0f;
+	public float JetPackForce = 8.0f;
 	private bool HasDoubleJumped = false;
 #endregion
 
 #region dashing
 	public bool IsDashing = false;
 	[Export]
-	public float DashSpeed = 10.0f;
+	public float DashSpeed = 15.0f;
 	private Timer DashTimer;
 	private Timer DashCooldown;
 #endregion
