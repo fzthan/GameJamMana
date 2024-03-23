@@ -49,6 +49,8 @@ public partial class Player : CharacterBody3D
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
+  private AnimationTree animTree;
+
 	public void TakeDamage(float amount) {
     if(IsDashing && DashTimer.TimeLeft / DashTimer.WaitTime >= 0.5)
       return;
@@ -72,6 +74,17 @@ public partial class Player : CharacterBody3D
     DashTimer.Timeout += OnDashTimerTimeout;
     DashCooldown = GetNode<Timer>("DashCooldown");
     Health = startingHealth;
+    animTree = GetNode<AnimationTree>("AnimationTree");
+  }
+
+  private void UpdateAnimationParameters() {
+    if(IsDashing) {
+      animTree.Set("parameters/conditions/idle", false);
+      animTree.Set("parameters/conditions/dashing", true);
+    } else {
+      animTree.Set("parameters/conditions/idle", true);
+      animTree.Set("parameters/conditions/dashing", false);
+    }
   }
 
   public override void _Input(InputEvent @event)
@@ -162,6 +175,7 @@ public partial class Player : CharacterBody3D
 				velocity.Z = fwdVector.Z * _speed;
 		}
 		Velocity = velocity;
+    UpdateAnimationParameters();
 		MoveAndSlide();
 	}
 
