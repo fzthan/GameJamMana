@@ -28,7 +28,7 @@ public partial class Player : CharacterBody3D
 #region dashing
 	public bool IsDashing = false;
 	[Export]
-	public const float DashSpeed = 10.0f;
+	public float DashSpeed = 10.0f;
 	private Timer DashTimer;
 	private Timer DashCooldown;
 #endregion
