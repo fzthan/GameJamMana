@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://djv4w8iahv6ct"]
+[gd_scene load_steps=5 format=3 uid="uid://djv4w8iahv6ct"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_hfciw"]
+[ext_resource type="PackedScene" uid="uid://ccyxnn7ljgjgk" path="res://Player/Mesh/RoboterRig.blend" id="2_tl11t"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_b1wij"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_bomw2"]
-size = Vector3(2, 0.5, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hrp5o"]
-size = Vector3(2.05602, 0.507263, 0.562042)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5lqi7"]
+height = 0.1
+radius = 0.7
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qq64u"]
 
@@ -17,15 +14,12 @@ script = ExtResource("1_hfciw")
 
 [node name="Pivot" type="Node3D" parent="."]
 
-[node name="Bean" type="MeshInstance3D" parent="Pivot"]
-mesh = SubResource("CapsuleMesh_b1wij")
+[node name="RoboterRig" parent="Pivot" instance=ExtResource("2_tl11t")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -0.00506377, 0.23551, 0.019309)
 
-[node name="Arms" type="MeshInstance3D" parent="Pivot/Bean"]
-mesh = SubResource("BoxMesh_bomw2")
-
-[node name="CollisionArms" type="CollisionShape3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00338483, 0.000152588, 0.00368905)
-shape = SubResource("BoxShape3D_hrp5o")
+[node name="CollisionRing" type="CollisionShape3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00338483, -0.368228, 0.0845826)
+shape = SubResource("CylinderShape3D_5lqi7")
 
 [node name="CollisionBean" type="CollisionShape3D" parent="." groups=["player"]]
 shape = SubResource("CapsuleShape3D_qq64u")
