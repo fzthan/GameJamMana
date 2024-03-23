@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58265, 0)
 transform = Transform3D(0.857518, -0.366463, 0.361066, 0, 0.701842, 0.712332, -0.514455, -0.610838, 0.601842, 0, -1.76354, 0.722017)
 
 [node name="Turret" parent="." instance=ExtResource("2_blvdu")]
-transform = Transform3D(-0.977416, 0, 0.211325, 0, 1, 0, -0.211325, 0, -0.977416, -1.44567, 2.46974, 5.62191)
+transform = Transform3D(-0.977416, 0, 0.211325, 0, 1, 0, -0.211325, 0, -0.977416, -1.1885, 0.400312, -5.83694)
 
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_cpyay")]
 player = NodePath("../Player")
