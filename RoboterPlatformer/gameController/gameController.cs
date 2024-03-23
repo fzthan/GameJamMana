@@ -9,6 +9,7 @@ public partial class gameController : Node
   public delegate void GamePausedEventHandler(bool isPaused);
   [Export]
   public Checkpoint activeCheckpoint;
+  private int live = 2;
 
   private bool isPaused = false;
 	// Called when the node enters the scene tree for the first time.
