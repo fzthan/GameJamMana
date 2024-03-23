@@ -31,6 +31,7 @@ transform = Transform3D(0.857518, -0.366463, 0.361066, 0, 0.701842, 0.712332, -0
 transform = Transform3D(-0.977416, 0, 0.211325, 0, 1, 0, -0.211325, 0, -0.977416, -1.44567, 2.46974, 5.62191)
 
 [node name="UI" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,5 +53,42 @@ offset_right = 90.0
 offset_bottom = 55.0
 text = "Health:"
 
+[node name="PauseMenu" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="UI/PauseMenu/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Pause"
+
+[node name="Continue" type="Button" parent="UI/PauseMenu/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Continue"
+
+[node name="Exit" type="Button" parent="UI/PauseMenu/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit"
+
 [node name="GameController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_3uwot")]
+process_mode = 3
 player = NodePath("../Player")
+
+[connection signal="GamePaused" from="GameController" to="UI" method="_OnGamePaused"]
