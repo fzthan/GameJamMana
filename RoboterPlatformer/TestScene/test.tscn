@@ -35,8 +35,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_rd3pq")
 
-[node name="FuelDisplay" type="TextEdit" parent="UI"]
+[node name="FuelDisplay" type="Label" parent="UI"]
 layout_mode = 0
 offset_right = 93.0
 offset_bottom = 35.0
-placeholder_text = "Fuel: 50"
+text = "Fuel: 50"
+
+[node name="HealthDisplay" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

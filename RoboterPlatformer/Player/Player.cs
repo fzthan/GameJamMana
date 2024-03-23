@@ -10,6 +10,8 @@ public partial class Player : CharacterBody3D
 	public delegate void HealthChangedEventHandler(float oldValue, float newValue);
 	[Export]
 	public const float Speed = 5.0f;
+  [Export]
+  public const int LowerBound = -10;
 #region jumping-jetpack
 	[Export]
 	public const float JumpVelocity = 4.5f;
@@ -91,8 +93,12 @@ public partial class Player : CharacterBody3D
 		IsDashing = false;
 	}
 
-    public override void _PhysicsProcess(double delta)
+  public override void _PhysicsProcess(double delta)
 	{
+    if(GlobalPosition.Y <= LowerBound) {
+      TakeDamage(Health + 1);
+    }
+
 		Vector3 velocity = Velocity;
 
 
