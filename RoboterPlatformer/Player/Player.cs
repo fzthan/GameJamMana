@@ -15,9 +15,9 @@ public partial class Player : CharacterBody3D
   public const int LowerBound = -10;
 #region jumping-jetpack
 	[Export]
-	public const float JumpVelocity = 4.5f;
+	public float JumpVelocity = 4.5f;
 	[Export]
-	public const float DoubleJumpForce = 6.5f;
+	public float DoubleJumpForce = 6.5f;
 	[Export]
 	public float JetPackStamina = 50.0f;
 	[Export]
