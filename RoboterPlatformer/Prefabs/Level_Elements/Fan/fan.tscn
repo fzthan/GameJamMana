@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://nm3oi1edk43q"]
 
-[ext_resource type="Script" path="res://Fan/fan.cs" id="1_6opbs"]
+[ext_resource type="Script" path="res://Prefabs/Level_Elements/Fan/fan.cs" id="1_6opbs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_eyjpd"]
 size = Vector3(2, 2, 0.5)

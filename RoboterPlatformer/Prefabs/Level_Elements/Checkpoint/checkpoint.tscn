@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dm1abhwfs6uhi"]
 
-[ext_resource type="Script" path="res://Checkpoint/Checkpoint.cs" id="1_aslfu"]
+[ext_resource type="Script" path="res://Prefabs/Level_Elements/Checkpoint/Checkpoint.cs" id="1_aslfu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhpqr"]
 albedo_color = Color(0, 0.764706, 0.203922, 1)

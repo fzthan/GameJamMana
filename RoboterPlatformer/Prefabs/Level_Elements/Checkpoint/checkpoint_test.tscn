@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cj36s2keis5cs" path="res://UI/ui.tscn" id="3_1j6v2"]
 [ext_resource type="PackedScene" uid="uid://cy3pw76gkfyey" path="res://Prefabs/Level_Elements/Platforms/platformMid.tscn" id="4_dso8x"]
 [ext_resource type="PackedScene" uid="uid://ck4prduhhe2he" path="res://Prefabs/Level_Elements/Ramp/rampMid.tscn" id="5_87s1y"]
-[ext_resource type="PackedScene" uid="uid://dm1abhwfs6uhi" path="res://Checkpoint/checkpoint.tscn" id="6_ojq7d"]
+[ext_resource type="PackedScene" uid="uid://dm1abhwfs6uhi" path="res://Prefabs/Level_Elements/Checkpoint/checkpoint.tscn" id="6_ojq7d"]
 
 [node name="CheckpointTest" type="Node"]
 

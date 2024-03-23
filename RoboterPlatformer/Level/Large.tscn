@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://ck4prduhhe2he" path="res://Prefabs/Level_Elements/Ramp/rampMid.tscn" id="6_mddd6"]
 [ext_resource type="PackedScene" uid="uid://i5rmvntvhpj4" path="res://Prefabs/Level_Elements/Obstacle/Turret/Turret_Mock.tscn" id="8_obq7e"]
 [ext_resource type="PackedScene" uid="uid://dkrs76pv12o06" path="res://Prefabs/Level_Elements/Platforms/Falling_Platform/fallingPlatform.tscn" id="9_j2lah"]
-[ext_resource type="PackedScene" uid="uid://nm3oi1edk43q" path="res://Fan/fan.tscn" id="10_f1aq7"]
-[ext_resource type="PackedScene" uid="uid://dm1abhwfs6uhi" path="res://Checkpoint/checkpoint.tscn" id="11_d3wwp"]
+[ext_resource type="PackedScene" uid="uid://nm3oi1edk43q" path="res://Prefabs/Level_Elements/Fan/fan.tscn" id="10_f1aq7"]
+[ext_resource type="PackedScene" uid="uid://dm1abhwfs6uhi" path="res://Prefabs/Level_Elements/Checkpoint/checkpoint.tscn" id="11_d3wwp"]
 
 [node name="Level0" type="Node"]
 
