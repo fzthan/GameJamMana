@@ -1,10 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://74vh3hlsxpde"]
+[gd_scene load_steps=11 format=3 uid="uid://74vh3hlsxpde"]
 
 [ext_resource type="PackedScene" uid="uid://barrpd4ea5wy5" path="res://gameController/gameController.tscn" id="1_id1nn"]
 [ext_resource type="PackedScene" uid="uid://djv4w8iahv6ct" path="res://Player/player.tscn" id="2_gx556"]
 [ext_resource type="PackedScene" uid="uid://cj36s2keis5cs" path="res://UI/ui.tscn" id="3_1j6v2"]
 [ext_resource type="PackedScene" uid="uid://cy3pw76gkfyey" path="res://Level/Elemets/platformMid.tscn" id="4_dso8x"]
 [ext_resource type="PackedScene" uid="uid://ck4prduhhe2he" path="res://Level/Elemets/rampMid.tscn" id="5_87s1y"]
+[ext_resource type="Script" path="res://Checkpoint/Checkpoint.cs" id="6_n4a08"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhpqr"]
+albedo_color = Color(0, 0.764706, 0.203922, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16kfe"]
+albedo_color = Color(0, 0.411765, 0.890196, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h8fta"]
+material = SubResource("StandardMaterial3D_16kfe")
+size = Vector3(1, 4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jxjfj"]
+size = Vector3(1, 4, 1)
 
 [node name="CheckpointTest" type="Node"]
 
@@ -17,16 +31,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03131, 0)
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_1j6v2")]
 player = NodePath("../Player")
 
-[node name="PlatformMid" parent="." instance=ExtResource("4_dso8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525805, 0, 0.017674)
-
-[node name="PlatformMid2" parent="." instance=ExtResource("4_dso8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0920033, 0, -10.6351)
-
-[node name="RampMid" parent="." instance=ExtResource("5_87s1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575936, 0, -23.4644)
-
 [node name="Lighting" type="Node" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 0.990329, 0.138741, 0, -0.138741, 0.990329, 0, 0, 0)
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="PlatformMid" parent="Platforms" instance=ExtResource("4_dso8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525805, 0, 0.017674)
+
+[node name="PlatformMid2" parent="Platforms" instance=ExtResource("4_dso8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0920033, 0, -10.6351)
+
+[node name="RampMid" parent="Platforms" instance=ExtResource("5_87s1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575936, 0, -23.4644)
+
+[node name="Checkpoint" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 0)
+script = ExtResource("6_n4a08")
+checkedMaterial = SubResource("StandardMaterial3D_nhpqr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoint"]
+mesh = SubResource("BoxMesh_h8fta")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
+shape = SubResource("BoxShape3D_jxjfj")

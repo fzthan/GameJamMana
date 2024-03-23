@@ -34,4 +34,8 @@ public partial class gameController : Node
 			GD.Print("Dead!");
 		}
 	}
+
+  public void _OnPlayerRegister(Checkpoint checkpoint) {
+    GD.Print("her4e");
+  }
 }
