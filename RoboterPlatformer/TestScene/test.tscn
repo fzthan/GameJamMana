@@ -43,5 +43,7 @@ text = "Fuel: 50"
 
 [node name="HealthDisplay" type="Label" parent="UI"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_top = 32.0
+offset_right = 90.0
+offset_bottom = 55.0
+text = "Health:"

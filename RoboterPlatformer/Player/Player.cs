@@ -6,6 +6,7 @@ public partial class Player : CharacterBody3D
 {
 	[Export]
 	private float Health = 10.0f;
+  public float CurrentHealth { get {return Health;}}
 	[Signal]
 	public delegate void HealthChangedEventHandler(float oldValue, float newValue);
 	[Export]
