@@ -18,7 +18,6 @@ func _process(delta):
 	
 	if (time_Elapsed >= 2.00):
 		time_Elapsed = 0
-		print("asdf")
 		
 		instance = bullet.instantiate()
 		instance.position = turret.global_position
