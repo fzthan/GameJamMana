@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dt4mtf7c1iafx"]
+[gd_scene load_steps=13 format=3 uid="uid://dt4mtf7c1iafx"]
 
 [ext_resource type="Shader" path="res://Prefabs/Particles/Clouds/Enviroment/Resources/clouds.gdshader" id="1_xqxra"]
 [ext_resource type="CompressedTexture3D" uid="uid://c42hl7osgqlhr" path="res://Prefabs/Particles/Clouds/Enviroment/Resources/perlworlnoise.tga" id="2_ewqpm"]
 [ext_resource type="Texture2D" uid="uid://dniip8u140rb" path="res://Prefabs/Particles/Clouds/Enviroment/Resources/weather.bmp" id="3_fprlf"]
 [ext_resource type="CompressedTexture3D" uid="uid://nu0syt3ngmsd" path="res://Prefabs/Particles/Clouds/Enviroment/Resources/worlnoise.bmp" id="4_yblge"]
-[ext_resource type="Shader" path="res://Prefabs/Particles/Clouds/Enviroment/water.gdshader" id="5_2itfp"]
+[ext_resource type="Shader" path="res://Prefabs/Particles/Clouds/Enviroment/Enviroment.gdshader" id="6_jc3s4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4t76k"]
 shader = ExtResource("1_xqxra")
@@ -32,47 +32,41 @@ sky_material = SubResource("ShaderMaterial_4t76k")
 [sub_resource type="Environment" id="Environment_2sigo"]
 background_mode = 2
 sky = SubResource("Sky_urrp4")
-fog_sky_affect = 0.0
+fog_density = 0.0
+fog_sky_affect = 0.178
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0
-volumetric_fog_anisotropy = -0.9
+volumetric_fog_density = 0.0129
+volumetric_fog_sky_affect = 0.483
 adjustment_enabled = true
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_foapv"]
-noise_type = 0
-fractal_type = 2
-fractal_weighted_strength = 1.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pg12l"]
-noise = SubResource("FastNoiseLite_foapv")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_rtww2"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8glb1"]
 fractal_type = 2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4lugj"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_axcwm"]
 seamless = true
 as_normal_map = true
-noise = SubResource("FastNoiseLite_rtww2")
+noise = SubResource("FastNoiseLite_8glb1")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f16s1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxhk3"]
 render_priority = 0
-shader = ExtResource("5_2itfp")
-shader_parameter/time_scale = 2.0
-shader_parameter/uv_scale = 2.0
-shader_parameter/water_color = Color(0.0117647, 0.141176, 0.2, 1)
-shader_parameter/abberation_r = Vector2(0.019, 0)
-shader_parameter/abberation_g = Vector2(0, 0.002)
-shader_parameter/abberation_b = Vector2(-0.02, 0)
-shader_parameter/sun_highlights = SubResource("NoiseTexture2D_pg12l")
-shader_parameter/water_normal_noise = SubResource("NoiseTexture2D_4lugj")
+shader = ExtResource("6_jc3s4")
+shader_parameter/normal = 1.6
+shader_parameter/roughness = 0.2
+shader_parameter/time_scale = 1.5
+shader_parameter/uv_scale = 1000.0
+shader_parameter/water_color = Color(0.0196078, 0.137255, 0.207843, 1)
+shader_parameter/water_normal_noise = SubResource("NoiseTexture2D_axcwm")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_tg767"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_wd4xq"]
+lightmap_size_hint = Vector2i(500002, 500002)
+size = Vector2(10000, 10000)
 
 [node name="Enviroment" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2sigo")
 
-[node name="water" type="MeshInstance3D" parent="."]
-material_override = SubResource("ShaderMaterial_f16s1")
-mesh = SubResource("PlaneMesh_tg767")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07945, 0)
+material_override = SubResource("ShaderMaterial_bxhk3")
+mesh = SubResource("PlaneMesh_wd4xq")
