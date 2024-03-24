@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://dfu7uup4wsrtq"]
+[gd_scene load_steps=20 format=3 uid="uid://dfu7uup4wsrtq"]
 
 [ext_resource type="Texture2D" uid="uid://dokds22t8fc1w" path="res://Prefabs/Particles/Explosion_Engine/Resources/Flare00.PNG" id="1_10a07"]
 [ext_resource type="Material" uid="uid://byx68ushwfv06" path="res://Prefabs/Particles/Explosion_Engine/Resources/Sparks.tres" id="2_rw676"]
 [ext_resource type="Material" uid="uid://cca6w6s666x5v" path="res://Prefabs/Particles/Explosion_Engine/Resources/Mat_Flare00.tres" id="3_7dynq"]
-[ext_resource type="PackedScene" uid="uid://bo0gbaynomwd0" path="res://Prefabs/Player/RoboTest.tscn" id="4_pctb7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxi0g"]
 transparency = 1
@@ -50,7 +49,7 @@ emission_sphere_radius = 0.4
 spread = 180.0
 initial_velocity_min = 0.5
 initial_velocity_max = 2.0
-gravity = Vector3(0, -2, 0)
+gravity = Vector3(0, -1, 0)
 scale_min = 3.0
 scale_max = 6.0
 scale_curve = SubResource("CurveTexture_yq3jy")
@@ -60,7 +59,7 @@ color_ramp = SubResource("GradientTexture1D_aejcf")
 [sub_resource type="QuadMesh" id="QuadMesh_wr5a8"]
 
 [sub_resource type="Curve" id="Curve_2obuj"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.79296, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.00437629), -1.79296, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_6dhkg"]
@@ -108,8 +107,8 @@ draw_pass_1 = SubResource("QuadMesh_s4gev")
 [node name="Fire" type="GPUParticles3D" parent="."]
 material_override = ExtResource("3_7dynq")
 emitting = false
-amount = 30
-lifetime = 1.22
+amount = 10
+lifetime = 1.71
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
@@ -120,11 +119,9 @@ draw_pass_1 = SubResource("QuadMesh_wr5a8")
 material_override = ExtResource("3_7dynq")
 emitting = false
 amount = 20
-lifetime = 1.5
+lifetime = 2.43
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_lpjcb")
 draw_pass_1 = SubResource("QuadMesh_m28l2")
-
-[node name="RoboterRig" parent="Smoke" instance=ExtResource("4_pctb7")]

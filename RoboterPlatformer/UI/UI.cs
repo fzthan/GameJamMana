@@ -75,6 +75,13 @@ public partial class UI : Control
   }
 
   public void _OnPlayerDead(bool playerDead){
+    DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "PLUGIN YOUR CONTROLLER";
+    DeathScreen.Visible = true;
+    DeathScreen.GetNode<Button>("DeathContainer/Restart").GrabFocus();
+  }
+
+  public void _OnPlayerFinished(){
+    DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "YOU WIN";
     DeathScreen.Visible = true;
     DeathScreen.GetNode<Button>("DeathContainer/Restart").GrabFocus();
   }

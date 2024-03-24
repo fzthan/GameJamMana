@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://vqk74htqtp0i"]
 
-[ext_resource type="PackedScene" uid="uid://xelewe5fxwsy" path="res://RoboterRig.blend" id="1_y5e7c"]
+[ext_resource type="PackedScene" uid="uid://crvxpirwma5l5" path="res://RoboterRig.blend" id="1_y5e7c"]
 
 [node name="RoboterRig" instance=ExtResource("1_y5e7c")]
 
