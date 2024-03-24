@@ -80,6 +80,7 @@ public partial class UI : Control
   }
 
   public void _OnRestartButtonDown(){
+    GetTree().Paused = false;
     GetTree().ReloadCurrentScene();
   }
 }
