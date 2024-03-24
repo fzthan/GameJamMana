@@ -41,8 +41,9 @@ public partial class UI : Control
 	{
 		fuelDisplay.Text = "Fuel: " + Mathf.Floor(player.JetPackStamina).ToString();
     healthDisplay.Text = "Health: " + player.CurrentHealth.ToString();
-    time += delta;
-    if(!gameStoped) timerDisplay.Text = "Timer: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString();
+    if(!gameStoped){ 
+      time += delta;
+      timerDisplay.Text = "Timer: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString() + " s";}
 	}
 
   public override void _PhysicsProcess(double delta)
@@ -54,6 +55,7 @@ public partial class UI : Control
 
   public void _OnGamePaused(bool isPaused) {
     PauseMenu.Visible = isPaused;
+    gameStoped = isPaused;
     if(isPaused)  {
       PauseMenu.GetNode<Button>("Container/Continue").GrabFocus();
       PauseMenu.GetNode<Panel>("HelpPanel").Visible = false;
@@ -63,6 +65,7 @@ public partial class UI : Control
   public void _OnContinueButtonDown() {
     Input.ActionPress("ui_cancel");
     Input.ActionRelease("ui_cancel");
+    gameStoped = false;
   }
 
   public void _OnExitButtonDown() {
@@ -84,7 +87,7 @@ public partial class UI : Control
   public void _OnPlayerDead(bool playerDead){
     gameStoped = true;
     DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "PLUGIN YOUR CONTROLLER";
-    DeathScreen.GetNode<Label>("DeathContainer/Time").Text = "Your Time: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString();
+    DeathScreen.GetNode<Label>("DeathContainer/Time").Text = "Your Time: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString() + " s";
     DeathScreen.Visible = true;
     DeathScreen.GetNode<Button>("DeathContainer/Restart").GrabFocus();
   }
@@ -92,7 +95,7 @@ public partial class UI : Control
   public void _OnPlayerFinished(){
     gameStoped = true;
     DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "YOU WIN";
-    DeathScreen.GetNode<Label>("DeathContainer/Time").Text = "Your Time: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString();
+    DeathScreen.GetNode<Label>("DeathContainer/Time").Text = "Your Time: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString() + " s";
     DeathScreen.Visible = true;
     DeathScreen.GetNode<Button>("DeathContainer/Restart").GrabFocus();
   }
