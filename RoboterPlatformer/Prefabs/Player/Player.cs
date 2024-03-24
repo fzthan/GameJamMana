@@ -5,6 +5,8 @@ using Vector2 = Godot.Vector2;
 public partial class Player : CharacterBody3D
 {
 	private float Health = 10.0f;
+	private bool firstLife = false;
+	private bool secondLife = false;
 	[Export]
 	private const float startingHealth = 10.0f;
 	public float CurrentHealth { get { return Health; } }
@@ -128,13 +130,18 @@ public partial class Player : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if (GlobalPosition.Y <= LowerBound)
-		{
-			TakeDamage(Health + 1);
-		}
-
 		Vector3 velocity = Velocity;
 
+		if (GlobalPosition.Y <= LowerBound )
+		{
+			if (Health > 0){
+				TakeDamage(Health + 1);
+				GD.Print("dead");
+			}
+
+			velocity.Y = 0;
+			return;
+		}
 
 		if (!IsDashing)
 		{

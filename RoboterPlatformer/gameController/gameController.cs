@@ -37,8 +37,9 @@ public partial class gameController : Node
     }
 	}
 
-	private void OnPlayerHealthChanged(float oldHealth, float Health){
+	private async void OnPlayerHealthChanged(float oldHealth, float Health){
 		if(Health <= 0 && live == 2) {
+      await ToSignal(GetTree().CreateTimer(1), "timeout");
       EmitSignal(SignalName.PlayerDied, live);
       live--;
       switch(activeCheckpoint.SpawnLocation) {
@@ -53,6 +54,7 @@ public partial class gameController : Node
         break;
       }
 		}else if(Health <= 0 && live < 2){
+      await ToSignal(GetTree().CreateTimer(1), "timeout");
       playerDead = true;
       EmitSignal(SignalName.PlayerDead, playerDead);
       EmitSignal(SignalName.PlayerDied, live);
