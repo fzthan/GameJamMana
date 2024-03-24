@@ -165,11 +165,11 @@ transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 38.738
 transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 40.7382, 21.9587, -97.391)
 
 [node name="Checkpoint" parent="." instance=ExtResource("11_d3wwp")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 21.8296, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 22.12, -0.130488)
 SpawnLocation = 4
 
 [node name="Checkpoint2" parent="." instance=ExtResource("11_d3wwp")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 22.5, 12.8296, -104)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 23.0441, 13.0955, -104)
 SpawnLocation = 4
 
 [node name="PlatformMid11" parent="." instance=ExtResource("5_h5cf2")]
@@ -182,7 +182,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.25, 21, -101)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.75, 21, -101)
 
 [node name="Checkpoint3" parent="." instance=ExtResource("11_d3wwp")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 65.5, 22.8296, -104)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 65.0286, 23.0975, -104)
 SpawnLocation = 4
 
 [node name="PlatformSmall12" parent="." instance=ExtResource("4_7uvj2")]
