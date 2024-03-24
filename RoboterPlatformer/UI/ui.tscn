@@ -309,6 +309,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "PLUGIN YOUR CONTROLLER"
 
+[node name="Time" type="Label" parent="DeathScreen/DeathContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Your Time: "
+
 [node name="Restart" type="Button" parent="DeathScreen/DeathContainer"]
 layout_mode = 2
 size_flags_horizontal = 4

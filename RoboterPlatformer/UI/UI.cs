@@ -42,7 +42,7 @@ public partial class UI : Control
 		fuelDisplay.Text = "Fuel: " + Mathf.Floor(player.JetPackStamina).ToString();
     healthDisplay.Text = "Health: " + player.CurrentHealth.ToString();
     time += delta;
-    if(!gameStoped) timerDisplay.Text = "Timer: " + Math.Round(time, 2, MidpointRounding.ToEven);
+    if(!gameStoped) timerDisplay.Text = "Timer: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString();
 	}
 
   public override void _PhysicsProcess(double delta)
@@ -84,6 +84,7 @@ public partial class UI : Control
   public void _OnPlayerDead(bool playerDead){
     gameStoped = true;
     DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "PLUGIN YOUR CONTROLLER";
+    DeathScreen.GetNode<Label>("DeathContainer/Time").Text = "Your Time: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString();
     DeathScreen.Visible = true;
     DeathScreen.GetNode<Button>("DeathContainer/Restart").GrabFocus();
   }
@@ -91,6 +92,7 @@ public partial class UI : Control
   public void _OnPlayerFinished(){
     gameStoped = true;
     DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "YOU WIN";
+    DeathScreen.GetNode<Label>("DeathContainer/Time").Text = "Your Time: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString();
     DeathScreen.Visible = true;
     DeathScreen.GetNode<Button>("DeathContainer/Restart").GrabFocus();
   }
