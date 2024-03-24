@@ -46,3 +46,63 @@ tracks/5/path = NodePath("Armature_001/Skeleton3D:Bone.002")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0, 1, -0.172067, 1.17431e-07, -2.05119e-08, 0.985085)
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.79167),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.79167),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.3, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.00775695, 0.0515604, -0.323359), Vector3(0.00775695, 0.0930579, -0.323359), Vector3(0.00775695, -5.40018e-05, -0.260698), Vector3(0.00775695, 0.0930579, -0.323359), Vector3(0.00775695, -5.40018e-05, -0.260698)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:amount")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2.79167),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [40, 40]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:amount")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2.79167),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [50, 50]
+}
