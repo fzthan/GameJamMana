@@ -296,7 +296,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="DeathScreen/DeathContainer"]
+[node name="DeathLabel" type="Label" parent="DeathScreen/DeathContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "PLUGIN YOUR CONTROLLER"
