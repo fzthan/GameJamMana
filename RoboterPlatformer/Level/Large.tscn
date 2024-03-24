@@ -181,10 +181,10 @@ SpawnLocation = 4
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 65, 21, -101)
 
 [node name="FallingPlatform" parent="." instance=ExtResource("9_j2lah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.25, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 57.25, 21, -101)
 
 [node name="FallingPlatform2" parent="." instance=ExtResource("9_j2lah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.75, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 59.75, 21, -101)
 
 [node name="Checkpoint3" parent="." instance=ExtResource("11_d3wwp")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 65.0286, 23.0975, -104)
@@ -223,7 +223,7 @@ turret_Range = 20.0
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 161.75, 22, -94)
 
 [node name="FallingPlatform3" parent="." instance=ExtResource("9_j2lah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.75, 21, -95)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149.75, 21, -95)
 
 [node name="PlatformSmall20" parent="." instance=ExtResource("4_7uvj2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 189.75, 17, -94)
