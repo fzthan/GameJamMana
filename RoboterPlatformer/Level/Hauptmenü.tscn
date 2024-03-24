@@ -63,9 +63,8 @@ text = "Robots vs. Wrestlers
 (without Wrestlers)"
 horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer"]
-layout_mode = 1
-anchors_preset = 8
+[node name="MusicVolume" type="HSlider" parent="CanvasLayer"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -188,9 +187,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.6266, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.938866, -0.242474, 0.244411, 0, 0.709915, 0.704287, -0.344282, -0.661232, 0.666515, 0, -2.15045, 0)
 
+[node name="AkBank" type="AkBank" parent="."]
+bank = {
+"id": 1355168291,
+"name": "Init"
+}
+load_on = 1
+
+[node name="AkBank" type="AkBank" parent="AkBank"]
+bank = {
+"id": 3161908922,
+"name": "Main"
+}
+load_on = 1
+
+[node name="AkEvent3D" type="AkEvent3D" parent="AkBank/AkBank"]
+event = {
+"id": 161991979,
+"name": "Main_Start"
+}
+trigger_on = 1
+stop_on = 3
+
+[node name="AkListener3D" type="AkListener3D" parent="."]
+
 [connection signal="pressed" from="CanvasLayer/New Game" to="CanvasLayer" method="onNewGame"]
 [connection signal="pressed" from="CanvasLayer/Exit" to="CanvasLayer" method="onExit"]
-[connection signal="value_changed" from="CanvasLayer/HSlider" to="CanvasLayer" method="onValueChanged"]
+[connection signal="value_changed" from="CanvasLayer/MusicVolume" to="CanvasLayer" method="onValueChanged"]
 
 [editable path="Node/Particles/RocketEngine"]
 [editable path="Node/Robot_Right/RocketEngine"]

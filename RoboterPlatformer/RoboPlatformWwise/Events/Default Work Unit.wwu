@@ -14,6 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Main_Start" ID="{42BB930E-364C-432D-B828-A15B191C60DE}">
+					<ChildrenList>
+						<Action Name="" ID="{0D3F82DC-09CE-4782-AD04-43E7C4EEF6F4}" ShortID="532157371">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MainPlaylistContainer" ID="{D169FC6C-CEF4-428D-A6DC-D5BC969E5A44}" WorkUnitID="{3654A1A5-5BD7-4D60-889A-372CBBC85B69}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
