@@ -29,7 +29,7 @@ player = NodePath("../Player")
 activeCheckpoint = NodePath("../Checkpoint")
 
 [node name="Player" parent="." instance=ExtResource("2_lhclg")]
-transform = Transform3D(0.999938, 0, -0.0111176, 0, 1, 0, 0.0111176, 0, 0.999938, -0.500412, 21.5296, 0.197104)
+transform = Transform3D(0.999938, 0, -0.0111176, 0, 1, 0, 0.0111176, 0, 0.999938, 0.499599, 21.6688, 0.507004)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.938866, -0.242474, 0.244411, 0, 0.709915, 0.704287, -0.344282, -0.661232, 0.666515, 0, -2.15045, 0)
@@ -138,12 +138,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 12,
 [node name="PlatformMid7" parent="." instance=ExtResource("5_h5cf2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28, 21, -101)
 
-
 [node name="Turret_4" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(0.0198081, 0, 0.999804, 0, 1, 0, -0.999804, 0, 0.0198081, 12.5367, 22.5311, -16.1195)
 skeleton = NodePath("../Turret_1")
 turret_Range = 15.0
-
 
 [node name="Turret_1" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8144, 21.4387, -120.445)
