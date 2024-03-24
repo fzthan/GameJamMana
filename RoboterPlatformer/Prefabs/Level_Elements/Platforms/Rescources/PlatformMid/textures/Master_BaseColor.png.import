@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mskev7vrao7x"
-path.s3tc="res://.godot/imported/Master_Normal.png-c411438c79724f85f3d7d3a61cfba2da.s3tc.ctex"
+uid="uid://n0cjmxf2yywr"
+path.s3tc="res://.godot/imported/Master_BaseColor.png-1ac15c54bf92e904b88d07cf1d459bc5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Prefabs/Level_Elements/Platforms/Rescources/textures/Master_Normal.png"
-dest_files=["res://.godot/imported/Master_Normal.png-c411438c79724f85f3d7d3a61cfba2da.s3tc.ctex"]
+source_file="res://Prefabs/Level_Elements/Platforms/Rescources/PlatformMid/textures/Master_BaseColor.png"
+dest_files=["res://.godot/imported/Master_BaseColor.png-1ac15c54bf92e904b88d07cf1d459bc5.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Prefabs/Level_Elements/Platforms/Rescources/textures/Master_Normal.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

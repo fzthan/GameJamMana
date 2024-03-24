@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dkup104ma1jkl"
-path="res://.godot/imported/ModelPlattformMid.blend-276b4e107a90fb3b0162e4369a8a4808.scn"
+uid="uid://c2mrtg38r4w6q"
+path="res://.godot/imported/Plattform.Rampe_Textured.blend-18fe80f4bb9f4076e205c2f96c1c1339.scn"
 
 [deps]
 
-source_file="res://Prefabs/Level_Elements/Platforms/Rescources/ModelPlattformMid.blend"
-dest_files=["res://.godot/imported/ModelPlattformMid.blend-276b4e107a90fb3b0162e4369a8a4808.scn"]
+source_file="res://Prefabs/Level_Elements/Platforms/Rescources/Ramp/Plattform.Rampe_Textured.blend"
+dest_files=["res://.godot/imported/Plattform.Rampe_Textured.blend-18fe80f4bb9f4076e205c2f96c1c1339.scn"]
 
 [params]
 

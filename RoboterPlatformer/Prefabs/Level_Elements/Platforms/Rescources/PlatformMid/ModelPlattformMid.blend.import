@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctjbbndn1fgnx"
-path="res://.godot/imported/Plattform.Large_Textured.blend-48a6d8516f6a60290646220476fd2cec.scn"
+uid="uid://dkup104ma1jkl"
+path="res://.godot/imported/ModelPlattformMid.blend-13840745ec04802bf339e83e99a2f7e2.scn"
 
 [deps]
 
-source_file="res://Prefabs/Level_Elements/Platforms/Rescources/Plattform.Large_Textured.blend"
-dest_files=["res://.godot/imported/Plattform.Large_Textured.blend-48a6d8516f6a60290646220476fd2cec.scn"]
+source_file="res://Prefabs/Level_Elements/Platforms/Rescources/PlatformMid/ModelPlattformMid.blend"
+dest_files=["res://.godot/imported/ModelPlattformMid.blend-13840745ec04802bf339e83e99a2f7e2.scn"]
 
 [params]
 

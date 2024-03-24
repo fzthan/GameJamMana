@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhvsk0iprocvp"
-path="res://.godot/imported/Master_Alpha.png-0966a5113c4cd62b9cfc623aedcad082.ctex"
+uid="uid://clcr88p24lwyk"
+path="res://.godot/imported/Master_Displacement.png-f50b2a63b817fa25848bd5d3937737fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Prefabs/Level_Elements/Platforms/Rescources/textures/Master_Alpha.png"
-dest_files=["res://.godot/imported/Master_Alpha.png-0966a5113c4cd62b9cfc623aedcad082.ctex"]
+source_file="res://Prefabs/Level_Elements/Platforms/Rescources/PlatformMid/textures/Master_Displacement.png"
+dest_files=["res://.godot/imported/Master_Displacement.png-f50b2a63b817fa25848bd5d3937737fe.ctex"]
 
 [params]
 
