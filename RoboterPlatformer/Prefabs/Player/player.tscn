@@ -386,10 +386,10 @@ newTexture = ExtResource("6_7yveu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(0, 0.104152, -0.196782)
-bones/0/rotation = Quaternion(-0.030544, 0, 0, 0.999533)
-bones/1/position = Vector3(-0.0247247, -0.457954, 0.0504989)
-bones/2/position = Vector3(0.0442271, -1.86817, 0.226567)
+bones/0/position = Vector3(-2.74716e-17, 0.000473739, -0.000895054)
+bones/0/rotation = Quaternion(-0.000200718, 0, 0, 1)
+bones/1/position = Vector3(-2.01107e-05, -0.538485, 0.0809961)
+bones/2/position = Vector3(0.000398384, -1.90885, 0.186724)
 bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
@@ -405,7 +405,7 @@ libraries = {
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.262575, 0.0398403)
 
 [node name="Normal_3" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="0"]
-transform = Transform3D(0.830984, 0.464957, -0.305419, -8.29001e-08, -0.549023, -0.835807, -0.556296, 0.694543, -0.456229, -0.312735, -2.59201, -0.656146)
+transform = Transform3D(0.830985, 0.464955, -0.305419, -1.39187e-06, -0.549023, -0.835807, -0.556295, 0.694544, -0.456229, -0.312735, -2.59201, -0.656146)
 
 [node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_3" index="0"]
 amount = 10
@@ -413,9 +413,6 @@ amount = 10
 [node name="Fire2" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_3" index="1"]
 transform = Transform3D(1, -5.96046e-08, 2.98023e-08, -2.98023e-08, 1, 0, 0, 2.98023e-08, 1, 0.00775698, 0.0778913, -0.10403)
 amount = 20
-
-[node name="Normal_Back" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121315, 0.33345, 0.802209)
 
 [node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_Back" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.110855)
@@ -425,7 +422,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00775695, 0.0515604, -0.323
 emitting = false
 
 [node name="Normal_2" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="2"]
-transform = Transform3D(-0.0702439, 0.905535, 0.418416, 0, 0.419452, -0.907777, -0.99753, -0.0637659, -0.0294639, 0.744182, -2.63062, 0.14018)
+transform = Transform3D(-0.0702458, 0.905533, 0.41842, 0, 0.419456, -0.907775, -0.99753, -0.0637674, -0.029465, 0.744182, -2.63062, 0.14018)
 
 [node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_2" index="0"]
 amount = 10
@@ -434,7 +431,7 @@ amount = 10
 amount = 20
 
 [node name="Normal_1" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="3"]
-transform = Transform3D(0.87462, -0.361977, -0.32251, 0, 0.66523, -0.746638, 0.48481, 0.653024, 0.581824, -0.429563, -2.65733, 0.729643)
+transform = Transform3D(0.87462, -0.361977, -0.32251, 0, 0.66523, -0.746638, 0.48481, 0.653024, 0.581823, -0.429563, -2.65733, 0.729643)
 
 [node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_1" index="0"]
 amount = 10
@@ -480,6 +477,16 @@ parameters/conditions/dashing = false
 parameters/conditions/idle = true
 parameters/conditions/walking = false
 parameters/IdleLoop/conditions/secondIdle = false
+
+[node name="AkEvent3D" type="AkEvent3D" parent="."]
+event = {
+"id": 2264495988,
+"name": "Play_Idle_Jet"
+}
+trigger_on = 2
+stop_on = 3
+
+[node name="AkListener3D" type="AkListener3D" parent="."]
 
 [editable path="Pivot/RoboterRig"]
 [editable path="Pivot/Particles/RocketEngine"]

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{35500A41-2C95-4963-9ADA-7DDA1A1283D5}" SchemaVersion="119">
+	<Events>
+		<WorkUnit Name="Player" ID="{35500A41-2C95-4963-9ADA-7DDA1A1283D5}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Idle_Jet" ID="{B5E573D9-26B8-4F0D-BA33-7A1AA803C491}">
+					<ChildrenList>
+						<Action Name="" ID="{BCD45333-1D4B-43C0-89D7-879312ECE4B2}" ShortID="709129547">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_plyr_loc_idle_jet" ID="{ABC26380-5CEE-44A8-AF5D-B23431C71070}" WorkUnitID="{25D093CD-7C2F-4803-B955-C8CD652852C0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
