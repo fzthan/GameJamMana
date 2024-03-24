@@ -281,15 +281,17 @@ texture = ExtResource("4_v05mc")
 oldTexture = ExtResource("5_6yv6h")
 newTexture = ExtResource("6_5i8cn")
 
-[node name="Armature_001" parent="Pivot/RoboterRig" index="1"]
+[node name="Armature_001" parent="Pivot/RoboterRig" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(0, 0.0335796, -0.0634438)
-bones/0/rotation = Quaternion(-0.00988573, 0, 0, 0.999951)
-bones/1/position = Vector3(-0.0068405, -0.516252, 0.0725765)
-bones/2/position = Vector3(0.0120621, -1.89802, 0.197327)
-bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
+bones/0/position = Vector3(0.657904, 0.266716, -0.172985)
+bones/0/rotation = Quaternion(0.0149474, 0.0747261, -0.265723, 0.961033)
+bones/1/position = Vector3(0.348037, -0.374512, 0.018245)
+bones/1/rotation = Quaternion(-0.690655, 0.104027, -0.0903294, 0.70994)
+bones/2/position = Vector3(0.295576, -1.92047, 0.188951)
+bones/2/rotation = Quaternion(-0.081593, -0.00129141, 0.0123166, 0.996589)
+bones/2/scale = Vector3(1, 1, 1)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
 root_node = NodePath("../RoboterRig")
