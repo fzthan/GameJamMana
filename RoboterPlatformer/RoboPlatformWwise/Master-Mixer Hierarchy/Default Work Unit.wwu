@@ -9,6 +9,11 @@
 							<ObjectRef Name="System" ID="{C124EEC9-16FE-42E5-BBBA-349F99977506}" WorkUnitID="{08398AAF-D5A4-4D68-8BE6-0F976A7C5F1C}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="PlayerMaster" ID="{90061270-FE2F-478E-84A3-2EDF933B7634}"/>
+						<Bus Name="ObstacleMaster" ID="{9977B1E9-9059-4034-8348-3E75E3532464}"/>
+						<Bus Name="AmbientMaster" ID="{5856D46F-4291-4977-9B8C-DAA73B16A033}"/>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>
