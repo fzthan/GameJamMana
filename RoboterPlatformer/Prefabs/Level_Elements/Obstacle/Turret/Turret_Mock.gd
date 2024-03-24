@@ -19,6 +19,7 @@ func _process(delta):
 	time_Elapsed += delta
 	
 	var direction = get_parent().get_node("Player").global_transform.origin
+	direction.y += 0.3
 	turret.look_at(direction, Vector3.UP)
 	
 	look_at(direction, Vector3.UP)
