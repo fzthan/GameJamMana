@@ -74,7 +74,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:emitting")
+tracks/5/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -86,7 +86,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:emitting")
+tracks/6/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:emitting")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -98,98 +98,146 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_3/Fire2:amount")
+tracks/7/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:amount")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [20]
+"values": [40]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_3/Smoke:amount")
+tracks/8/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:amount")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [10]
+"values": [200]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_2/Smoke:amount")
+tracks/9/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [40]
+"update": 0,
+"values": [Vector3(0.00775695, 0.0515604, -0.323359)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_2/Fire2:amount")
+tracks/10/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [200]
+"update": 0,
+"values": [Vector3(0, 0, 0.110855)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_1/Smoke:amount")
+tracks/11/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
+"update": 0,
+"values": [Vector3(0.0121315, 0.33345, 0.802209)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_1/Fire2:amount")
+tracks/12/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back:rotation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [20]
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:amount")
+tracks/13/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_3:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [40]
+"update": 0,
+"values": [Vector3(-0.312735, -2.59201, -0.656146)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:amount")
+tracks/14/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_3:rotation")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [200]
+"update": 0,
+"values": [Vector3(0.989602, -2.55167, -3.14159)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_2:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.744182, -2.63062, 0.14018)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_2:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.13795, 1.6411, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_1:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.429563, -2.65733, 0.729643)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_1:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.842994, -0.506146, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_khfme"]
@@ -338,10 +386,10 @@ newTexture = ExtResource("6_7yveu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(-3.15992e-17, 0.0698798, -0.132028)
-bones/0/rotation = Quaternion(-0.0204781, 0, 0, 0.99979)
-bones/1/position = Vector3(-0.0251165, -0.456677, 0.0500152)
-bones/2/position = Vector3(0.0505528, -1.86229, 0.232318)
+bones/0/position = Vector3(-3.15992e-17, 0.0116656, -0.0220404)
+bones/0/rotation = Quaternion(-0.00342708, 0, 0, 0.999994)
+bones/1/position = Vector3(-0.00271864, -0.529689, 0.0776649)
+bones/2/position = Vector3(0.00931995, -1.90057, 0.194834)
 bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
@@ -350,6 +398,46 @@ libraries = {
 "": SubResource("AnimationLibrary_khfme"),
 "PlayerAnims": ExtResource("7_y217k")
 }
+
+[node name="Particles" type="Node3D" parent="Pivot"]
+
+[node name="RocketEngine" parent="Pivot/Particles" instance=ExtResource("6_3j1c2")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.262575, 0.0398403)
+
+[node name="Normal_3" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="0"]
+transform = Transform3D(0.830985, 0.464955, -0.305419, -1.39187e-06, -0.549023, -0.835807, -0.556295, 0.694544, -0.456229, -0.312735, -2.59201, -0.656146)
+
+[node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_3" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_3" index="1"]
+transform = Transform3D(1, -5.96046e-08, 2.98023e-08, -2.98023e-08, 1, 0, 0, 2.98023e-08, 1, 0.00775698, 0.0778913, -0.10403)
+amount = 20
+
+[node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_Back" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.110855)
+
+[node name="Fire2" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_Back" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00775695, 0.0515604, -0.323359)
+emitting = false
+
+[node name="Normal_2" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="2"]
+transform = Transform3D(-0.0702458, 0.905533, 0.41842, 0, 0.419456, -0.907775, -0.99753, -0.0637674, -0.029465, 0.744182, -2.63062, 0.14018)
+
+[node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_2" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_2" index="1"]
+amount = 20
+
+[node name="Normal_1" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="3"]
+transform = Transform3D(0.87462, -0.361977, -0.32251, 0, 0.66523, -0.746638, 0.48481, 0.653024, 0.581823, -0.429563, -2.65733, 0.729643)
+
+[node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_1" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_1" index="1"]
+amount = 20
 
 [node name="CollisionRing" type="CollisionShape3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00338483, -0.368228, 0.0845826)
@@ -390,27 +478,6 @@ parameters/conditions/idle = true
 parameters/conditions/walking = false
 parameters/IdleLoop/conditions/secondIdle = false
 
-[node name="Particles" type="Node3D" parent="."]
-
-[node name="RocketEngine" parent="Particles" instance=ExtResource("6_3j1c2")]
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.262575, 0.0398403)
-
-[node name="Smoke" parent="Particles/RocketEngine/Engines/Normal/Normal_3" index="0"]
-amount = 10
-
-[node name="Fire2" parent="Particles/RocketEngine/Engines/Normal/Normal_3" index="1"]
-transform = Transform3D(1, -5.96046e-08, 2.98023e-08, -2.98023e-08, 1, 0, 0, 2.98023e-08, 1, 0.00775698, 0.0778913, -0.10403)
-amount = 20
-
-[node name="Fire2" parent="Particles/RocketEngine/Engines/Normal/Normal_Back" index="1"]
-emitting = false
-
-[node name="Smoke" parent="Particles/RocketEngine/Engines/Normal/Normal_1" index="0"]
-amount = 10
-
-[node name="Fire2" parent="Particles/RocketEngine/Engines/Normal/Normal_1" index="1"]
-amount = 20
-
 [node name="AkEvent3D" type="AkEvent3D" parent="."]
 event = {
 "id": 2264495988,
@@ -422,4 +489,4 @@ stop_on = 3
 [node name="AkListener3D" type="AkListener3D" parent="."]
 
 [editable path="Pivot/RoboterRig"]
-[editable path="Particles/RocketEngine"]
+[editable path="Pivot/Particles/RocketEngine"]

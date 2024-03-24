@@ -45,3 +45,63 @@ tracks/5/path = NodePath("Armature_001/Skeleton3D:Bone.002")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0, 1, -0.172067, 1.17431e-07, -2.05119e-08, 0.985085, 1.6, 1, -0.172067, 1.17431e-07, -2.05119e-08, 0.985085, 1.63333, 1, -0.17033, 1.17433e-07, -2.07227e-08, 0.985387, 1.66667, 1, -0.16338, 1.17436e-07, -2.15649e-08, 0.986563, 1.7, 1, -0.145917, 1.17418e-07, -2.36753e-08, 0.989297, 1.73333, 1, -0.124381, 1.17345e-07, -2.62659e-08, 0.992235, 1.76667, 1, -0.101335, 1.17898e-07, -2.0587e-08, 0.994852, 1.8, 1, -0.079212, 1.18742e-07, -1.05689e-08, 0.996858, 1.83333, 1, -0.0603027, 1.1853e-07, -1.28186e-08, 0.99818, 1.86667, 1, -0.0478292, 1.18367e-07, -1.42988e-08, 0.998856, 1.9, 1, -0.0413349, 1.18801e-07, -8.663e-09, 0.999145, 1.93333, 1, -0.0391507, 1.19119e-07, -4.65146e-09, 0.999233, 2, 1, -0.0404017, 1.19138e-07, -4.50309e-09, 0.999184, 2.03333, 1, -0.0429038, 1.19174e-07, -4.2063e-09, 0.999079, 2.06667, 1, -0.047083, 1.19233e-07, -3.71046e-09, 0.998891, 2.1, 1, -0.0526334, 1.19309e-07, -3.05167e-09, 0.998614, 2.13333, 1, -0.0591242, 1.19392e-07, -2.2809e-09, 0.998251, 2.16667, 1, -0.0659997, 1.19475e-07, -1.464e-09, 0.99782, 2.2, 1, -0.0722799, 1.19546e-07, -7.17464e-10, 0.997384, 2.23333, 1, -0.0772826, 1.19599e-07, -1.22508e-10, 0.997009, 2.26667, 1, -0.0804563, 1.19297e-07, -3.80996e-09, 0.996758, 2.29167, 1, -0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.600656, 0.73341),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.600656, 0.73341),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:amount")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.600656),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [50, 5]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:amount")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.600656),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [20, 5]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.302504),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.00775695, 0.0515604, -0.323359), Vector3(0.00775695, 0.0515604, 0.129885)]
+}
