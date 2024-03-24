@@ -3,13 +3,26 @@ using System;
 
 public partial class RoboterRig : Node3D
 {
+	[Export]
+	private StandardMaterial3D texture;
+	[Export]
+	private CompressedTexture2D oldTexture;
+	[Export]
+	private CompressedTexture2D newTexture;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GetNode<gameController>("../../../GameController").PlayerDied += _SwitchTexture;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
+
+	public void _SwitchTexture(){
+		GD.Print("Test!");
+		texture.AlbedoTexture = newTexture;
+	}
+
 }

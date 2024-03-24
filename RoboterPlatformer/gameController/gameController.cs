@@ -9,6 +9,8 @@ public partial class gameController : Node
   public delegate void GamePausedEventHandler(bool isPaused);
   [Signal]
   public delegate void PlayerDeadEventHandler(bool playerDead);
+  [Signal]
+  public delegate void PlayerDiedEventHandler();
   [Export]
   public Checkpoint activeCheckpoint;
   private int live = 2;
@@ -37,6 +39,7 @@ public partial class gameController : Node
 
 	private void OnPlayerHealthChanged(float oldHealth, float Health){
 		if(Health <= 0 && live == 2) {
+      EmitSignal(SignalName.PlayerDied);
       live--;
       switch(activeCheckpoint.SpawnLocation) {
         case Checkpoint.SPAWN_LOCATIONS.LEFT:
