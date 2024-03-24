@@ -13,6 +13,7 @@ public partial class gameController : Node
   public Checkpoint activeCheckpoint;
   private int live = 2;
   private bool isPaused = false;
+  private bool playerDead = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -49,7 +50,10 @@ public partial class gameController : Node
         break;
       }
 		}else if(Health <= 0 && live < 2){
-      EmitSignal(SignalName.PlayerDead, true);
+      playerDead = true;
+      EmitSignal(SignalName.PlayerDead, playerDead);
+      GetTree().Paused = true;
+      Input.MouseMode = Input.MouseModeEnum.Visible;
     }
 	}
 
