@@ -12,6 +12,7 @@ public partial class RoboterRig : Node3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		_SwitchTexture(1);
 		GetNode<gameController>("../../../GameController").PlayerDied += _SwitchTexture;
 	}
 
