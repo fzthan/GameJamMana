@@ -24,7 +24,7 @@ public partial class Player : CharacterBody3D
 	[Export]
 	public float DoubleJumpForce = 5.5f;
 	[Export]
-	public float JetPackStamina = 50.0f;
+	public float JetPackStamina = 20.0f;
 	[Export]
 	public float JetPackForce = 8.0f;
 	private bool HasDoubleJumped = false;
@@ -160,7 +160,7 @@ public partial class Player : CharacterBody3D
 				velocity.Y -= gravity * (float)delta;
 			else
 			{
-				JetPackStamina = 50.0f;
+				JetPackStamina = 20.0f;
 				HasDoubleJumped = false;
 			}
 
