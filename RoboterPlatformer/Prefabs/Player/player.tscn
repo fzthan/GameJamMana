@@ -338,10 +338,10 @@ newTexture = ExtResource("6_7yveu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(-3.15992e-17, 0.0698798, -0.132028)
-bones/0/rotation = Quaternion(-0.0204781, 0, 0, 0.99979)
-bones/1/position = Vector3(-0.0251165, -0.456677, 0.0500152)
-bones/2/position = Vector3(0.0505528, -1.86229, 0.232318)
+bones/0/position = Vector3(-3.15992e-17, 0.0963848, -0.182105)
+bones/0/rotation = Quaternion(-0.028259, 0, 0, 0.999601)
+bones/1/position = Vector3(-0.0336541, -0.428847, 0.0394757)
+bones/2/position = Vector3(0.0640476, -1.84977, 0.244585)
 bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
@@ -420,6 +420,8 @@ trigger_on = 2
 stop_on = 3
 
 [node name="AkListener3D" type="AkListener3D" parent="."]
+
+[node name="AkEvent3D_Death" type="AkEvent3D" parent="."]
 
 [editable path="Pivot/RoboterRig"]
 [editable path="Particles/RocketEngine"]
