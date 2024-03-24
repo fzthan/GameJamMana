@@ -1,6 +1,8 @@
 using Godot;
 using Vector3 = Godot.Vector3;
 using Vector2 = Godot.Vector2;
+using System.Numerics;
+using System;
 
 public partial class Player : CharacterBody3D
 {
@@ -83,17 +85,24 @@ public partial class Player : CharacterBody3D
 		idleTimer.Timeout += _OnIdleTimerTimeout;
 	}
 
-	private void UpdateAnimationParameters()
+	private void UpdateAnimationParameters(Vector2 inputDir)
 	{
 		if (IsDashing)
 		{
 			animTree.Set("parameters/conditions/idle", false);
 			animTree.Set("parameters/conditions/dashing", true);
+			animTree.Set("parameters/conditions/walking", false);
 		}
 		else
 		{
-			animTree.Set("parameters/conditions/idle", true);
 			animTree.Set("parameters/conditions/dashing", false);
+			if(inputDir != Vector2.Zero) {
+				animTree.Set("parameters/conditions/idle", false);
+				animTree.Set("parameters/conditions/walking", true);
+			} else {
+				animTree.Set("parameters/conditions/idle", true);
+				animTree.Set("parameters/conditions/walking", false);
+			}
 		}
 	}
 
@@ -192,6 +201,8 @@ public partial class Player : CharacterBody3D
 				velocity.Z = direction.Z * DashSpeed;
 				idleTimer.Stop();
 			}
+			UpdateAnimationParameters(inputDir);
+
 		}
 		else
 		{
@@ -201,9 +212,9 @@ public partial class Player : CharacterBody3D
 			float _speed = timerProgress * DashSpeed;
 			velocity.X = fwdVector.X * _speed;
 			velocity.Z = fwdVector.Z * _speed;
+			UpdateAnimationParameters(Vector2.Zero);
 		}
 		Velocity = velocity;
-		UpdateAnimationParameters();
 		MoveAndSlide();
 	}
 

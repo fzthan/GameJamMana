@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://djv4w8iahv6ct"]
+[gd_scene load_steps=39 format=3 uid="uid://djv4w8iahv6ct"]
 
 [ext_resource type="Script" path="res://Prefabs/Player/Player.cs" id="1_hfciw"]
 [ext_resource type="PackedScene" uid="uid://ccyxnn7ljgjgk" path="res://Prefabs/Player/RoboterRig.blend" id="2_tl11t"]
@@ -206,8 +206,39 @@ radius = 0.7
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bym7u"]
 animation = &"PlayerAnims/Dash"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hn681"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f5gh3"]
 animation = &"PlayerAnims/Idle2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ulc4"]
+animation = &"PlayerAnims/idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eeudr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_glc0b"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"secondIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mmxne"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kyjcx"]
+advance_mode = 2
+advance_expression = "idle | dashing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbik1"]
+advance_mode = 2
+advance_expression = "idle == false"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hjr14"]
+states/PlayerAnims_Idle2/node = SubResource("AnimationNodeAnimation_f5gh3")
+states/PlayerAnims_Idle2/position = Vector2(382, 241)
+states/PlayerAnims_idle/node = SubResource("AnimationNodeAnimation_6ulc4")
+states/PlayerAnims_idle/position = Vector2(382, 100)
+transitions = ["Start", "PlayerAnims_idle", SubResource("AnimationNodeStateMachineTransition_eeudr"), "PlayerAnims_idle", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_glc0b"), "PlayerAnims_Idle2", "PlayerAnims_idle", SubResource("AnimationNodeStateMachineTransition_mmxne"), "PlayerAnims_idle", "End", SubResource("AnimationNodeStateMachineTransition_kyjcx"), "PlayerAnims_Idle2", "End", SubResource("AnimationNodeStateMachineTransition_bbik1")]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vs61j"]
 animation = &"PlayerAnims/Walk_Loop"
@@ -229,78 +260,66 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a0jr2"]
 xfade_time = 0.5
 advance_mode = 2
-advance_condition = &"stop_walking"
+advance_expression = "!get(\"parameters/conditions/walking\")"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahxp4"]
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sgxn4"]
+advance_mode = 2
+advance_expression = "get(\"parameters/conditions/dashing\")"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fd82h"]
 states/End/position = Vector2(1301, 164)
 states/PlayerAnims_Walk_Loop/node = SubResource("AnimationNodeAnimation_vs61j")
-states/PlayerAnims_Walk_Loop/position = Vector2(654, 164)
+states/PlayerAnims_Walk_Loop/position = Vector2(723, 269)
 states/PlayerAnims_Walk_Start/node = SubResource("AnimationNodeAnimation_xvtvh")
 states/PlayerAnims_Walk_Start/position = Vector2(328, 164)
 states/PlayerAnims_Walk_Stop/node = SubResource("AnimationNodeAnimation_knhu8")
 states/PlayerAnims_Walk_Stop/position = Vector2(1009, 164)
 states/Start/position = Vector2(75, 164)
-transitions = ["Start", "PlayerAnims_Walk_Start", SubResource("AnimationNodeStateMachineTransition_2ddc1"), "PlayerAnims_Walk_Start", "PlayerAnims_Walk_Loop", SubResource("AnimationNodeStateMachineTransition_u6ivu"), "PlayerAnims_Walk_Loop", "PlayerAnims_Walk_Stop", SubResource("AnimationNodeStateMachineTransition_a0jr2"), "PlayerAnims_Walk_Stop", "End", SubResource("AnimationNodeStateMachineTransition_ahxp4")]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xycc2"]
-animation = &"PlayerAnims/idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vym8u"]
-advance_mode = 2
-advance_condition = &"dashing"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j28mj"]
-xfade_time = 0.2
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sh24l"]
-switch_mode = 1
-advance_mode = 2
-advance_condition = &"secondIdle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7bobw"]
-xfade_time = 0.2
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ipac"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1e8ad"]
-advance_mode = 2
-advance_condition = &"walking"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e4i1r"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"idle"
+transitions = ["Start", "PlayerAnims_Walk_Start", SubResource("AnimationNodeStateMachineTransition_2ddc1"), "PlayerAnims_Walk_Start", "PlayerAnims_Walk_Loop", SubResource("AnimationNodeStateMachineTransition_u6ivu"), "PlayerAnims_Walk_Loop", "PlayerAnims_Walk_Stop", SubResource("AnimationNodeStateMachineTransition_a0jr2"), "PlayerAnims_Walk_Stop", "End", SubResource("AnimationNodeStateMachineTransition_ahxp4"), "PlayerAnims_Walk_Loop", "End", SubResource("AnimationNodeStateMachineTransition_sgxn4")]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ms3aa"]
-switch_mode = 2
 advance_mode = 2
 advance_condition = &"dashing"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xn2gv"]
+switch_mode = 2
 advance_mode = 2
 advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_87qxx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ym73"]
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jyek5"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5i8jb"]
+advance_mode = 2
+advance_condition = &"dashing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yi4r7"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_16jgs"]
 states/Dash/node = SubResource("AnimationNodeAnimation_bym7u")
 states/Dash/position = Vector2(591, 118)
-states/PlayerAnims_Idle2/node = SubResource("AnimationNodeAnimation_hn681")
-states/PlayerAnims_Idle2/position = Vector2(409, 225)
-states/Start/position = Vector2(229, 116)
+states/IdleLoop/node = SubResource("AnimationNodeStateMachine_hjr14")
+states/IdleLoop/position = Vector2(232, 118)
+states/Start/position = Vector2(36, 118)
 states/WalkMachine/node = SubResource("AnimationNodeStateMachine_fd82h")
-states/WalkMachine/position = Vector2(509, -9)
-"states/idle /node" = SubResource("AnimationNodeAnimation_xycc2")
-"states/idle /position" = Vector2(403, 118)
-transitions = ["idle ", "Dash", SubResource("AnimationNodeStateMachineTransition_vym8u"), "Dash", "idle ", SubResource("AnimationNodeStateMachineTransition_j28mj"), "idle ", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_sh24l"), "PlayerAnims_Idle2", "idle ", SubResource("AnimationNodeStateMachineTransition_7bobw"), "Start", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_1ipac"), "idle ", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_1e8ad"), "WalkMachine", "idle ", SubResource("AnimationNodeStateMachineTransition_e4i1r"), "WalkMachine", "Dash", SubResource("AnimationNodeStateMachineTransition_ms3aa"), "Dash", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_xn2gv")]
+states/WalkMachine/position = Vector2(423, -6)
+transitions = ["WalkMachine", "Dash", SubResource("AnimationNodeStateMachineTransition_ms3aa"), "Dash", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_xn2gv"), "Start", "IdleLoop", SubResource("AnimationNodeStateMachineTransition_87qxx"), "IdleLoop", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_6ym73"), "WalkMachine", "IdleLoop", SubResource("AnimationNodeStateMachineTransition_jyek5"), "IdleLoop", "Dash", SubResource("AnimationNodeStateMachineTransition_5i8jb"), "Dash", "IdleLoop", SubResource("AnimationNodeStateMachineTransition_yi4r7")]
 graph_offset = Vector2(-186, -72)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
@@ -319,12 +338,11 @@ newTexture = ExtResource("6_5i8cn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(0.027803, -0.0310636, -0.530456)
-bones/0/rotation = Quaternion(0.00401297, 5.61041e-05, 0.000196265, 0.999992)
-bones/1/position = Vector3(1.03756e-16, -0.598916, -0.318903)
-bones/1/rotation = Quaternion(-0.777837, -1.78704e-17, 1.78704e-17, 0.628466)
-bones/2/position = Vector3(-3.38782e-09, -1.94189, 0.165006)
-bones/2/rotation = Quaternion(-0.172067, 1.17431e-07, -2.05119e-08, 0.985085)
+bones/0/position = Vector3(-3.15992e-17, 0.0955104, -0.180453)
+bones/0/rotation = Quaternion(-0.0279975, 0, 0, 0.999608)
+bones/1/position = Vector3(-0.0334306, -0.429575, 0.0397517)
+bones/2/position = Vector3(0.0637259, -1.85007, 0.244293)
+bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
 root_node = NodePath("../RoboterRig")
@@ -369,9 +387,8 @@ tree_root = SubResource("AnimationNodeStateMachine_16jgs")
 anim_player = NodePath("../Pivot/AnimationPlayer2")
 parameters/conditions/dashing = false
 parameters/conditions/idle = true
-parameters/conditions/secondIdle = true
 parameters/conditions/walking = false
-parameters/WalkMachine/conditions/stop_walking = false
+parameters/IdleLoop/conditions/secondIdle = false
 
 [node name="Particles" type="Node3D" parent="."]
 
