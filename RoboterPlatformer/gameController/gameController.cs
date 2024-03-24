@@ -49,7 +49,6 @@ public partial class gameController : Node
         break;
       }
 		}else if(Health <= 0 && live < 2){
-      GD.Print("No live");
       EmitSignal(SignalName.PlayerDead, true);
     }
 	}

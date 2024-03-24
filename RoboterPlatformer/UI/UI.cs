@@ -76,9 +76,10 @@ public partial class UI : Control
 
   public void _OnPlayerDead(bool playerDead){
     DeathScreen.Visible = true;
+    DeathScreen.GetNode<Button>("DeathContainer/Restart").GrabFocus();
   }
 
   public void _OnRestartButtonDown(){
-    
+    GetTree().ReloadCurrentScene();
   }
 }

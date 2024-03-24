@@ -284,17 +284,21 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DeathScreen"]
+[node name="DeathContainer" type="VBoxContainer" parent="DeathScreen"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Label" type="Label" parent="DeathScreen/VBoxContainer"]
+[node name="Label" type="Label" parent="DeathScreen/DeathContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "YOU DIED"
 
-[node name="Exit" type="Button" parent="DeathScreen/VBoxContainer"]
+[node name="Restart" type="Button" parent="DeathScreen/DeathContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="Exit" type="Button" parent="DeathScreen/DeathContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -304,4 +308,5 @@ text = "Exit"
 [connection signal="button_down" from="PauseMenu/Container/Help" to="." method="_OnHelpButtonDown"]
 [connection signal="button_down" from="PauseMenu/Container/Exit" to="." method="_OnExitButtonDown"]
 [connection signal="button_down" from="PauseMenu/HelpPanel/Pause/BackButton" to="." method="_OnHelpBackButtonDown"]
-[connection signal="button_down" from="DeathScreen/VBoxContainer/Exit" to="." method="_OnExitButtonDown"]
+[connection signal="button_down" from="DeathScreen/DeathContainer/Restart" to="." method="_OnRestartButtonDown"]
+[connection signal="button_down" from="DeathScreen/DeathContainer/Exit" to="." method="_OnExitButtonDown"]
