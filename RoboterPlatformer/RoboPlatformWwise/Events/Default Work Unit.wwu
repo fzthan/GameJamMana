@@ -5,17 +5,10 @@
 			<ChildrenList>
 				<Event Name="Level_Start" ID="{183C5FE4-F1CA-4943-BF58-29807F5BB36E}">
 					<ChildrenList>
-						<Action Name="" ID="{66D8D5E8-44CF-415C-8560-B74A07904647}" ShortID="72277640">
+						<Action Name="" ID="{8728B8B8-5FF0-490E-91FD-62873114A7ED}" ShortID="691366894">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="LevelMusicStart" ID="{1C14116A-2739-42C8-99DB-5AB9622BA15C}" WorkUnitID="{25D093CD-7C2F-4803-B955-C8CD652852C0}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{FA0E8547-12B9-4531-8420-5A1C046ED875}" ShortID="628900832">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="LevelMusicLoop" ID="{45302359-8D90-4054-8F4B-0B667C8455E4}" WorkUnitID="{25D093CD-7C2F-4803-B955-C8CD652852C0}"/>
+									<ObjectRef Name="LevelPlaylistContainer" ID="{F10B69CB-D211-4110-87F1-417CD43C356C}" WorkUnitID="{3654A1A5-5BD7-4D60-889A-372CBBC85B69}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
