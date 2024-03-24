@@ -61,4 +61,8 @@ public partial class gameController : Node
     activeCheckpoint.SetActive(false);
     activeCheckpoint = checkpoint;
   }
+
+  public void _AddLive(){
+    if(live < 2) live++;
+  }
 }
