@@ -14,6 +14,10 @@ config/name="RoboterPlatformer"
 run/main_scene="res://Level/small.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 
+[autoload]
+
+WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
+
 [dotnet]
 
 project/assembly_name="RoboterPlatformer"

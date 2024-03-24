@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcvse2gohmf1u"]
+
+[ext_resource type="Material" uid="uid://cca6w6s666x5v" path="res://Prefabs/Particles/Explosion_Engine/Resources/Mat_Flare00.tres" id="1_xtbbt"]
+
+[sub_resource type="Curve" id="Curve_x04xq"]
+max_value = 5.0
+_data = [Vector2(0, 0.246176), 0.0, 0.0, 0, 0, Vector2(0.19, 0.246176), -0.32706, -0.32706, 0, 0, Vector2(0.44, 0), -1.79296, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bro0d"]
+curve = SubResource("Curve_x04xq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x2bpb"]
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 0.4
+direction = Vector3(0, 0, 1)
+spread = 11.187
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_bro0d")
+color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_2x5uj"]
+
+[sub_resource type="Gradient" id="Gradient_itevb"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_woiv2"]
+gradient = SubResource("Gradient_itevb")
+
+[sub_resource type="Curve" id="Curve_lw0kg"]
+max_value = 5.0
+_data = [Vector2(0.0025, 0.463671), 0.0, 0.0, 0, 0, Vector2(0.2225, 0.152964), -3.85706, -3.85706, 0, 0, Vector2(0.3925, 0), -3.73718, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_b162q"]
+curve = SubResource("Curve_lw0kg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5l4ns"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3(0, 0, 1)
+spread = 13.458
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, -2, 0)
+scale_min = 0.6
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_b162q")
+color = Color(5, 2, 1, 1)
+color_ramp = SubResource("GradientTexture1D_woiv2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vmuy6"]
+
+[node name="RocketEngine" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0232823)
+
+[node name="Engines" type="Node3D" parent="."]
+
+[node name="Normal" type="Node3D" parent="Engines"]
+
+[node name="Normal_3" type="Node3D" parent="Engines/Normal"]
+transform = Transform3D(0.830984, 0.464956, -0.305419, -4.79971e-08, -0.549023, -0.835807, -0.556296, 0.694543, -0.456229, -0.312735, -2.59201, -0.656146)
+
+[node name="Smoke" type="GPUParticles3D" parent="Engines/Normal/Normal_3"]
+material_override = ExtResource("1_xtbbt")
+amount = 40
+lifetime = 0.8
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_x2bpb")
+draw_pass_1 = SubResource("QuadMesh_2x5uj")
+
+[node name="Fire2" type="GPUParticles3D" parent="Engines/Normal/Normal_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00775695, 0.0778913, -0.10403)
+material_override = ExtResource("1_xtbbt")
+amount = 200
+lifetime = 0.94
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5l4ns")
+draw_pass_1 = SubResource("QuadMesh_vmuy6")
+
+[node name="Normal_Back" type="Node3D" parent="Engines/Normal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121315, 0.33345, 0.802209)
+
+[node name="Smoke" type="GPUParticles3D" parent="Engines/Normal/Normal_Back"]
+material_override = ExtResource("1_xtbbt")
+amount = 40
+lifetime = 0.8
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_x2bpb")
+draw_pass_1 = SubResource("QuadMesh_2x5uj")
+
+[node name="Fire2" type="GPUParticles3D" parent="Engines/Normal/Normal_Back"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00775695, 0.0515604, 0.0867211)
+material_override = ExtResource("1_xtbbt")
+amount = 200
+lifetime = 0.94
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5l4ns")
+draw_pass_1 = SubResource("QuadMesh_vmuy6")
+
+[node name="Normal_2" type="Node3D" parent="Engines/Normal"]
+transform = Transform3D(-0.0702439, 0.905535, 0.418416, 0, 0.419452, -0.907777, -0.99753, -0.0637658, -0.029464, 0.744182, -2.63062, 0.14018)
+
+[node name="Smoke" type="GPUParticles3D" parent="Engines/Normal/Normal_2"]
+material_override = ExtResource("1_xtbbt")
+amount = 40
+lifetime = 0.8
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_x2bpb")
+draw_pass_1 = SubResource("QuadMesh_2x5uj")
+
+[node name="Fire2" type="GPUParticles3D" parent="Engines/Normal/Normal_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00775695, 0.0778913, -0.10403)
+material_override = ExtResource("1_xtbbt")
+amount = 200
+lifetime = 0.94
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5l4ns")
+draw_pass_1 = SubResource("QuadMesh_vmuy6")
+
+[node name="Normal_1" type="Node3D" parent="Engines/Normal"]
+transform = Transform3D(0.87462, -0.361977, -0.32251, 0, 0.66523, -0.746638, 0.48481, 0.653024, 0.581824, -0.429563, -2.65733, 0.729643)
+
+[node name="Smoke" type="GPUParticles3D" parent="Engines/Normal/Normal_1"]
+material_override = ExtResource("1_xtbbt")
+amount = 40
+lifetime = 0.8
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_x2bpb")
+draw_pass_1 = SubResource("QuadMesh_2x5uj")
+
+[node name="Fire2" type="GPUParticles3D" parent="Engines/Normal/Normal_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00775695, 0.0778913, -0.10403)
+material_override = ExtResource("1_xtbbt")
+amount = 200
+lifetime = 0.94
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5l4ns")
+draw_pass_1 = SubResource("QuadMesh_vmuy6")
+
+[node name="Boost" type="Node3D" parent="Engines"]

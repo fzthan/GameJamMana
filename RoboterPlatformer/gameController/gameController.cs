@@ -7,12 +7,20 @@ public partial class gameController : Node
 	Player player;
   [Signal]
   public delegate void GamePausedEventHandler(bool isPaused);
-
+  [Signal]
+  public delegate void PlayerDeadEventHandler(bool playerDead);
+  [Signal]
+  public delegate void PlayerDiedEventHandler(int live);
+  [Export]
+  public Checkpoint activeCheckpoint;
+  private int live = 2;
   private bool isPaused = false;
+  private bool playerDead = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		player.HealthChanged += OnPlayerHealthChanged;
+    activeCheckpoint.SetActive(true);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,8 +38,35 @@ public partial class gameController : Node
 	}
 
 	private void OnPlayerHealthChanged(float oldHealth, float Health){
-		if(Health <= 0){
-			GD.Print("Dead!");
-		}
+		if(Health <= 0 && live == 2) {
+      EmitSignal(SignalName.PlayerDied, live);
+      live--;
+      switch(activeCheckpoint.SpawnLocation) {
+        case Checkpoint.SPAWN_LOCATIONS.LEFT:
+        player.ResetAndReposition(activeCheckpoint.GetNode<Node3D>("SpawnLocations/Left").GlobalPosition);
+        break;
+        case Checkpoint.SPAWN_LOCATIONS.RIGHT:
+        player.ResetAndReposition(activeCheckpoint.GetNode<Node3D>("SpawnLocations/Right").GlobalPosition);
+        break;
+        case Checkpoint.SPAWN_LOCATIONS.FRONT:
+        player.ResetAndReposition(activeCheckpoint.GetNode<Node3D>("SpawnLocations/Front").GlobalPosition);
+        break;
+      }
+		}else if(Health <= 0 && live < 2){
+      playerDead = true;
+      EmitSignal(SignalName.PlayerDead, playerDead);
+      EmitSignal(SignalName.PlayerDied, live);
+      GetTree().Paused = true;
+      Input.MouseMode = Input.MouseModeEnum.Visible;
+    }
 	}
+
+  public void _OnPlayerRegister(Checkpoint checkpoint) {
+    activeCheckpoint.SetActive(false);
+    activeCheckpoint = checkpoint;
+  }
+
+  public void _AddLive(){
+    if(live < 2) live++;
+  }
 }

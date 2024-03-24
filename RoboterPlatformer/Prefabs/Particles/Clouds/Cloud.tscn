@@ -4,7 +4,7 @@
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8df86"]
 emission_shape = 3
-emission_box_extents = Vector3(15, 4, 6)
+emission_box_extents = Vector3(10, 4, 6)
 gravity = Vector3(0, 0, 0)
 scale_min = 2.0
 scale_max = 10.0
@@ -20,9 +20,9 @@ material = SubResource("StandardMaterial3D_i4lta")
 size = Vector2(5, 5)
 
 [node name="GPUParticles3D" type="GPUParticles3D"]
-amount = 104
-lifetime = 28.57
-explosiveness = 0.96
+amount = 50
+lifetime = 16.09
+explosiveness = 0.98
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_8df86")
 draw_pass_1 = SubResource("QuadMesh_t082t")
