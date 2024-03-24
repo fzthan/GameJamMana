@@ -1,15 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://djv4w8iahv6ct"]
+[gd_scene load_steps=39 format=3 uid="uid://djv4w8iahv6ct"]
 
 [ext_resource type="Script" path="res://Prefabs/Player/Player.cs" id="1_hfciw"]
 [ext_resource type="PackedScene" uid="uid://ccyxnn7ljgjgk" path="res://Prefabs/Player/RoboterRig.blend" id="2_tl11t"]
 [ext_resource type="Script" path="res://Prefabs/Player/RoboterRig.cs" id="3_mdq5q"]
-[ext_resource type="Animation" uid="uid://d2f01i6b6gu01" path="res://Prefabs/Player/Resources/Anim/Dash.tres" id="3_qmu2r"]
-[ext_resource type="Animation" uid="uid://ch8hgopw7lslk" path="res://Prefabs/Player/Resources/Anim/Idle2.tres" id="4_fcf4s"]
 [ext_resource type="Material" uid="uid://d25mr3w2t4lpk" path="res://Prefabs/Player/Resources/Master.tres" id="4_v05mc"]
 [ext_resource type="Texture2D" uid="uid://brfaeo404pxxi" path="res://Prefabs/Player/textures/Master_BaseColor.png" id="5_6yv6h"]
-[ext_resource type="Animation" uid="uid://ck1xoqwaho0gr" path="res://Prefabs/Player/Resources/Anim/idle.tres" id="5_jcrwl"]
 [ext_resource type="PackedScene" uid="uid://bcvse2gohmf1u" path="res://Prefabs/Particles/Explosion_Engine/RocketEngineParticles.tscn" id="6_3j1c2"]
 [ext_resource type="Texture2D" uid="uid://whxiky024jps" path="res://Prefabs/Player/Resources/Master_BaseColor2.png" id="6_7yveu"]
+[ext_resource type="AnimationLibrary" uid="uid://cth74oof0mssd" path="res://Prefabs/Player/Resources/Anim/PlayerAnims.tres" id="7_y217k"]
 
 [sub_resource type="Animation" id="Animation_53gd4"]
 length = 0.001
@@ -181,17 +179,22 @@ tracks/13/keys = {
 "update": 1,
 "values": [40]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:amount")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [200]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_khfme"]
 _data = {
 "RESET": SubResource("Animation_53gd4")
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_at01a"]
-_data = {
-"Dash": ExtResource("3_qmu2r"),
-"Idle2": ExtResource("4_fcf4s"),
-"idle": ExtResource("5_jcrwl")
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5lqi7"]
@@ -203,45 +206,121 @@ radius = 0.7
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bym7u"]
 animation = &"PlayerAnims/Dash"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hn681"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f5gh3"]
 animation = &"PlayerAnims/Idle2"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xycc2"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ulc4"]
 animation = &"PlayerAnims/idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vym8u"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eeudr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_glc0b"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"secondIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mmxne"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kyjcx"]
+advance_mode = 2
+advance_expression = "idle | dashing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbik1"]
+advance_mode = 2
+advance_expression = "idle == false"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hjr14"]
+states/PlayerAnims_Idle2/node = SubResource("AnimationNodeAnimation_f5gh3")
+states/PlayerAnims_Idle2/position = Vector2(382, 241)
+states/PlayerAnims_idle/node = SubResource("AnimationNodeAnimation_6ulc4")
+states/PlayerAnims_idle/position = Vector2(382, 100)
+transitions = ["Start", "PlayerAnims_idle", SubResource("AnimationNodeStateMachineTransition_eeudr"), "PlayerAnims_idle", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_glc0b"), "PlayerAnims_Idle2", "PlayerAnims_idle", SubResource("AnimationNodeStateMachineTransition_mmxne"), "PlayerAnims_idle", "End", SubResource("AnimationNodeStateMachineTransition_kyjcx"), "PlayerAnims_Idle2", "End", SubResource("AnimationNodeStateMachineTransition_bbik1")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vs61j"]
+animation = &"PlayerAnims/Walk_Loop"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xvtvh"]
+animation = &"PlayerAnims/Walk_Start"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_knhu8"]
+animation = &"PlayerAnims/Walk_Stop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ddc1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u6ivu"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a0jr2"]
+xfade_time = 0.5
+advance_mode = 2
+advance_expression = "!get(\"parameters/conditions/walking\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahxp4"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sgxn4"]
+advance_mode = 2
+advance_expression = "get(\"parameters/conditions/dashing\")"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fd82h"]
+states/End/position = Vector2(1301, 164)
+states/PlayerAnims_Walk_Loop/node = SubResource("AnimationNodeAnimation_vs61j")
+states/PlayerAnims_Walk_Loop/position = Vector2(723, 269)
+states/PlayerAnims_Walk_Start/node = SubResource("AnimationNodeAnimation_xvtvh")
+states/PlayerAnims_Walk_Start/position = Vector2(328, 164)
+states/PlayerAnims_Walk_Stop/node = SubResource("AnimationNodeAnimation_knhu8")
+states/PlayerAnims_Walk_Stop/position = Vector2(1009, 164)
+states/Start/position = Vector2(75, 164)
+transitions = ["Start", "PlayerAnims_Walk_Start", SubResource("AnimationNodeStateMachineTransition_2ddc1"), "PlayerAnims_Walk_Start", "PlayerAnims_Walk_Loop", SubResource("AnimationNodeStateMachineTransition_u6ivu"), "PlayerAnims_Walk_Loop", "PlayerAnims_Walk_Stop", SubResource("AnimationNodeStateMachineTransition_a0jr2"), "PlayerAnims_Walk_Stop", "End", SubResource("AnimationNodeStateMachineTransition_ahxp4"), "PlayerAnims_Walk_Loop", "End", SubResource("AnimationNodeStateMachineTransition_sgxn4")]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ms3aa"]
 advance_mode = 2
 advance_condition = &"dashing"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j28mj"]
-xfade_time = 0.2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xn2gv"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_87qxx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ym73"]
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jyek5"]
 switch_mode = 2
 advance_mode = 2
 advance_condition = &"idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sh24l"]
-switch_mode = 1
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5i8jb"]
 advance_mode = 2
-advance_condition = &"secondIdle"
+advance_condition = &"dashing"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7bobw"]
-xfade_time = 0.2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yi4r7"]
 switch_mode = 2
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ipac"]
-advance_mode = 2
+advance_condition = &"idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_16jgs"]
 states/Dash/node = SubResource("AnimationNodeAnimation_bym7u")
 states/Dash/position = Vector2(591, 118)
-states/PlayerAnims_Idle2/node = SubResource("AnimationNodeAnimation_hn681")
-states/PlayerAnims_Idle2/position = Vector2(409, 225)
-states/Start/position = Vector2(229, 116)
-"states/idle /node" = SubResource("AnimationNodeAnimation_xycc2")
-"states/idle /position" = Vector2(403, 118)
-transitions = ["idle ", "Dash", SubResource("AnimationNodeStateMachineTransition_vym8u"), "Dash", "idle ", SubResource("AnimationNodeStateMachineTransition_j28mj"), "idle ", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_sh24l"), "PlayerAnims_Idle2", "idle ", SubResource("AnimationNodeStateMachineTransition_7bobw"), "Start", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_1ipac")]
-graph_offset = Vector2(-142, 15)
+states/IdleLoop/node = SubResource("AnimationNodeStateMachine_hjr14")
+states/IdleLoop/position = Vector2(232, 118)
+states/Start/position = Vector2(36, 118)
+states/WalkMachine/node = SubResource("AnimationNodeStateMachine_fd82h")
+states/WalkMachine/position = Vector2(423, -6)
+transitions = ["WalkMachine", "Dash", SubResource("AnimationNodeStateMachineTransition_ms3aa"), "Dash", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_xn2gv"), "Start", "IdleLoop", SubResource("AnimationNodeStateMachineTransition_87qxx"), "IdleLoop", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_6ym73"), "WalkMachine", "IdleLoop", SubResource("AnimationNodeStateMachineTransition_jyek5"), "IdleLoop", "Dash", SubResource("AnimationNodeStateMachineTransition_5i8jb"), "Dash", "IdleLoop", SubResource("AnimationNodeStateMachineTransition_yi4r7")]
+graph_offset = Vector2(-186, -72)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_hfciw")
@@ -259,18 +338,17 @@ newTexture = ExtResource("6_7yveu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(0.0588969, 0.439356, -0.244006)
-bones/0/rotation = Quaternion(-0.0837802, -0.0296533, 0.0115457, 0.995976)
-bones/1/position = Vector3(0.230836, -0.323705, -0.0434602)
-bones/1/rotation = Quaternion(-0.711519, -0.0378993, 0.0669215, 0.698445)
-bones/2/position = Vector3(0.206914, -1.81244, 0.197305)
-bones/2/rotation = Quaternion(-0.0817406, 0.00329956, -0.0398169, 0.995853)
+bones/0/position = Vector3(-3.15992e-17, 0.101104, -0.19102)
+bones/0/rotation = Quaternion(-0.029647, 0, 0, 0.99956)
+bones/1/position = Vector3(-0.0347411, -0.425303, 0.0381339)
+bones/2/position = Vector3(0.0655408, -1.84838, 0.245943)
+bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
 root_node = NodePath("../RoboterRig")
 libraries = {
 "": SubResource("AnimationLibrary_khfme"),
-"PlayerAnims": SubResource("AnimationLibrary_at01a")
+"PlayerAnims": ExtResource("7_y217k")
 }
 
 [node name="CollisionRing" type="CollisionShape3D" parent="." groups=["player"]]
@@ -303,13 +381,14 @@ one_shot = true
 root_node = NodePath("../Pivot/RoboterRig")
 libraries = {
 "": SubResource("AnimationLibrary_khfme"),
-"PlayerAnims": SubResource("AnimationLibrary_at01a")
+"PlayerAnims": ExtResource("7_y217k")
 }
 tree_root = SubResource("AnimationNodeStateMachine_16jgs")
 anim_player = NodePath("../Pivot/AnimationPlayer2")
 parameters/conditions/dashing = false
 parameters/conditions/idle = true
-parameters/conditions/secondIdle = true
+parameters/conditions/walking = false
+parameters/IdleLoop/conditions/secondIdle = false
 
 [node name="Particles" type="Node3D" parent="."]
 
