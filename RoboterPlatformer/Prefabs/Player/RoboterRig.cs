@@ -20,9 +20,15 @@ public partial class RoboterRig : Node3D
 	{
 	}
 
-	public void _SwitchTexture(){
-		GD.Print("Test!");
-		texture.AlbedoTexture = newTexture;
+	public void _SwitchTexture(int live){
+		switch(live){
+			case 1:
+			texture.AlbedoTexture = oldTexture;
+			break;
+			case 2:
+			texture.AlbedoTexture = newTexture;
+			break;
+		}
 	}
 
 }

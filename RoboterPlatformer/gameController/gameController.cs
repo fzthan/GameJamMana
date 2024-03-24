@@ -10,7 +10,7 @@ public partial class gameController : Node
   [Signal]
   public delegate void PlayerDeadEventHandler(bool playerDead);
   [Signal]
-  public delegate void PlayerDiedEventHandler();
+  public delegate void PlayerDiedEventHandler(int live);
   [Export]
   public Checkpoint activeCheckpoint;
   private int live = 2;
@@ -39,7 +39,7 @@ public partial class gameController : Node
 
 	private void OnPlayerHealthChanged(float oldHealth, float Health){
 		if(Health <= 0 && live == 2) {
-      EmitSignal(SignalName.PlayerDied);
+      EmitSignal(SignalName.PlayerDied, live);
       live--;
       switch(activeCheckpoint.SpawnLocation) {
         case Checkpoint.SPAWN_LOCATIONS.LEFT:
@@ -55,6 +55,7 @@ public partial class gameController : Node
 		}else if(Health <= 0 && live < 2){
       playerDead = true;
       EmitSignal(SignalName.PlayerDead, playerDead);
+      EmitSignal(SignalName.PlayerDied, live);
       GetTree().Paused = true;
       Input.MouseMode = Input.MouseModeEnum.Visible;
     }
