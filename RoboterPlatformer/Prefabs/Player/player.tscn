@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://djv4w8iahv6ct"]
+[gd_scene load_steps=34 format=3 uid="uid://djv4w8iahv6ct"]
 
 [ext_resource type="Script" path="res://Prefabs/Player/Player.cs" id="1_hfciw"]
 [ext_resource type="PackedScene" uid="uid://ccyxnn7ljgjgk" path="res://Prefabs/Player/RoboterRig.blend" id="2_tl11t"]
@@ -209,8 +209,42 @@ animation = &"PlayerAnims/Dash"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hn681"]
 animation = &"PlayerAnims/Idle2"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vs61j"]
+animation = &"PlayerAnims/Walk_Loop"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xvtvh"]
+animation = &"PlayerAnims/Walk_Start"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_knhu8"]
+animation = &"PlayerAnims/Walk_Stop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ddc1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u6ivu"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a0jr2"]
+xfade_time = 0.5
+advance_mode = 2
+advance_condition = &"stop_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahxp4"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fd82h"]
-states/Start/position = Vector2(234, 100)
+states/End/position = Vector2(1301, 164)
+states/PlayerAnims_Walk_Loop/node = SubResource("AnimationNodeAnimation_vs61j")
+states/PlayerAnims_Walk_Loop/position = Vector2(654, 164)
+states/PlayerAnims_Walk_Start/node = SubResource("AnimationNodeAnimation_xvtvh")
+states/PlayerAnims_Walk_Start/position = Vector2(328, 164)
+states/PlayerAnims_Walk_Stop/node = SubResource("AnimationNodeAnimation_knhu8")
+states/PlayerAnims_Walk_Stop/position = Vector2(1009, 164)
+states/Start/position = Vector2(75, 164)
+transitions = ["Start", "PlayerAnims_Walk_Start", SubResource("AnimationNodeStateMachineTransition_2ddc1"), "PlayerAnims_Walk_Start", "PlayerAnims_Walk_Loop", SubResource("AnimationNodeStateMachineTransition_u6ivu"), "PlayerAnims_Walk_Loop", "PlayerAnims_Walk_Stop", SubResource("AnimationNodeStateMachineTransition_a0jr2"), "PlayerAnims_Walk_Stop", "End", SubResource("AnimationNodeStateMachineTransition_ahxp4")]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xycc2"]
 animation = &"PlayerAnims/idle"
@@ -285,13 +319,12 @@ newTexture = ExtResource("6_5i8cn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(0.657904, 0.266716, -0.172985)
-bones/0/rotation = Quaternion(0.0149474, 0.0747261, -0.265723, 0.961033)
-bones/1/position = Vector3(0.348037, -0.374512, 0.018245)
-bones/1/rotation = Quaternion(-0.690655, 0.104027, -0.0903294, 0.70994)
-bones/2/position = Vector3(0.295576, -1.92047, 0.188951)
-bones/2/rotation = Quaternion(-0.081593, -0.00129141, 0.0123166, 0.996589)
-bones/2/scale = Vector3(1, 1, 1)
+bones/0/position = Vector3(0.027803, -0.0310636, -0.530456)
+bones/0/rotation = Quaternion(0.00401297, 5.61041e-05, 0.000196265, 0.999992)
+bones/1/position = Vector3(1.03756e-16, -0.598916, -0.318903)
+bones/1/rotation = Quaternion(-0.777837, -1.78704e-17, 1.78704e-17, 0.628466)
+bones/2/position = Vector3(-3.38782e-09, -1.94189, 0.165006)
+bones/2/rotation = Quaternion(-0.172067, 1.17431e-07, -2.05119e-08, 0.985085)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
 root_node = NodePath("../RoboterRig")
@@ -338,6 +371,7 @@ parameters/conditions/dashing = false
 parameters/conditions/idle = true
 parameters/conditions/secondIdle = true
 parameters/conditions/walking = false
+parameters/WalkMachine/conditions/stop_walking = false
 
 [node name="Particles" type="Node3D" parent="."]
 
