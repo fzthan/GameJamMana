@@ -2,15 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-path="res://.godot/imported/Master_Alpha.png-752a519f2bdc53fcb73500d3db45e849.ctex"
+uid="uid://chqpajquynb71"
+path="res://.godot/imported/Master_Metallic.png-b633c83a7a3c3cde0ba678e23cbc9bc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Prefabs/Level_Elements/Platforms/Falling_Platform/textures/Master_Alpha.png"
-dest_files=["res://.godot/imported/Master_Alpha.png-752a519f2bdc53fcb73500d3db45e849.ctex"]
+source_file="res://Prefabs/Level_Elements/Fan/textures/Master_Metallic.png"
+dest_files=["res://.godot/imported/Master_Metallic.png-b633c83a7a3c3cde0ba678e23cbc9bc3.ctex"]
 
 [params]
 

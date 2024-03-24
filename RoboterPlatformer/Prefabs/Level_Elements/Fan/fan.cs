@@ -11,7 +11,7 @@ public partial class fan : Node3D
 	public float rotationSpeed = 0.05f;
 	[Export]
 	public bool active = true;
-	private MeshInstance3D rotor;
+	private Node3D rotor;
 	private Vector3 direction = new Vector3(0,0,1);
 	private Player obj;
 	private bool activePush = false;
@@ -19,7 +19,7 @@ public partial class fan : Node3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		rotor = GetNode<MeshInstance3D>("Rotor");
+		rotor = GetNode<Node3D>("Fan_Rot_Textured");
 		direction = direction.Rotated(new Vector3(0,1,0), GlobalRotation.Y);
 	}
 
