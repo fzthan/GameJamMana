@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bgipgg2h4qmut" path="res://Prefabs/Level_Elements/Obstacle/ElectroSpike/electro_spike.tscn" id="7_kpkht"]
 [ext_resource type="PackedScene" uid="uid://i5rmvntvhpj4" path="res://Prefabs/Level_Elements/Obstacle/Turret/Turret_Mock.tscn" id="8_8scun"]
 [ext_resource type="PackedScene" uid="uid://dkrs76pv12o06" path="res://Prefabs/Level_Elements/Platforms/Falling_Platform/fallingPlatform.tscn" id="9_cxn2w"]
-[ext_resource type="PackedScene" uid="uid://dt4mtf7c1iafx" path="res://Prefabs/Particles/Clouds/Enviroment/Enviroment.tscn" id="10_p2t6t"]
+[ext_resource type="PackedScene" path="res://Prefabs/Particles/Clouds/Enviroment/Enviroment.tscn" id="10_p2t6t"]
 
 [node name="Level0" type="Node"]
 
