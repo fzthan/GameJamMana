@@ -17,7 +17,7 @@
 [node name="Level0" type="Node"]
 
 [node name="Enviroment" parent="." instance=ExtResource("1_i2t7c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.6266, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0597572, -11.6266, 0.102068)
 
 [node name="GameController" parent="." node_paths=PackedStringArray("player", "activeCheckpoint") instance=ExtResource("1_hxclj")]
 player = NodePath("../Player")
@@ -83,6 +83,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15, 9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 11, -101)
 
 [node name="PlatformMid3" parent="RampGroup1" instance=ExtResource("5_h5cf2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="PlatformMid4" parent="RampGroup1" instance=ExtResource("5_h5cf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 0)
@@ -94,7 +95,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5, -10)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, -10)
 
 [node name="PlatformMid7" parent="RampGroup1" instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 10, 0)
 
 [node name="RampMid2" parent="RampGroup1" instance=ExtResource("6_mddd6")]
 transform = Transform3D(-1, 0, 3.17865e-08, 0, 1, 0, -3.17865e-08, 0, -1, 5, 1.5, 0)
@@ -130,20 +131,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 10, -101)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 12, -101)
 
 [node name="PlatformMid7" parent="." instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28, 21, -101)
 
 [node name="Turret_1" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8144, 21.4387, -120.445)
 turret_Range = 15.0
 
 [node name="PlatformMid8" parent="." instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33, 21, -101)
 
 [node name="PlatformMid9" parent="." instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 38, 21, -101)
 
 [node name="PlatformMid10" parent="." instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43, 21, -101)
 
 [node name="PlatformSmall10" parent="." instance=ExtResource("4_7uvj2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.75, 21, -101)
@@ -164,11 +165,11 @@ transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 38.738
 transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 40.7382, 21.9587, -97.391)
 
 [node name="Checkpoint" parent="." instance=ExtResource("11_d3wwp")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 21.8296, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 22.12, -0.130488)
 SpawnLocation = 4
 
 [node name="Checkpoint2" parent="." instance=ExtResource("11_d3wwp")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 22.5, 12.8296, -104)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 23.0441, 13.0955, -104)
 SpawnLocation = 4
 
 [node name="PlatformMid11" parent="." instance=ExtResource("5_h5cf2")]
@@ -181,7 +182,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.25, 21, -101)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.75, 21, -101)
 
 [node name="Checkpoint3" parent="." instance=ExtResource("11_d3wwp")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 65.5, 22.8296, -104)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 65.0286, 23.0975, -104)
 SpawnLocation = 4
 
 [node name="PlatformSmall12" parent="." instance=ExtResource("4_7uvj2")]
