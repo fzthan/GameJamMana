@@ -338,10 +338,10 @@ newTexture = ExtResource("6_7yveu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(-3.15992e-17, 0.0658029, -0.124325)
-bones/0/rotation = Quaternion(-0.0192862, 0, 0, 0.999814)
-bones/1/position = Vector3(-0.0236158, -0.461569, 0.0518678)
-bones/2/position = Vector3(0.0480486, -1.86461, 0.230041)
+bones/0/position = Vector3(-3.15992e-17, 0.0685565, -0.129527)
+bones/0/rotation = Quaternion(-0.0200918, 0, 0, 0.999798)
+bones/1/position = Vector3(-0.0246304, -0.458262, 0.0506153)
+bones/2/position = Vector3(0.0497454, -1.86304, 0.231584)
 bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
