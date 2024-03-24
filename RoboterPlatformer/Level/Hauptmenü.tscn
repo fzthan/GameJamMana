@@ -193,6 +193,7 @@ bank = {
 "name": "Init"
 }
 load_on = 1
+unload_on = 3
 
 [node name="AkBank" type="AkBank" parent="AkBank"]
 bank = {
@@ -200,6 +201,7 @@ bank = {
 "name": "Main"
 }
 load_on = 1
+unload_on = 3
 
 [node name="AkEvent3D" type="AkEvent3D" parent="AkBank/AkBank"]
 event = {
