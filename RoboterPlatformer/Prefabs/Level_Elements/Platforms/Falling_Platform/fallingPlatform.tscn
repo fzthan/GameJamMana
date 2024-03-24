@@ -25,6 +25,7 @@ mesh = SubResource("BoxMesh_6uw5h")
 shape = SubResource("BoxShape3D_5ln3o")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="Area3D" type="Area3D" parent="."]
