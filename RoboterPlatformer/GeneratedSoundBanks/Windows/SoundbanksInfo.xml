@@ -165,7 +165,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="2782712965" Type="User" Language="SFX" Hash="{EC6BC1F9-B1A2-58F9-8E9C-01303EE28F6B}">
+		<SoundBank Id="2782712965" Type="User" Language="SFX" Hash="{DA2D04B5-A438-0EC7-042B-74448A1EF40A}">
 			<ShortName>Level</ShortName>
 			<Path>Level.bnk</Path>
 			<Media>
@@ -176,6 +176,10 @@
 				<File Id="697110714" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Idle_Jet.wav</ShortName>
 					<CachePath>SFX/Idle_Jet_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="805579572" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_Explosion.wav</ShortName>
+					<CachePath>SFX/Player_Explosion_818F3B66.wem</CachePath>
 				</File>
 				<File Id="974611646" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LevelMusicStart.wav</ShortName>
@@ -194,12 +198,35 @@
 						<MediaRef Id="697110714"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2912748806" Name="Play_On_Death">
+					<MediaRefs>
+						<MediaRef Id="805579572"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3B51E889-948F-7EDA-A1E8-111109B087A1}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{46A97863-1105-3734-B204-781C68C5CFBF}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="131509933" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MainStart.wav</ShortName>
+					<CachePath>SFX/MainStart_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="324841009" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MainLoop.wav</ShortName>
+					<CachePath>SFX/MainLoop_FBC78EF0.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="161991979" Name="Main_Start">
+					<MediaRefs>
+						<MediaRef Id="131509933"/>
+						<MediaRef Id="324841009"/>
+					</MediaRefs>
+				</Event>
+			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DCE8846B-A54C-5811-EAB6-0322A2FAF1E4}</FileHash>
+	<FileHash>{5B61FDF5-8755-4726-7468-90C90D69F27A}</FileHash>
 </SoundBanksInfo>

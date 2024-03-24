@@ -14,6 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_On_Death" ID="{EF5CF729-11EF-4D29-B1A3-D983F60537F3}">
+					<ChildrenList>
+						<Action Name="" ID="{339732B2-174C-4368-AD91-ACDD9AFD6338}" ShortID="192122625">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Explosion" ID="{3862BA7A-F37B-4EAC-BE2C-E0D039CC00DC}" WorkUnitID="{25D093CD-7C2F-4803-B955-C8CD652852C0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

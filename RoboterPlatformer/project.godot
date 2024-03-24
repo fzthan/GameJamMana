@@ -22,10 +22,6 @@ WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 
 project/assembly_name="RoboterPlatformer"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/Wwise/plugin.cfg")
-
 [input]
 
 move_forward={
