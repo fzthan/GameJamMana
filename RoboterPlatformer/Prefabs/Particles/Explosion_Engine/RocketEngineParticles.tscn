@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcvse2gohmf1u"]
+[gd_scene load_steps=12 format=3 uid="uid://bcvse2gohmf1u"]
 
 [ext_resource type="Material" uid="uid://cca6w6s666x5v" path="res://Prefabs/Particles/Explosion_Engine/Resources/Mat_Flare00.tres" id="1_xtbbt"]
-[ext_resource type="PackedScene" uid="uid://ccyxnn7ljgjgk" path="res://Prefabs/Player/RoboterRig.blend" id="2_p1cyc"]
 
 [sub_resource type="Curve" id="Curve_x04xq"]
 max_value = 5.0
@@ -145,5 +144,3 @@ process_material = SubResource("ParticleProcessMaterial_5l4ns")
 draw_pass_1 = SubResource("QuadMesh_vmuy6")
 
 [node name="Boost" type="Node3D" parent="Engines"]
-
-[node name="RoboterRig" parent="." instance=ExtResource("2_p1cyc")]
