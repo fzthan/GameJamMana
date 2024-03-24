@@ -52,34 +52,34 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 2
 [node name="electroSpikesGroup1" type="Node3D" parent="."]
 
 [node name="electroSpike" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 6, -78)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 5.73655, -78)
 
 [node name="electroSpike2" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 6, -80)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 5.73655, -80)
 
 [node name="electroSpike3" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 6, -82)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 5.73655, -82)
 
 [node name="electroSpike4" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 6, -78)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 5.73655, -78)
 
 [node name="electroSpike5" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 6, -80)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 5.73655, -80)
 
 [node name="electroSpike6" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 6, -82)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 5.73655, -82)
 
 [node name="electroSpike7" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6, -77)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 5.73655, -77.5851)
 
 [node name="electroSpike8" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6, -77)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 5.73655, -77.5851)
 
 [node name="PlatformMid2" parent="electroSpikesGroup1" instance=ExtResource("5_h5cf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 5, -80)
 
 [node name="electroSpike9" parent="." instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 21, -39)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 20.7683, -40)
 
 [node name="electroSpike10" parent="." instance=ExtResource("4_e5p6y")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15, 9, -91)
@@ -130,18 +130,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 8, -90)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 10, -96)
 
 [node name="PlatformSmall8" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 10, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 10, -101)
 
 [node name="PlatformSmall9" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 12, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 12, -101)
 
 [node name="PlatformMid7" parent="." instance=ExtResource("5_h5cf2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28, 21, -101)
+
 
 [node name="Turret_4" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(0.0198081, 0, 0.999804, 0, 1, 0, -0.999804, 0, 0.0198081, 12.5367, 22.5311, -16.1195)
 skeleton = NodePath("../Turret_1")
 turret_Range = 15.0
+
 
 [node name="Turret_1" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8144, 21.4387, -120.445)
@@ -160,7 +162,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43, 21
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.75, 21, -101)
 
 [node name="PlatformSmall11" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.75, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 54.75, 21, -101)
 
 [node name="electroSpike11" parent="." instance=ExtResource("4_e5p6y")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 51, 23, -101)
@@ -186,35 +188,35 @@ SpawnLocation = 4
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 65, 21, -101)
 
 [node name="FallingPlatform" parent="." instance=ExtResource("9_j2lah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.25, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 57.25, 21, -101)
 
 [node name="FallingPlatform2" parent="." instance=ExtResource("9_j2lah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.75, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 59.75, 21, -101)
 
 [node name="Checkpoint3" parent="." instance=ExtResource("11_d3wwp")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 65.0286, 23.0975, -104)
 SpawnLocation = 4
 
 [node name="PlatformSmall12" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.75, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.75, 21, -101)
 
 [node name="PlatformSmall13" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.75, 24, -105)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 79.75, 24, -105)
 
 [node name="PlatformSmall14" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.75, 26, -105)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 89.75, 26, -105)
 
 [node name="PlatformSmall15" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.75, 26, -105)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 101.75, 26, -105)
 
 [node name="PlatformSmall16" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.75, 22, -105)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 113.75, 22, -105)
 
 [node name="PlatformSmall17" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.75, 22, -103)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 128.75, 22, -103)
 
 [node name="PlatformSmall18" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.75, 22, -94)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 138.75, 22, -94)
 
 [node name="Turret_2" parent="." instance=ExtResource("8_obq7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.8144, 23.2536, -116.445)
@@ -225,16 +227,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.814, 22.2536, -82.445)
 turret_Range = 20.0
 
 [node name="PlatformSmall19" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 161.75, 22, -94)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 161.75, 22, -94)
 
 [node name="FallingPlatform3" parent="." instance=ExtResource("9_j2lah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.75, 21, -95)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149.75, 21, -95)
 
 [node name="PlatformSmall20" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.75, 17, -94)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 189.75, 17, -94)
 
 [node name="PlatformSmall21" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.75, 17, -94)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200.75, 17, -94)
 
 [node name="PlatformMid12" parent="." instance=ExtResource("5_h5cf2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 213, 21, -92)
