@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://vqk74htqtp0i"]
-
-[ext_resource type="PackedScene" uid="uid://xelewe5fxwsy" path="res://RoboterRig.blend" id="1_y5e7c"]
-
-[node name="RoboterRig" instance=ExtResource("1_y5e7c")]
-
-[node name="Skeleton3D" parent="Armature" index="0"]
-bones/2/position = Vector3(8.14636e-16, -1.90922, 0.186361)

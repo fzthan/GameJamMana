@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqrqas34dk2pf"]
+
+[ext_resource type="Script" path="res://MenuBot.gd" id="1_gyc1d"]
+[ext_resource type="PackedScene" uid="uid://ccyxnn7ljgjgk" path="res://Prefabs/Player/RoboterRig.blend" id="2_t20bo"]
+[ext_resource type="AnimationLibrary" uid="uid://b4drentlc8mgl" path="res://Prefabs/Player/Resources/Anim/Menu/MenuPlayerAnim.res" id="3_gufie"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hbnmf"]
+animation = &"MenuPlayerAnim/Idle2_menu"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_65cd6"]
+animation = &"MenuPlayerAnim/idle_menu"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ni7fr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lflv6"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"idleSecond"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ol64a"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vv63a"]
+advance_mode = 2
+advance_condition = &"end"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f5lvt"]
+states/End/position = Vector2(1173, 94)
+states/MenuPlayerAnim_Idle2_menu/node = SubResource("AnimationNodeAnimation_hbnmf")
+states/MenuPlayerAnim_Idle2_menu/position = Vector2(829, 94)
+states/MenuPlayerAnim_idle_menu/node = SubResource("AnimationNodeAnimation_65cd6")
+states/MenuPlayerAnim_idle_menu/position = Vector2(414, 100)
+transitions = ["Start", "MenuPlayerAnim_idle_menu", SubResource("AnimationNodeStateMachineTransition_ni7fr"), "MenuPlayerAnim_idle_menu", "MenuPlayerAnim_Idle2_menu", SubResource("AnimationNodeStateMachineTransition_lflv6"), "MenuPlayerAnim_Idle2_menu", "MenuPlayerAnim_idle_menu", SubResource("AnimationNodeStateMachineTransition_ol64a"), "MenuPlayerAnim_Idle2_menu", "End", SubResource("AnimationNodeStateMachineTransition_vv63a")]
+
+[node name="MenuBot" type="Node3D"]
+script = ExtResource("1_gyc1d")
+
+[node name="RoboterRig" parent="." instance=ExtResource("2_t20bo")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.528568, 0)
+
+[node name="Skeleton3D" parent="RoboterRig/Armature_001" index="0"]
+bones/0/position = Vector3(-3.15992e-17, 0.0580259, -0.109631)
+bones/0/rotation = Quaternion(-0.0170021, 0, 0, 0.999856)
+bones/1/position = Vector3(-0.0206554, -0.471219, 0.0555224)
+bones/2/position = Vector3(0.0430237, -1.86928, 0.225473)
+bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
+
+[node name="RealAnimationPlayer" type="AnimationPlayer" parent="RoboterRig"]
+libraries = {
+"MenuPlayerAnim": ExtResource("3_gufie")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../RoboterRig")
+libraries = {
+"MenuPlayerAnim": ExtResource("3_gufie")
+}
+tree_root = SubResource("AnimationNodeStateMachine_f5lvt")
+anim_player = NodePath("../RoboterRig/RealAnimationPlayer")
+parameters/conditions/end = false
+parameters/conditions/idleSecond = false
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[editable path="RoboterRig"]

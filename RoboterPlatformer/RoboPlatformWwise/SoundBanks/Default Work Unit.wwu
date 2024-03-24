@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6CBBD6A4-056F-4EDC-A023-B9FCD3FE3E7B}" SchemaVersion="119">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{6CBBD6A4-056F-4EDC-A023-B9FCD3FE3E7B}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{3E1AA638-B868-47DF-B11E-CB6C2E10E6F1}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Main_Start" ID="{42BB930E-364C-432D-B828-A15B191C60DE}" WorkUnitID="{29968E0B-67A4-4E2B-B70F-AF9EBA4A2683}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Level" ID="{334EB0DC-33D3-4804-9BA6-3096EDB9CAB0}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Level_Start" ID="{183C5FE4-F1CA-4943-BF58-29807F5BB36E}" WorkUnitID="{29968E0B-67A4-4E2B-B70F-AF9EBA4A2683}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_On_Death" ID="{EF5CF729-11EF-4D29-B1A3-D983F60537F3}" WorkUnitID="{35500A41-2C95-4963-9ADA-7DDA1A1283D5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Idle_Jet" ID="{B5E573D9-26B8-4F0D-BA33-7A1AA803C491}" WorkUnitID="{35500A41-2C95-4963-9ADA-7DDA1A1283D5}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

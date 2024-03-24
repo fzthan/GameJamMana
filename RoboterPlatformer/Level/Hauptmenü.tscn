@@ -1,0 +1,219 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7sr1eplgtsx0"]
+
+[ext_resource type="Script" path="res://Level/CanvasLayer.gd" id="1_useih"]
+[ext_resource type="Texture2D" uid="uid://ctt87nbb5dtlx" path="res://UI/Resources/Lautstärke.svg" id="2_ljokf"]
+[ext_resource type="PackedScene" uid="uid://dqrqas34dk2pf" path="res://Prefabs/Level_Elements/Menu/menu_bot.tscn" id="3_yug5b"]
+[ext_resource type="PackedScene" uid="uid://bcvse2gohmf1u" path="res://Prefabs/Particles/Explosion_Engine/RocketEngineParticles.tscn" id="10_152ar"]
+[ext_resource type="PackedScene" uid="uid://dt4mtf7c1iafx" path="res://Prefabs/Particles/Clouds/Enviroment/Enviroment.tscn" id="11_10nvq"]
+
+[node name="Hauptmenü" type="Node3D"]
+
+[node name="CanvasLayer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_useih")
+
+[node name="New Game" type="Button" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -61.0
+offset_right = 80.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "New Game"
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 39.0
+offset_right = 80.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(0.305882, 1, 0.956863, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 110.0
+offset_right = 112.0
+offset_bottom = 152.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Robots vs. Wrestlers
+(without Wrestlers)"
+horizontal_alignment = 1
+
+[node name="MusicVolume" type="HSlider" parent="CanvasLayer"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -7.0
+offset_right = 80.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -6.0
+offset_right = 606.0
+offset_bottom = 677.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_ljokf")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -299.0
+offset_top = -46.0
+offset_right = -22.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Made with Love by Team KANU 4 <3"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -3.58582)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Robot_Left" type="Node3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="MenuBot" parent="Node/Robot_Left" instance=ExtResource("3_yug5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="Particles" type="Node3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="RocketEngine" parent="Node/Particles" instance=ExtResource("10_152ar")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.262575, 0.0398403)
+
+[node name="Smoke" parent="Node/Particles/RocketEngine/Engines/Normal/Normal_3" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Node/Particles/RocketEngine/Engines/Normal/Normal_3" index="1"]
+transform = Transform3D(1, -5.96046e-08, 2.98023e-08, -2.98023e-08, 1, 0, 0, 2.98023e-08, 1, 0.00775698, 0.0778913, -0.10403)
+amount = 20
+
+[node name="Smoke" parent="Node/Particles/RocketEngine/Engines/Normal/Normal_Back" index="0"]
+emitting = false
+
+[node name="Fire2" parent="Node/Particles/RocketEngine/Engines/Normal/Normal_Back" index="1"]
+emitting = false
+
+[node name="Smoke" parent="Node/Particles/RocketEngine/Engines/Normal/Normal_1" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Node/Particles/RocketEngine/Engines/Normal/Normal_1" index="1"]
+amount = 20
+
+[node name="Pivot2" type="Node3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Robot_Right" type="Node3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="RocketEngine" parent="Node/Robot_Right" instance=ExtResource("10_152ar")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.262575, 0.0398403)
+
+[node name="Smoke" parent="Node/Robot_Right/RocketEngine/Engines/Normal/Normal_3" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Node/Robot_Right/RocketEngine/Engines/Normal/Normal_3" index="1"]
+transform = Transform3D(1, -5.96046e-08, 2.98023e-08, -2.98023e-08, 1, 0, 0, 2.98023e-08, 1, 0.00775698, 0.0778913, -0.10403)
+amount = 20
+
+[node name="Smoke" parent="Node/Robot_Right/RocketEngine/Engines/Normal/Normal_Back" index="0"]
+emitting = false
+
+[node name="Fire2" parent="Node/Robot_Right/RocketEngine/Engines/Normal/Normal_Back" index="1"]
+emitting = false
+
+[node name="Smoke" parent="Node/Robot_Right/RocketEngine/Engines/Normal/Normal_2" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Node/Robot_Right/RocketEngine/Engines/Normal/Normal_2" index="1"]
+amount = 20
+
+[node name="Smoke" parent="Node/Robot_Right/RocketEngine/Engines/Normal/Normal_1" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Node/Robot_Right/RocketEngine/Engines/Normal/Normal_1" index="1"]
+amount = 20
+
+[node name="MenuBot" parent="Node/Robot_Right" instance=ExtResource("3_yug5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.223831, 0)
+
+[node name="Enviroment" parent="." instance=ExtResource("11_10nvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.6266, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.938866, -0.242474, 0.244411, 0, 0.709915, 0.704287, -0.344282, -0.661232, 0.666515, 0, -2.15045, 0)
+
+[node name="AkBank" type="AkBank" parent="."]
+bank = {
+"id": 1355168291,
+"name": "Init"
+}
+load_on = 1
+
+[node name="AkBank" type="AkBank" parent="AkBank"]
+bank = {
+"id": 3161908922,
+"name": "Main"
+}
+load_on = 1
+
+[node name="AkEvent3D" type="AkEvent3D" parent="AkBank/AkBank"]
+event = {
+"id": 161991979,
+"name": "Main_Start"
+}
+trigger_on = 1
+stop_on = 3
+
+[node name="AkListener3D" type="AkListener3D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/New Game" to="CanvasLayer" method="onNewGame"]
+[connection signal="pressed" from="CanvasLayer/Exit" to="CanvasLayer" method="onExit"]
+[connection signal="value_changed" from="CanvasLayer/MusicVolume" to="CanvasLayer" method="onValueChanged"]
+
+[editable path="Node/Particles/RocketEngine"]
+[editable path="Node/Robot_Right/RocketEngine"]

@@ -20,11 +20,8 @@ func _process(delta):
 		mesh.visible = false
 		yellow.emitting = true
 		red.emitting = true
-		print("collided")
-		print(ray.get_collider())
 		
 		if ray.get_collider().is_in_group("player"):
-			print("damage")
 			ray.get_collider().call("TakeDamage", 5)
 			ray.enabled = false
 		

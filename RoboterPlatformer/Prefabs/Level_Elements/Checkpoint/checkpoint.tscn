@@ -1,27 +1,76 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm1abhwfs6uhi"]
+[gd_scene load_steps=11 format=3 uid="uid://dm1abhwfs6uhi"]
 
 [ext_resource type="Script" path="res://Prefabs/Level_Elements/Checkpoint/Checkpoint.cs" id="1_aslfu"]
+[ext_resource type="PackedScene" uid="uid://7ion1grdaw8d" path="res://Prefabs/Level_Elements/Checkpoint/Resources/checkpointSpawn_Textured.blend" id="2_qsggf"]
+[ext_resource type="Texture2D" uid="uid://dokds22t8fc1w" path="res://Prefabs/Particles/Explosion_Engine/Resources/Flare00.PNG" id="3_du63w"]
+[ext_resource type="Material" uid="uid://byx68ushwfv06" path="res://Prefabs/Particles/Explosion_Engine/Resources/Sparks.tres" id="4_ode4j"]
+[ext_resource type="Script" path="res://Prefabs/Level_Elements/Checkpoint/Sparks.gd" id="5_ltybr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhpqr"]
-albedo_color = Color(0, 0.764706, 0.203922, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tcvgf"]
+height = 3.15783
+radius = 1.60768
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16kfe"]
-albedo_color = Color(0, 0.411765, 0.890196, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q834s"]
+height = 2.52269
+radius = 0.854962
 
-[sub_resource type="BoxMesh" id="BoxMesh_h8fta"]
-material = SubResource("StandardMaterial3D_16kfe")
-size = Vector3(1, 4, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fmmpw"]
+height = 0.172751
+radius = 1.57819
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jxjfj"]
-size = Vector3(1, 4, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5w0cq"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_du63w")
+
+[sub_resource type="QuadMesh" id="QuadMesh_oy2uk"]
 
 [node name="Checkpoint" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, 0)
 script = ExtResource("1_aslfu")
-checkedMaterial = SubResource("StandardMaterial3D_nhpqr")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_h8fta")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_jxjfj")
+shape = SubResource("CylinderShape3D_tcvgf")
+
+[node name="SpawnLocations" type="Node3D" parent="."]
+
+[node name="Left" type="Node3D" parent="SpawnLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35497, 0, 0)
+
+[node name="Right" type="Node3D" parent="SpawnLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13138, 0, 0)
+
+[node name="Front" type="Node3D" parent="SpawnLocations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.38573)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="checkpointSpawn_Textured" parent="StaticBody3D" instance=ExtResource("2_qsggf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.559, 0)
+
+[node name="Tube" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_q834s")
+
+[node name="Base" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53501, 0)
+shape = SubResource("CylinderShape3D_fmmpw")
+
+[node name="Top" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49054, 0)
+shape = SubResource("CylinderShape3D_fmmpw")
+
+[node name="Sparks" type="GPUParticles3D" parent="StaticBody3D/Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.49054, 0)
+material_override = SubResource("StandardMaterial3D_5w0cq")
+emitting = false
+amount = 50
+lifetime = 1.12
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = ExtResource("4_ode4j")
+draw_pass_1 = SubResource("QuadMesh_oy2uk")
+script = ExtResource("5_ltybr")
+
+[connection signal="PlayerRegistered" from="." to="StaticBody3D/Top/Sparks" method="_on_checkpoint_player_registered"]

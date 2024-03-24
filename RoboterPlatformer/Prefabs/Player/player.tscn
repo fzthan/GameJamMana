@@ -1,13 +1,374 @@
-[gd_scene load_steps=5 format=3 uid="uid://djv4w8iahv6ct"]
+[gd_scene load_steps=39 format=3 uid="uid://djv4w8iahv6ct"]
 
 [ext_resource type="Script" path="res://Prefabs/Player/Player.cs" id="1_hfciw"]
 [ext_resource type="PackedScene" uid="uid://ccyxnn7ljgjgk" path="res://Prefabs/Player/RoboterRig.blend" id="2_tl11t"]
+[ext_resource type="Script" path="res://Prefabs/Player/RoboterRig.cs" id="3_mdq5q"]
+[ext_resource type="Material" uid="uid://d25mr3w2t4lpk" path="res://Prefabs/Player/Resources/Master.tres" id="4_v05mc"]
+[ext_resource type="Texture2D" uid="uid://brfaeo404pxxi" path="res://Prefabs/Player/textures/Master_BaseColor.png" id="5_6yv6h"]
+[ext_resource type="PackedScene" uid="uid://bcvse2gohmf1u" path="res://Prefabs/Particles/Explosion_Engine/RocketEngineParticles.tscn" id="6_3j1c2"]
+[ext_resource type="Texture2D" uid="uid://whxiky024jps" path="res://Prefabs/Player/Resources/Master_BaseColor2.png" id="6_7yveu"]
+[ext_resource type="AnimationLibrary" uid="uid://cth74oof0mssd" path="res://Prefabs/Player/Resources/Anim/PlayerAnims.tres" id="7_y217k"]
+
+[sub_resource type="Animation" id="Animation_53gd4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../CollisionBean:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../CollisionBean:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../CollisionRing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00338483, -0.368228, 0.0845826)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../CollisionRing:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../AnimationTree:parameters/conditions/secondIdle")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:amount")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [40]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:amount")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [200]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00775695, 0.0515604, -0.323359)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back/Smoke:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.110855)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0121315, 0.33345, 0.802209)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_Back:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_3:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.312735, -2.59201, -0.656146)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_3:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.989602, -2.55167, -3.14159)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_2:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.744182, -2.63062, 0.14018)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_2:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.13795, 1.6411, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_1:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.429563, -2.65733, 0.729643)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../Particles/RocketEngine/Engines/Normal/Normal_1:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.842994, -0.506146, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_khfme"]
+_data = {
+"RESET": SubResource("Animation_53gd4")
+}
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5lqi7"]
 height = 0.1
 radius = 0.7
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qq64u"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bym7u"]
+animation = &"PlayerAnims/Dash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f5gh3"]
+animation = &"PlayerAnims/Idle2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ulc4"]
+animation = &"PlayerAnims/idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eeudr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_glc0b"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"secondIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mmxne"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kyjcx"]
+advance_mode = 2
+advance_expression = "idle | dashing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbik1"]
+advance_mode = 2
+advance_expression = "idle == false"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hjr14"]
+states/PlayerAnims_Idle2/node = SubResource("AnimationNodeAnimation_f5gh3")
+states/PlayerAnims_Idle2/position = Vector2(382, 241)
+states/PlayerAnims_idle/node = SubResource("AnimationNodeAnimation_6ulc4")
+states/PlayerAnims_idle/position = Vector2(382, 100)
+transitions = ["Start", "PlayerAnims_idle", SubResource("AnimationNodeStateMachineTransition_eeudr"), "PlayerAnims_idle", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_glc0b"), "PlayerAnims_Idle2", "PlayerAnims_idle", SubResource("AnimationNodeStateMachineTransition_mmxne"), "PlayerAnims_idle", "End", SubResource("AnimationNodeStateMachineTransition_kyjcx"), "PlayerAnims_Idle2", "End", SubResource("AnimationNodeStateMachineTransition_bbik1")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vs61j"]
+animation = &"PlayerAnims/Walk_Loop"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xvtvh"]
+animation = &"PlayerAnims/Walk_Start"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_knhu8"]
+animation = &"PlayerAnims/Walk_Stop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ddc1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u6ivu"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a0jr2"]
+xfade_time = 0.5
+advance_mode = 2
+advance_expression = "!get(\"parameters/conditions/walking\")"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahxp4"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sgxn4"]
+advance_mode = 2
+advance_expression = "get(\"parameters/conditions/dashing\")"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fd82h"]
+states/End/position = Vector2(1301, 164)
+states/PlayerAnims_Walk_Loop/node = SubResource("AnimationNodeAnimation_vs61j")
+states/PlayerAnims_Walk_Loop/position = Vector2(723, 269)
+states/PlayerAnims_Walk_Start/node = SubResource("AnimationNodeAnimation_xvtvh")
+states/PlayerAnims_Walk_Start/position = Vector2(328, 164)
+states/PlayerAnims_Walk_Stop/node = SubResource("AnimationNodeAnimation_knhu8")
+states/PlayerAnims_Walk_Stop/position = Vector2(1009, 164)
+states/Start/position = Vector2(75, 164)
+transitions = ["Start", "PlayerAnims_Walk_Start", SubResource("AnimationNodeStateMachineTransition_2ddc1"), "PlayerAnims_Walk_Start", "PlayerAnims_Walk_Loop", SubResource("AnimationNodeStateMachineTransition_u6ivu"), "PlayerAnims_Walk_Loop", "PlayerAnims_Walk_Stop", SubResource("AnimationNodeStateMachineTransition_a0jr2"), "PlayerAnims_Walk_Stop", "End", SubResource("AnimationNodeStateMachineTransition_ahxp4"), "PlayerAnims_Walk_Loop", "End", SubResource("AnimationNodeStateMachineTransition_sgxn4")]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ms3aa"]
+advance_mode = 2
+advance_condition = &"dashing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xn2gv"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_87qxx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ym73"]
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jyek5"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5i8jb"]
+advance_mode = 2
+advance_condition = &"dashing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yi4r7"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_16jgs"]
+states/Dash/node = SubResource("AnimationNodeAnimation_bym7u")
+states/Dash/position = Vector2(591, 118)
+states/IdleLoop/node = SubResource("AnimationNodeStateMachine_hjr14")
+states/IdleLoop/position = Vector2(232, 118)
+states/Start/position = Vector2(36, 118)
+states/WalkMachine/node = SubResource("AnimationNodeStateMachine_fd82h")
+states/WalkMachine/position = Vector2(423, -6)
+transitions = ["WalkMachine", "Dash", SubResource("AnimationNodeStateMachineTransition_ms3aa"), "Dash", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_xn2gv"), "Start", "IdleLoop", SubResource("AnimationNodeStateMachineTransition_87qxx"), "IdleLoop", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_6ym73"), "WalkMachine", "IdleLoop", SubResource("AnimationNodeStateMachineTransition_jyek5"), "IdleLoop", "Dash", SubResource("AnimationNodeStateMachineTransition_5i8jb"), "Dash", "IdleLoop", SubResource("AnimationNodeStateMachineTransition_yi4r7")]
+graph_offset = Vector2(-186, -72)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_hfciw")
@@ -16,6 +377,67 @@ script = ExtResource("1_hfciw")
 
 [node name="RoboterRig" parent="Pivot" instance=ExtResource("2_tl11t")]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -0.00506377, 0.23551, 0.019309)
+script = ExtResource("3_mdq5q")
+texture = ExtResource("4_v05mc")
+oldTexture = ExtResource("5_6yv6h")
+newTexture = ExtResource("6_7yveu")
+
+[node name="Armature_001" parent="Pivot/RoboterRig" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
+
+[node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
+bones/0/position = Vector3(-3.15992e-17, 0.0898521, -0.169763)
+bones/0/rotation = Quaternion(-0.0263342, 0, 0, 0.999653)
+bones/1/position = Vector3(-0.0318504, -0.434726, 0.0417023)
+bones/2/position = Vector3(0.0613686, -1.85225, 0.24215)
+bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
+root_node = NodePath("../RoboterRig")
+libraries = {
+"": SubResource("AnimationLibrary_khfme"),
+"PlayerAnims": ExtResource("7_y217k")
+}
+
+[node name="Particles" type="Node3D" parent="Pivot"]
+
+[node name="RocketEngine" parent="Pivot/Particles" instance=ExtResource("6_3j1c2")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.262575, 0.0398403)
+
+[node name="Normal_3" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="0"]
+transform = Transform3D(0.830985, 0.464955, -0.305419, -1.39187e-06, -0.549023, -0.835807, -0.556295, 0.694544, -0.456229, -0.312735, -2.59201, -0.656146)
+
+[node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_3" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_3" index="1"]
+transform = Transform3D(1, -5.96046e-08, 2.98023e-08, -2.98023e-08, 1, 0, 0, 2.98023e-08, 1, 0.00775698, 0.0778913, -0.10403)
+amount = 20
+
+[node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_Back" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.110855)
+
+[node name="Fire2" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_Back" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00775695, 0.0515604, -0.323359)
+emitting = false
+
+[node name="Normal_2" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="2"]
+transform = Transform3D(-0.0702458, 0.905533, 0.41842, 0, 0.419456, -0.907775, -0.99753, -0.0637674, -0.029465, 0.744182, -2.63062, 0.14018)
+
+[node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_2" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_2" index="1"]
+amount = 20
+
+[node name="Normal_1" parent="Pivot/Particles/RocketEngine/Engines/Normal" index="3"]
+transform = Transform3D(0.87462, -0.361977, -0.32251, 0, 0.66523, -0.746638, 0.48481, 0.653024, 0.581823, -0.429563, -2.65733, 0.729643)
+
+[node name="Smoke" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_1" index="0"]
+amount = 10
+
+[node name="Fire2" parent="Pivot/Particles/RocketEngine/Engines/Normal/Normal_1" index="1"]
+amount = 20
 
 [node name="CollisionRing" type="CollisionShape3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00338483, -0.368228, 0.0845826)
@@ -38,3 +460,35 @@ one_shot = true
 process_callback = 0
 wait_time = 2.0
 one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Pivot/RoboterRig")
+libraries = {
+"": SubResource("AnimationLibrary_khfme"),
+"PlayerAnims": ExtResource("7_y217k")
+}
+tree_root = SubResource("AnimationNodeStateMachine_16jgs")
+anim_player = NodePath("../Pivot/AnimationPlayer2")
+parameters/conditions/dashing = false
+parameters/conditions/idle = true
+parameters/conditions/walking = false
+parameters/IdleLoop/conditions/secondIdle = false
+
+[node name="AkEvent3D" type="AkEvent3D" parent="."]
+event = {
+"id": 2264495988,
+"name": "Play_Idle_Jet"
+}
+trigger_on = 2
+stop_on = 3
+
+[node name="AkListener3D" type="AkListener3D" parent="."]
+
+[node name="AkEvent3D_Death" type="AkEvent3D" parent="."]
+
+[editable path="Pivot/RoboterRig"]
+[editable path="Pivot/Particles/RocketEngine"]

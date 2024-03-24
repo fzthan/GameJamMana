@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bspkla8wvxsmw"]
+
+[ext_resource type="Script" path="res://Prefabs/Level_Elements/Finish/Finish.cs" id="1_2ibpj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0va6r"]
+size = Vector3(4, 1, 4)
+
+[node name="Finish" type="Area3D"]
+script = ExtResource("1_2ibpj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0va6r")
+
+[connection signal="body_entered" from="." to="." method="_OnBodyEntered"]

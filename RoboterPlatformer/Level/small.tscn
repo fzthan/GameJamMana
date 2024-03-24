@@ -39,7 +39,9 @@ player = NodePath("../Player")
 activeCheckpoint = NodePath("../Checkpoint")
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_kr1wp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.08, 7)
+SpawnLocation = 4
 
 [node name="Checkpoint2" parent="." instance=ExtResource("5_kr1wp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -6.89649)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 2.08, -6.896)
+SpawnLocation = 4

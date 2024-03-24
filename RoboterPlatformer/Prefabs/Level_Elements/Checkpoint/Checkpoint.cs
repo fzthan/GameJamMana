@@ -2,10 +2,13 @@ using Godot;
 
 public partial class Checkpoint : Area3D
 {
-  [Export]
-  private Material checkedMaterial;
   [Signal]
   public delegate void PlayerRegisteredEventHandler(Checkpoint checkpoint);
+  public enum SPAWN_LOCATIONS {
+    LEFT = 0b0000001, RIGHT = 0b0000010, FRONT = 0b0000100
+  }
+  [Export]
+  public SPAWN_LOCATIONS SpawnLocation { get; private set; } = SPAWN_LOCATIONS.LEFT;
   private bool isActive;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -17,7 +20,6 @@ public partial class Checkpoint : Area3D
   public void _OnBodyEntered(Node3D body) {
     if(!isActive && body is Player) {
       isActive = true;
-      GetChild<MeshInstance3D>(0).MaterialOverride = checkedMaterial;
       EmitSignal(SignalName.PlayerRegistered, this);
     }
   }
@@ -29,9 +31,5 @@ public partial class Checkpoint : Area3D
 
   public void SetActive(bool active) {
     isActive = active;
-    if(active)
-      GetChild<MeshInstance3D>(0).MaterialOverride = checkedMaterial;
-    else
-      GetChild<MeshInstance3D>(0).MaterialOverride = null;
   }
 }

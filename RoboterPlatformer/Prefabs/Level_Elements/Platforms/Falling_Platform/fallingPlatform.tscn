@@ -1,9 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkrs76pv12o06"]
 
 [ext_resource type="Script" path="res://Prefabs/Level_Elements/Platforms/Falling_Platform/fallingPlatform.cs" id="1_a6pxl"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_6uw5h"]
-size = Vector3(2.5, 0.5, 2.5)
+[ext_resource type="PackedScene" uid="uid://o6tm5f1wr6mp" path="res://Prefabs/Level_Elements/Platforms/Falling_Platform/PlattformFalling.blend" id="2_jhix5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ln3o"]
 size = Vector3(2.5, 0.5, 2.5)
@@ -18,13 +16,14 @@ max_contacts_reported = 6
 contact_monitor = true
 script = ExtResource("1_a6pxl")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_6uw5h")
+[node name="PlattformFalling" parent="." instance=ExtResource("2_jhix5")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -0.25, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_5ln3o")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="Area3D" type="Area3D" parent="."]

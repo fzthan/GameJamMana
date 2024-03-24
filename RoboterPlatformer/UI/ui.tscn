@@ -57,6 +57,14 @@ offset_right = 56.0
 offset_bottom = 23.0
 text = "Health:"
 
+[node name="Timer" type="Label" parent="InGame"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 51.0
+offset_right = 57.0
+offset_bottom = 74.0
+text = "Time: 0"
+
 [node name="DashBar" type="ProgressBar" parent="InGame"]
 layout_mode = 1
 anchors_preset = 8
@@ -279,7 +287,47 @@ offset_bottom = 52.0
 theme_override_font_sizes/font_size = 30
 text = "Float"
 
+[node name="DeathScreen" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeathContainer" type="VBoxContainer" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DeathLabel" type="Label" parent="DeathScreen/DeathContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PLUGIN YOUR CONTROLLER"
+
+[node name="Time" type="Label" parent="DeathScreen/DeathContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Your Time: "
+
+[node name="Restart" type="Button" parent="DeathScreen/DeathContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Restart"
+
+[node name="Exit" type="Button" parent="DeathScreen/DeathContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit"
+
 [connection signal="button_down" from="PauseMenu/Container/Continue" to="." method="_OnContinueButtonDown"]
 [connection signal="button_down" from="PauseMenu/Container/Help" to="." method="_OnHelpButtonDown"]
 [connection signal="button_down" from="PauseMenu/Container/Exit" to="." method="_OnExitButtonDown"]
 [connection signal="button_down" from="PauseMenu/HelpPanel/Pause/BackButton" to="." method="_OnHelpBackButtonDown"]
+[connection signal="button_down" from="DeathScreen/DeathContainer/Restart" to="." method="_OnRestartButtonDown"]
+[connection signal="button_down" from="DeathScreen/DeathContainer/Exit" to="." method="_OnExitButtonDown"]

@@ -1,6 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://wa11714jq61"]
+[gd_scene load_steps=16 format=3 uid="uid://wa11714jq61"]
 
 [ext_resource type="PackedScene" uid="uid://barrpd4ea5wy5" path="res://gameController/gameController.tscn" id="1_hxclj"]
+[ext_resource type="PackedScene" uid="uid://dt4mtf7c1iafx" path="res://Prefabs/Particles/Clouds/Enviroment/Enviroment.tscn" id="1_i2t7c"]
+[ext_resource type="PackedScene" uid="uid://dfu7uup4wsrtq" path="res://Prefabs/Particles/Explosion_Engine/ExplosionParticles.tscn" id="1_pcaps"]
+[ext_resource type="Script" path="res://Prefabs/Particles/Explosion_Engine/ExplosionParticles.gd" id="2_4w2fh"]
 [ext_resource type="PackedScene" uid="uid://djv4w8iahv6ct" path="res://Prefabs/Player/player.tscn" id="2_lhclg"]
 [ext_resource type="PackedScene" uid="uid://cj36s2keis5cs" path="res://UI/ui.tscn" id="3_xseku"]
 [ext_resource type="PackedScene" uid="uid://fgvxmdcl4uug" path="res://Prefabs/Level_Elements/Platforms/platformSmall.tscn" id="4_7uvj2"]
@@ -11,15 +14,22 @@
 [ext_resource type="PackedScene" uid="uid://dkrs76pv12o06" path="res://Prefabs/Level_Elements/Platforms/Falling_Platform/fallingPlatform.tscn" id="9_j2lah"]
 [ext_resource type="PackedScene" uid="uid://nm3oi1edk43q" path="res://Prefabs/Level_Elements/Fan/fan.tscn" id="10_f1aq7"]
 [ext_resource type="PackedScene" uid="uid://dm1abhwfs6uhi" path="res://Prefabs/Level_Elements/Checkpoint/checkpoint.tscn" id="11_d3wwp"]
+[ext_resource type="PackedScene" uid="uid://bspkla8wvxsmw" path="res://Prefabs/Level_Elements/Finish/Finish.tscn" id="13_2d1ww"]
 
 [node name="Level0" type="Node"]
+
+[node name="Explosion" parent="." instance=ExtResource("1_pcaps")]
+script = ExtResource("2_4w2fh")
+
+[node name="Enviroment" parent="." instance=ExtResource("1_i2t7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.933, -10.92, 4.744)
 
 [node name="GameController" parent="." node_paths=PackedStringArray("player", "activeCheckpoint") instance=ExtResource("1_hxclj")]
 player = NodePath("../Player")
 activeCheckpoint = NodePath("../Checkpoint")
 
 [node name="Player" parent="." instance=ExtResource("2_lhclg")]
-transform = Transform3D(0.999938, 0, -0.0111176, 0, 1, 0, 0.0111176, 0, 0.999938, 22.2934, 22.2893, -101.215)
+transform = Transform3D(0.999938, 0, -0.0111176, 0, 1, 0, 0.0111176, 0, 0.999938, 0.499599, 21.6688, 0.507004)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.938866, -0.242474, 0.244411, 0, 0.709915, 0.704287, -0.344282, -0.661232, 0.666515, 0, -2.15045, 0)
@@ -42,34 +52,34 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 2
 [node name="electroSpikesGroup1" type="Node3D" parent="."]
 
 [node name="electroSpike" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 6, -78)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 5.73655, -78)
 
 [node name="electroSpike2" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 6, -80)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 5.73655, -80)
 
 [node name="electroSpike3" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 6, -82)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13, 5.73655, -82)
 
 [node name="electroSpike4" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 6, -78)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 5.73655, -78)
 
 [node name="electroSpike5" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 6, -80)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 5.73655, -80)
 
 [node name="electroSpike6" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 6, -82)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 5.73655, -82)
 
 [node name="electroSpike7" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6, -77)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 5.73655, -77.5851)
 
 [node name="electroSpike8" parent="electroSpikesGroup1" instance=ExtResource("4_e5p6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6, -77)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 5.73655, -77.5851)
 
 [node name="PlatformMid2" parent="electroSpikesGroup1" instance=ExtResource("5_h5cf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 5, -80)
 
 [node name="electroSpike9" parent="." instance=ExtResource("4_e5p6y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 21, -39)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 20.7683, -40)
 
 [node name="electroSpike10" parent="." instance=ExtResource("4_e5p6y")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15, 9, -91)
@@ -78,6 +88,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15, 9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 11, -101)
 
 [node name="PlatformMid3" parent="RampGroup1" instance=ExtResource("5_h5cf2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="PlatformMid4" parent="RampGroup1" instance=ExtResource("5_h5cf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.5, 0)
@@ -89,7 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5, -10)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, -10)
 
 [node name="PlatformMid7" parent="RampGroup1" instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 10, 0)
 
 [node name="RampMid2" parent="RampGroup1" instance=ExtResource("6_mddd6")]
 transform = Transform3D(-1, 0, 3.17865e-08, 0, 1, 0, -3.17865e-08, 0, -1, 5, 1.5, 0)
@@ -119,47 +130,137 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 8, -90)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 10, -96)
 
 [node name="PlatformSmall8" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 10, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 10, -101)
 
 [node name="PlatformSmall9" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 12, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 12, -101)
 
 [node name="PlatformMid7" parent="." instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28, 21, -101)
 
-[node name="Turret_2" parent="." instance=ExtResource("8_obq7e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8555, 27.887, -37.3632)
+[node name="Turret_4" parent="." instance=ExtResource("8_obq7e")]
+transform = Transform3D(0.0198081, 0, 0.999804, 0, 1, 0, -0.999804, 0, 0.0198081, 12.5367, 22.5311, -16.1195)
 skeleton = NodePath("../Turret_1")
+turret_Range = 15.0
 
 [node name="Turret_1" parent="." instance=ExtResource("8_obq7e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8144, 19.4387, -105.445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8144, 21.4387, -120.445)
+turret_Range = 15.0
 
 [node name="PlatformMid8" parent="." instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33, 21, -101)
 
 [node name="PlatformMid9" parent="." instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 38, 21, -101)
 
 [node name="PlatformMid10" parent="." instance=ExtResource("5_h5cf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43, 21, -101)
 
 [node name="PlatformSmall10" parent="." instance=ExtResource("4_7uvj2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.75, 21, -101)
 
 [node name="PlatformSmall11" parent="." instance=ExtResource("4_7uvj2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.75, 21, -101)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 54.75, 21, -101)
 
 [node name="electroSpike11" parent="." instance=ExtResource("4_e5p6y")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 51, 23, -101)
 
-[node name="FallingPlatform" parent="." instance=ExtResource("9_j2lah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -5)
-
 [node name="Fan" parent="." instance=ExtResource("10_f1aq7")]
-transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 30.7382, 21.9587, -97.3912)
+transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 36.7382, 21.9587, -97.3912)
 
 [node name="Fan2" parent="." instance=ExtResource("10_f1aq7")]
-transform = Transform3D(1, 0, 1.90739e-07, 0, 1, 0, -1.90739e-07, 0, 1, 37.7382, 21.9587, -104.391)
+transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 38.7382, 21.9587, -97.391)
+
+[node name="Fan3" parent="." instance=ExtResource("10_f1aq7")]
+transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, 40.7382, 21.9587, -97.391)
 
 [node name="Checkpoint" parent="." instance=ExtResource("11_d3wwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 22.3707, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.5, 22.12, -0.130488)
+SpawnLocation = 4
+
+[node name="Checkpoint2" parent="." instance=ExtResource("11_d3wwp")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 23.0441, 13.0955, -104)
+SpawnLocation = 4
+
+[node name="PlatformMid11" parent="." instance=ExtResource("5_h5cf2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 65, 21, -101)
+
+[node name="FallingPlatform" parent="." instance=ExtResource("9_j2lah")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 57.25, 21, -101)
+
+[node name="FallingPlatform2" parent="." instance=ExtResource("9_j2lah")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 59.75, 21, -101)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("11_d3wwp")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 65.0286, 23.0975, -104)
+SpawnLocation = 4
+
+[node name="PlatformSmall12" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.75, 21, -101)
+
+[node name="PlatformSmall13" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 79.75, 24, -105)
+
+[node name="PlatformSmall14" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 89.75, 26, -105)
+
+[node name="PlatformSmall15" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 101.75, 26, -105)
+
+[node name="PlatformSmall16" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 113.75, 22, -105)
+
+[node name="PlatformSmall17" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 128.75, 22, -103)
+
+[node name="PlatformSmall18" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 138.75, 22, -94)
+
+[node name="Turret_2" parent="." instance=ExtResource("8_obq7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.8144, 23.2536, -116.445)
+turret_Range = 20.0
+
+[node name="Turret_3" parent="." instance=ExtResource("8_obq7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.814, 22.2536, -82.445)
+turret_Range = 20.0
+
+[node name="PlatformSmall19" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 161.75, 22, -94)
+
+[node name="FallingPlatform3" parent="." instance=ExtResource("9_j2lah")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149.75, 21, -95)
+
+[node name="PlatformSmall20" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 189.75, 17, -94)
+
+[node name="PlatformSmall21" parent="." instance=ExtResource("4_7uvj2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200.75, 17, -94)
+
+[node name="PlatformMid12" parent="." instance=ExtResource("5_h5cf2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 213, 21, -92)
+
+[node name="Finish" parent="." instance=ExtResource("13_2d1ww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.997, 21.9809, -92.0015)
+
+[node name="AkBank" type="AkBank" parent="."]
+bank = {
+"id": 1355168291,
+"name": "Init"
+}
+load_on = 1
+
+[node name="AkBank" type="AkBank" parent="AkBank"]
+bank = {
+"id": 2782712965,
+"name": "Level"
+}
+load_on = 1
+
+[node name="AkEvent3D" type="AkEvent3D" parent="AkBank/AkBank"]
+event = {
+"id": 352576276,
+"name": "Level_Start"
+}
+trigger_on = 1
+stop_on = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.041, 0)
