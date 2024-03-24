@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class UI : Control
@@ -7,14 +8,18 @@ public partial class UI : Control
 	private Label fuelDisplay;
   private Label healthDisplay;
   private Panel PauseMenu;
+  private Label timerDisplay;
+  private double time = 0;
   private ProgressBar DashBar;
   private Timer dashCooldown;
   private Panel DeathScreen;
+  private bool gameStoped = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		fuelDisplay = GetNode<Label>("InGame/FuelDisplay");
     healthDisplay = GetNode<Label>("InGame/HealthDisplay");
+    timerDisplay = GetNode<Label>("InGame/Timer");
     PauseMenu = GetNode<Panel>("PauseMenu");
     DeathScreen = GetNode<Panel>("DeathScreen");
     GetNode<gameController>("../GameController").GamePaused += _OnGamePaused;
@@ -36,6 +41,8 @@ public partial class UI : Control
 	{
 		fuelDisplay.Text = "Fuel: " + Mathf.Floor(player.JetPackStamina).ToString();
     healthDisplay.Text = "Health: " + player.CurrentHealth.ToString();
+    time += delta;
+    if(!gameStoped) timerDisplay.Text = "Timer: " + Math.Round(time, 2, MidpointRounding.ToEven);
 	}
 
   public override void _PhysicsProcess(double delta)
@@ -75,12 +82,14 @@ public partial class UI : Control
   }
 
   public void _OnPlayerDead(bool playerDead){
+    gameStoped = true;
     DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "PLUGIN YOUR CONTROLLER";
     DeathScreen.Visible = true;
     DeathScreen.GetNode<Button>("DeathContainer/Restart").GrabFocus();
   }
 
   public void _OnPlayerFinished(){
+    gameStoped = true;
     DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "YOU WIN";
     DeathScreen.Visible = true;
     DeathScreen.GetNode<Button>("DeathContainer/Restart").GrabFocus();
@@ -88,6 +97,7 @@ public partial class UI : Control
 
   public void _OnRestartButtonDown(){
     GetTree().Paused = false;
+    gameStoped = false;
     GetTree().ReloadCurrentScene();
   }
 }
