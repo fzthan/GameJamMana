@@ -50,6 +50,7 @@ public partial class Player : CharacterBody3D
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
 	private AnimationTree animTree;
+	private Timer idleTimer;
 
 	public void TakeDamage(float amount)
 	{
@@ -77,6 +78,9 @@ public partial class Player : CharacterBody3D
 		DashCooldown = GetNode<Timer>("DashCooldown");
 		Health = startingHealth;
 		animTree = GetNode<AnimationTree>("AnimationTree");
+		idleTimer = GetNode<Timer>("IdleTimer");
+		idleTimer.Start();
+		idleTimer.Timeout += _OnIdleTimerTimeout;
 	}
 
 	private void UpdateAnimationParameters()
@@ -119,6 +123,7 @@ public partial class Player : CharacterBody3D
 	{
 		DashCooldown.Start();
 		IsDashing = false;
+		idleTimer.Start();
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -164,15 +169,18 @@ public partial class Player : CharacterBody3D
 			// As good practice, you should replace UI actions with custom gameplay actions.
 			Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_backward");
 			direction = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, PlayerCameraPivot.Rotation.Y).Normalized();
-			if (direction != Vector3.Zero)
+			if (inputDir != Vector2.Zero)
 			{
 				velocity.X = direction.X * Speed;
 				velocity.Z = direction.Z * Speed;
+				idleTimer.Stop();
 			}
 			else
 			{
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+				if(idleTimer.IsStopped())
+					idleTimer.Start();
 			}
 			if (Input.IsActionJustPressed("move_dash") && DashCooldown.IsStopped())
 			{
@@ -182,6 +190,7 @@ public partial class Player : CharacterBody3D
 				velocity.Y = 0.0f;
 				velocity.X = direction.X * DashSpeed;
 				velocity.Z = direction.Z * DashSpeed;
+				idleTimer.Stop();
 			}
 		}
 		else
@@ -203,5 +212,9 @@ public partial class Player : CharacterBody3D
 		GlobalPosition = newPos;
 		Health = startingHealth;
 		EmitSignal(SignalName.HealthChanged, 0, Health);
+	}
+
+	private void _OnIdleTimerTimeout() {
+		animTree.Set("parameters/conditions/secondIdle", true);
 	}
 }
