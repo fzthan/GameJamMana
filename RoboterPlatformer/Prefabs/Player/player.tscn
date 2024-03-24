@@ -338,10 +338,10 @@ newTexture = ExtResource("6_7yveu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(-3.15992e-17, 0.101104, -0.19102)
-bones/0/rotation = Quaternion(-0.029647, 0, 0, 0.99956)
-bones/1/position = Vector3(-0.0347411, -0.425303, 0.0381339)
-bones/2/position = Vector3(0.0655408, -1.84838, 0.245943)
+bones/0/position = Vector3(-3.15992e-17, 0.0698798, -0.132028)
+bones/0/rotation = Quaternion(-0.0204781, 0, 0, 0.99979)
+bones/1/position = Vector3(-0.0251165, -0.456677, 0.0500152)
+bones/2/position = Vector3(0.0505528, -1.86229, 0.232318)
 bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pivot"]
@@ -410,6 +410,16 @@ amount = 10
 
 [node name="Fire2" parent="Particles/RocketEngine/Engines/Normal/Normal_1" index="1"]
 amount = 20
+
+[node name="AkEvent3D" type="AkEvent3D" parent="."]
+event = {
+"id": 2264495988,
+"name": "Play_Idle_Jet"
+}
+trigger_on = 2
+stop_on = 3
+
+[node name="AkListener3D" type="AkListener3D" parent="."]
 
 [editable path="Pivot/RoboterRig"]
 [editable path="Particles/RocketEngine"]
