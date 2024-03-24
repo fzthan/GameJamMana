@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="RoboterPlatformer"
+config/name="Robots vs. Wrestlers"
+config/version="0.0.1"
 run/main_scene="res://Level/Hauptmenü.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+boot_splash/image="res://UI/Resources/splash.png"
+config/icon="res://UI/Resources/Head.png"
 
 [autoload]
 
