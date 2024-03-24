@@ -91,6 +91,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
 [node name="MenuBot" parent="Node/Robot_Left" instance=ExtResource("3_yug5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
 [node name="Particles" type="Node3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
@@ -104,6 +105,9 @@ amount = 10
 [node name="Fire2" parent="Node/Particles/RocketEngine/Engines/Normal/Normal_3" index="1"]
 transform = Transform3D(1, -5.96046e-08, 2.98023e-08, -2.98023e-08, 1, 0, 0, 2.98023e-08, 1, 0.00775698, 0.0778913, -0.10403)
 amount = 20
+
+[node name="Smoke" parent="Node/Particles/RocketEngine/Engines/Normal/Normal_Back" index="0"]
+emitting = false
 
 [node name="Fire2" parent="Node/Particles/RocketEngine/Engines/Normal/Normal_Back" index="1"]
 emitting = false
@@ -149,6 +153,7 @@ amount = 10
 amount = 20
 
 [node name="MenuBot" parent="Node/Robot_Right" instance=ExtResource("3_yug5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.223831, 0)
 
 [node name="Enviroment" parent="." instance=ExtResource("11_10nvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.6266, 0)
