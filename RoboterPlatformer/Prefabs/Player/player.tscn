@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://djv4w8iahv6ct"]
+[gd_scene load_steps=30 format=3 uid="uid://djv4w8iahv6ct"]
 
 [ext_resource type="Script" path="res://Prefabs/Player/Player.cs" id="1_hfciw"]
 [ext_resource type="PackedScene" uid="uid://ccyxnn7ljgjgk" path="res://Prefabs/Player/RoboterRig.blend" id="2_tl11t"]
@@ -181,6 +181,18 @@ tracks/13/keys = {
 "update": 1,
 "values": [40]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../Particles/RocketEngine/Engines/Normal/Normal_Back/Fire2:amount")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [200]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_khfme"]
 _data = {
@@ -205,6 +217,8 @@ animation = &"PlayerAnims/Dash"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hn681"]
 animation = &"PlayerAnims/Idle2"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fd82h"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xycc2"]
 animation = &"PlayerAnims/idle"
@@ -232,16 +246,36 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ipac"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1e8ad"]
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e4i1r"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ms3aa"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xn2gv"]
+advance_mode = 2
+advance_condition = &"walking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_16jgs"]
 states/Dash/node = SubResource("AnimationNodeAnimation_bym7u")
 states/Dash/position = Vector2(591, 118)
 states/PlayerAnims_Idle2/node = SubResource("AnimationNodeAnimation_hn681")
 states/PlayerAnims_Idle2/position = Vector2(409, 225)
 states/Start/position = Vector2(229, 116)
+states/WalkMachine/node = SubResource("AnimationNodeStateMachine_fd82h")
+states/WalkMachine/position = Vector2(509, -9)
 "states/idle /node" = SubResource("AnimationNodeAnimation_xycc2")
 "states/idle /position" = Vector2(403, 118)
-transitions = ["idle ", "Dash", SubResource("AnimationNodeStateMachineTransition_vym8u"), "Dash", "idle ", SubResource("AnimationNodeStateMachineTransition_j28mj"), "idle ", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_sh24l"), "PlayerAnims_Idle2", "idle ", SubResource("AnimationNodeStateMachineTransition_7bobw"), "Start", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_1ipac")]
-graph_offset = Vector2(-142, 15)
+transitions = ["idle ", "Dash", SubResource("AnimationNodeStateMachineTransition_vym8u"), "Dash", "idle ", SubResource("AnimationNodeStateMachineTransition_j28mj"), "idle ", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_sh24l"), "PlayerAnims_Idle2", "idle ", SubResource("AnimationNodeStateMachineTransition_7bobw"), "Start", "PlayerAnims_Idle2", SubResource("AnimationNodeStateMachineTransition_1ipac"), "idle ", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_1e8ad"), "WalkMachine", "idle ", SubResource("AnimationNodeStateMachineTransition_e4i1r"), "WalkMachine", "Dash", SubResource("AnimationNodeStateMachineTransition_ms3aa"), "Dash", "WalkMachine", SubResource("AnimationNodeStateMachineTransition_xn2gv")]
+graph_offset = Vector2(-186, -72)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_hfciw")
@@ -256,13 +290,10 @@ oldTexture = ExtResource("5_6yv6h")
 newTexture = ExtResource("6_5i8cn")
 
 [node name="Armature_001" parent="Pivot/RoboterRig" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00744247)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Pivot/RoboterRig/Armature_001" index="0"]
-bones/0/position = Vector3(0, 0.0494191, -0.0933704)
-bones/0/rotation = Quaternion(-0.014478, 0, 0, 0.999895)
-bones/1/position = Vector3(-0.0103011, -0.504971, 0.0683044)
-bones/2/position = Vector3(0.0182063, -1.89232, 0.202912)
+bones/1/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/2/rotation = Quaternion(-0.0817845, 1.1881e-07, -9.74947e-09, 0.99665)
 bones/2/scale = Vector3(1, 1, 1)
 
@@ -311,6 +342,7 @@ anim_player = NodePath("../Pivot/AnimationPlayer2")
 parameters/conditions/dashing = false
 parameters/conditions/idle = true
 parameters/conditions/secondIdle = true
+parameters/conditions/walking = false
 
 [node name="Particles" type="Node3D" parent="."]
 
