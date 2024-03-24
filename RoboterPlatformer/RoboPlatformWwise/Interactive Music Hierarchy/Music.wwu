@@ -60,6 +60,11 @@
 						<MusicSegment Name="LevelMusicStart" ID="{66FF1CEB-DF21-4C9E-8EA0-CDC95ACCCD22}" ShortID="222539500">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="116402.416666667"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -71,6 +76,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<MusicTrack Name="LevelMusicStart" ID="{80A9AA20-0968-47A4-8CDD-8A5B197949F3}" ShortID="483277618">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{516548F8-80D8-46A4-BA51-80386F648F67}"/>
@@ -146,6 +158,11 @@
 						<MusicSegment Name="LevelMusicLoop" ID="{36ADE71B-9AEB-46E6-9186-E81C5961DF86}" ShortID="905677566">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="96402.7083333333"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -157,6 +174,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<MusicTrack Name="LevelMusicLoop" ID="{119B54EB-AFA5-4B4A-BBE5-0319122BD1E3}" ShortID="9825793">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{516548F8-80D8-46A4-BA51-80386F648F67}"/>

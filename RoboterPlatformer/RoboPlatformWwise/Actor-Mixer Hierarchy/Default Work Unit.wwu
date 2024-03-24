@@ -16,6 +16,11 @@
 						<Sound Name="sfx_plyr_loc_idle_jet" ID="{ABC26380-5CEE-44A8-AF5D-B23431C71070}" ShortID="726441575">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
