@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnhdfh4brgn2"
-path="res://.godot/imported/mouse_horizontal.svg-1d3c65782bb6a498ee449fd3241b782b.ctex"
+uid="uid://deltrg2dxh25n"
+path="res://.godot/imported/keyboard_w.svg-5da1a011ecca672ead1b23e9e48050ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Resources/mouse_horizontal.svg"
-dest_files=["res://.godot/imported/mouse_horizontal.svg-1d3c65782bb6a498ee449fd3241b782b.ctex"]
+source_file="res://UI/Resources/kenney/input_prompts/keyboard_w.svg"
+dest_files=["res://.godot/imported/keyboard_w.svg-5da1a011ecca672ead1b23e9e48050ac.ctex"]
 
 [params]
 

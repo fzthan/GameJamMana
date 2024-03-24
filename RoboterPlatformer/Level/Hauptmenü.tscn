@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7sr1eplgtsx0"]
 
 [ext_resource type="Script" path="res://Level/CanvasLayer.gd" id="1_useih"]
-[ext_resource type="Texture2D" uid="uid://ctt87nbb5dtlx" path="res://UI/Resources/Lautstärke.svg" id="2_ljokf"]
+[ext_resource type="Texture2D" uid="uid://truq33vsa2pk" path="res://UI/Resources/kenney/on_screen_controls/flatLight11.png" id="2_4g1o1"]
 [ext_resource type="PackedScene" uid="uid://dqrqas34dk2pf" path="res://Prefabs/Level_Elements/Menu/menu_bot.tscn" id="3_yug5b"]
 [ext_resource type="PackedScene" uid="uid://bcvse2gohmf1u" path="res://Prefabs/Particles/Explosion_Engine/RocketEngineParticles.tscn" id="10_152ar"]
 [ext_resource type="PackedScene" uid="uid://dt4mtf7c1iafx" path="res://Prefabs/Particles/Clouds/Enviroment/Enviroment.tscn" id="11_10nvq"]
@@ -91,7 +91,7 @@ offset_bottom = 677.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_ljokf")
+texture = ExtResource("2_4g1o1")
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 layout_mode = 1
