@@ -9,5 +9,5 @@ script = ExtResource("1_f7fii")
 [node name="Schutzenturm_Textured2" parent="." instance=ExtResource("2_b6sgn")]
 
 [node name="RayCast3D" type="RayCast3D" parent="Schutzenturm_Textured2"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.401766, 3.74773, -0.0127387)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.197637, 3.74773, -0.0127387)
 target_position = Vector3(0, 0, -1)
