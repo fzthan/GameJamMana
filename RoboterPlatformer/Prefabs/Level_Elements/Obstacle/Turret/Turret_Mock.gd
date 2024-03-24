@@ -24,7 +24,6 @@ func _process(delta):
 	look_at(direction, Vector3.UP)
 	rotation.x = 0
 	rotation.z = 0
-	print(direction.distance_to(global_transform.origin))
 	
 	if (time_Elapsed >= 2.00 && direction.distance_to(global_transform.origin) <= turret_Range):
 		time_Elapsed = 0

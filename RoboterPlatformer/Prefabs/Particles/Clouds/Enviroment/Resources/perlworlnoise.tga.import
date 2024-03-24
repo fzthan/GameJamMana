@@ -1,0 +1,27 @@
+[remap]
+
+importer="3d_texture"
+type="CompressedTexture3D"
+uid="uid://c42hl7osgqlhr"
+path.bptc="res://.godot/imported/perlworlnoise.tga-ea1b36279255747ce7ff4c1ecd215674.bptc.ctex3d"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://Prefabs/Particles/Clouds/Enviroment/Resources/perlworlnoise.tga"
+dest_files=["res://.godot/imported/perlworlnoise.tga-ea1b36279255747ce7ff4c1ecd215674.bptc.ctex3d"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=true
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+slices/horizontal=128
+slices/vertical=1
