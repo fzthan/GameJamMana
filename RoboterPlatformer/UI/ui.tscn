@@ -57,6 +57,14 @@ offset_right = 56.0
 offset_bottom = 23.0
 text = "Health:"
 
+[node name="Timer" type="Label" parent="InGame"]
+layout_mode = 1
+offset_left = 1.0
+offset_top = 51.0
+offset_right = 57.0
+offset_bottom = 74.0
+text = "Time: 0"
+
 [node name="DashBar" type="ProgressBar" parent="InGame"]
 layout_mode = 1
 anchors_preset = 8
@@ -300,6 +308,11 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "PLUGIN YOUR CONTROLLER"
+
+[node name="Time" type="Label" parent="DeathScreen/DeathContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Your Time: "
 
 [node name="Restart" type="Button" parent="DeathScreen/DeathContainer"]
 layout_mode = 2
