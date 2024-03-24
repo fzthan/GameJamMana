@@ -15,6 +15,9 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	4262522749	Wood_Bright			\Factory Acoustic Textures\Textures\Wood_Bright	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	1459460693	AmbientMaster			\Default Work Unit\Master Audio Bus\AmbientMaster	
+	3007729484	ObstacleMaster			\Default Work Unit\Master Audio Bus\ObstacleMaster	
+	3538689948	PlayerMaster			\Default Work Unit\Master Audio Bus\PlayerMaster	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
 Audio Devices	ID	Name	Type				Notes

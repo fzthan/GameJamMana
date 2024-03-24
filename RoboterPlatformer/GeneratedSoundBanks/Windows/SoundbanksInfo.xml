@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{AB9F0343-CD85-AB9E-58D8-B63D74A50185}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{6F003AE6-8EB1-13F9-D284-D71DD7F44B13}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -19,6 +19,9 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="1459460693" Name="AmbientMaster"/>
+				<Bus Id="3007729484" Name="ObstacleMaster"/>
+				<Bus Id="3538689948" Name="PlayerMaster"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<GameParameters>
@@ -162,16 +165,30 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{DE365D08-80D5-DF8E-0916-0960BD4EDFDC}">
-			<ShortName>Main</ShortName>
-			<Path>Main.bnk</Path>
+		<SoundBank Id="2782712965" Type="User" Language="SFX" Hash="{6A69E8AD-4C48-3D78-8E5F-0F6B83EBCDFF}">
+			<ShortName>Level</ShortName>
+			<Path>Level.bnk</Path>
 			<Media>
+				<File Id="352216835" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LevelMusicLoop.wav</ShortName>
+					<CachePath>SFX/LevelMusicLoop_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="697110714" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Idle_Jet.wav</ShortName>
 					<CachePath>SFX/Idle_Jet_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="974611646" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LevelMusicStart.wav</ShortName>
+					<CachePath>SFX/LevelMusicStart_FBC78EF0.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
+				<Event Id="352576276" Name="Level_Start">
+					<MediaRefs>
+						<MediaRef Id="352216835"/>
+						<MediaRef Id="974611646"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2264495988" Name="Play_Idle_Jet">
 					<MediaRefs>
 						<MediaRef Id="697110714"/>
@@ -179,6 +196,10 @@
 				</Event>
 			</Events>
 		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3B51E889-948F-7EDA-A1E8-111109B087A1}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+		</SoundBank>
 	</SoundBanks>
-	<FileHash>{71A47F01-A5C9-A66A-B52C-B4C60D5CEDA3}</FileHash>
+	<FileHash>{E4C37CF3-235E-E0E6-DF4B-2F336BB8C4FD}</FileHash>
 </SoundBanksInfo>
