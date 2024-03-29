@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cj36s2keis5cs"]
+[gd_scene load_steps=14 format=3 uid="uid://cj36s2keis5cs"]
 
 [ext_resource type="Script" path="res://UI/UI.cs" id="1_jc25i"]
 [ext_resource type="Texture2D" uid="uid://deltrg2dxh25n" path="res://UI/Resources/kenney/input_prompts/keyboard_w.svg" id="2_pcxir"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b0dpt21bdoxkr" path="res://UI/Resources/kenney/input_prompts/keyboard_space.svg" id="8_0hxq4"]
 [ext_resource type="Texture2D" uid="uid://dnhdfh4brgn2" path="res://UI/Resources/kenney/input_prompts/mouse_horizontal.svg" id="9_ye3k0"]
 [ext_resource type="Texture2D" uid="uid://btgjb6pge2dyu" path="res://UI/Resources/kenney/input_prompts/mouse_right.svg" id="10_fwbsh"]
+[ext_resource type="Texture2D" uid="uid://cwq445cp5ct3p" path="res://UI/Resources/kenney/input_prompts/keyboard_r.svg" id="11_qx0ns"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irel8"]
 bg_color = Color(0.607843, 0.639216, 0.690196, 1)
@@ -286,6 +287,28 @@ offset_right = 132.0
 offset_bottom = 52.0
 theme_override_font_sizes/font_size = 30
 text = "Float"
+
+[node name="Restart" type="Control" parent="PauseMenu/HelpPanel"]
+anchors_preset = 0
+offset_left = 406.0
+offset_top = 172.0
+offset_right = 812.0
+offset_bottom = 236.0
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu/HelpPanel/Restart"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_qx0ns")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseMenu/HelpPanel/Restart"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 11.0
+offset_right = 423.0
+offset_bottom = 64.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Restart from beginning"
 
 [node name="DeathScreen" type="Panel" parent="."]
 layout_mode = 1
