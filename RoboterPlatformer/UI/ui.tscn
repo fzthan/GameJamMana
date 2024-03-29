@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj36s2keis5cs"]
+[gd_scene load_steps=16 format=3 uid="uid://cj36s2keis5cs"]
 
 [ext_resource type="Script" path="res://UI/UI.cs" id="1_jc25i"]
 [ext_resource type="Texture2D" uid="uid://deltrg2dxh25n" path="res://UI/Resources/kenney/input_prompts/keyboard_w.svg" id="2_pcxir"]
@@ -20,6 +20,20 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycbjq"]
+bg_color = Color(0.537255, 0.713726, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2l0im"]
+bg_color = Color(0.607843, 0.639216, 0.690196, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xgjm"]
 bg_color = Color(0.537255, 0.713726, 1, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -84,7 +98,26 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ycbjq")
 value = 50.0
 show_percentage = false
 
+[node name="JumpIndicator" type="ProgressBar" parent="InGame"]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 454.0
+offset_right = 576.0
+offset_bottom = 478.0
+theme_override_styles/background = SubResource("StyleBoxFlat_2l0im")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1xgjm")
+max_value = 1.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="InGame/JumpIndicator"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 65.0
+offset_bottom = 23.0
+text = "Jump"
+
 [node name="PauseMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -311,6 +344,7 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Restart from beginning"
 
 [node name="DeathScreen" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

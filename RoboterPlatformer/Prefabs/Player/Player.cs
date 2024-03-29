@@ -28,6 +28,7 @@ public partial class Player : CharacterBody3D
 	[Export]
 	public float JetPackForce = 8.0f;
 	private bool HasDoubleJumped = false;
+  public bool _hasDoubleJumped {get {return HasDoubleJumped;} }
 	#endregion
 
 	#region dashing

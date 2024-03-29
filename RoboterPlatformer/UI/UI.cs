@@ -11,9 +11,10 @@ public partial class UI : Control
   private Label timerDisplay;
   private double time = 0;
   private ProgressBar DashBar;
+  private ProgressBar JumpIndicator;
   private Timer dashCooldown;
   private Panel DeathScreen;
-  private bool gameStoped = false;
+  private bool isGameStopped = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -34,16 +35,22 @@ public partial class UI : Control
     player.DashStart += _OnDashStart;
     dashCooldown = player.GetNode<Timer>("DashCooldown");
     PauseMenu.GetNode<Panel>("HelpPanel").Visible = false;
+    JumpIndicator = GetNode<ProgressBar>("InGame/JumpIndicator");
+    JumpIndicator.Value = 1;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+    if(isGameStopped)
+      return;
 		fuelDisplay.Text = "Fuel: " + Mathf.Floor(player.JetPackStamina).ToString();
     healthDisplay.Text = "Health: " + player.CurrentHealth.ToString();
-    if(!gameStoped){ 
+    JumpIndicator.Value = player._hasDoubleJumped ? 0 : 1;
+    if(!isGameStopped){
       time += delta;
-      timerDisplay.Text = "Timer: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString() + " s";}
+      timerDisplay.Text = "Timer: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString() + " s";
+    }
 	}
 
   public override void _PhysicsProcess(double delta)
@@ -55,7 +62,7 @@ public partial class UI : Control
 
   public void _OnGamePaused(bool isPaused) {
     PauseMenu.Visible = isPaused;
-    gameStoped = isPaused;
+    isGameStopped = isPaused;
     if(isPaused)  {
       PauseMenu.GetNode<Button>("Container/Continue").GrabFocus();
       PauseMenu.GetNode<Panel>("HelpPanel").Visible = false;
@@ -65,7 +72,7 @@ public partial class UI : Control
   public void _OnContinueButtonDown() {
     Input.ActionPress("ui_cancel");
     Input.ActionRelease("ui_cancel");
-    gameStoped = false;
+    isGameStopped = false;
   }
 
   public void _OnExitButtonDown() {
@@ -85,7 +92,7 @@ public partial class UI : Control
   }
 
   public void _OnPlayerDead(bool playerDead){
-    gameStoped = true;
+    isGameStopped = true;
     DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "PLUGIN YOUR CONTROLLER";
     DeathScreen.GetNode<Label>("DeathContainer/Time").Text = "Your Time: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString() + " s";
     DeathScreen.Visible = true;
@@ -93,7 +100,7 @@ public partial class UI : Control
   }
 
   public void _OnPlayerFinished(){
-    gameStoped = true;
+    isGameStopped = true;
     DeathScreen.GetNode<Label>("DeathContainer/DeathLabel").Text = "YOU WIN";
     DeathScreen.GetNode<Label>("DeathContainer/Time").Text = "Your Time: " + Math.Round(time, 2, MidpointRounding.ToEven).ToString() + " s";
     DeathScreen.Visible = true;
@@ -102,7 +109,7 @@ public partial class UI : Control
 
   public void _OnRestartButtonDown(){
     GetTree().Paused = false;
-    gameStoped = false;
+    isGameStopped = false;
     GetTree().ReloadCurrentScene();
   }
 }
