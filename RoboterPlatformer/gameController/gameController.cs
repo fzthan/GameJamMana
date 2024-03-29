@@ -36,6 +36,13 @@ public partial class gameController : Node
 			else
 				Input.MouseMode = Input.MouseModeEnum.Captured;
 		}
+		if(Input.IsActionJustPressed("restart")) {
+      isPaused = !isPaused;
+      GetTree().Paused = false;
+      EmitSignal(SignalName.GamePaused, false);
+      GetTree().ReloadCurrentScene();
+    }
+
 	}
 
 	private async void OnPlayerHealthChanged(float oldHealth, float Health)
