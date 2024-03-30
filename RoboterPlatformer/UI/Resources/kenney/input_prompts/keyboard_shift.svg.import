@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clpvpe81eiy5p"
-path="res://.godot/imported/keyboard_a.svg-3edddcdf4dc1b93933d9c6357ae8182b.ctex"
+uid="uid://jvkqs01qxfru"
+path="res://.godot/imported/keyboard_shift.svg-16d2ec9663d685ca6d20c4ec95bc03ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Resources/keyboard_a.svg"
-dest_files=["res://.godot/imported/keyboard_a.svg-3edddcdf4dc1b93933d9c6357ae8182b.ctex"]
+source_file="res://UI/Resources/kenney/input_prompts/keyboard_shift.svg"
+dest_files=["res://.godot/imported/keyboard_shift.svg-16d2ec9663d685ca6d20c4ec95bc03ba.ctex"]
 
 [params]
 

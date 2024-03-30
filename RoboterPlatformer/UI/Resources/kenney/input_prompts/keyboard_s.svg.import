@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctt87nbb5dtlx"
-path="res://.godot/imported/Lautstärke.svg-93bcb3787396c2e4fc42f74f33e4fa60.ctex"
+uid="uid://brmsl020h2mns"
+path="res://.godot/imported/keyboard_s.svg-b27b621e397d61c518143d60aabb5fb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Resources/Lautstärke.svg"
-dest_files=["res://.godot/imported/Lautstärke.svg-93bcb3787396c2e4fc42f74f33e4fa60.ctex"]
+source_file="res://UI/Resources/kenney/input_prompts/keyboard_s.svg"
+dest_files=["res://.godot/imported/keyboard_s.svg-b27b621e397d61c518143d60aabb5fb1.ctex"]
 
 [params]
 
