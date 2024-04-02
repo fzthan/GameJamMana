@@ -101,7 +101,9 @@ offset_right = 80.0
 offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-value = 40.0
+max_value = 1.0
+step = 0.001
+value = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 layout_mode = 1
