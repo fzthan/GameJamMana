@@ -241,26 +241,3 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 213, 2
 
 [node name="Finish" parent="." instance=ExtResource("13_2d1ww")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.997, 21.9809, -92.0015)
-
-[node name="AkBank" type="AkBank" parent="."]
-bank = {
-"id": 1355168291,
-"name": "Init"
-}
-load_on = 1
-
-[node name="AkBank" type="AkBank" parent="AkBank"]
-bank = {
-"id": 2782712965,
-"name": "Level"
-}
-load_on = 1
-
-[node name="AkEvent3D" type="AkEvent3D" parent="AkBank/AkBank"]
-event = {
-"id": 352576276,
-"name": "Level_Start"
-}
-trigger_on = 1
-stop_on = 3
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.041, 0)

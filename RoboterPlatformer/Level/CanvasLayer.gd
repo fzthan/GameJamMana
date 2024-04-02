@@ -10,5 +10,4 @@ func onExit():
 
 
 func onValueChanged(value):
-	Wwise.set_rtpc_value_id(0, value, null)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),value)

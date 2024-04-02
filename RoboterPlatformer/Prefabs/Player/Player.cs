@@ -10,14 +10,14 @@ public partial class Player : CharacterBody3D
 	private bool firstLife = false;
 	private bool secondLife = false;
 	[Export]
-	private const float startingHealth = 10.0f;
+	private float startingHealth = 10.0f;
 	public float CurrentHealth { get { return Health; } }
 	[Signal]
 	public delegate void HealthChangedEventHandler(float oldValue, float newValue);
 	[Export]
-	public const float Speed = 5.0f;
+	public float Speed = 5.0f;
 	[Export]
-	public const int LowerBound = -10;
+	public int LowerBound = -10;
 	#region jumping-jetpack
 	[Export]
 	public float JumpVelocity = 6.5f;

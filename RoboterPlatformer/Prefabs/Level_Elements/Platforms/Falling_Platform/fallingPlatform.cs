@@ -4,7 +4,7 @@ using System;
 public partial class fallingPlatform : RigidBody3D
 {
 	[Export]
-	public const int LowerBound = -10;
+	public int LowerBound = -10;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
