@@ -16,11 +16,13 @@ public partial class gameController : Node
 	private int live = 2;
 	private bool isPaused = false;
 	private bool playerDead = false;
+  private AudioStreamPlayer explosionSoundPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		player.HealthChanged += OnPlayerHealthChanged;
 		activeCheckpoint.SetActive(true);
+    explosionSoundPlayer = GetNode<AudioStreamPlayer>("ExplosionSoundPlayer");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,6 +51,7 @@ public partial class gameController : Node
 	{
 		if (Health <= 0 && live == 2)
 		{
+      explosionSoundPlayer.Play();
 			await ToSignal(GetTree().CreateTimer(1), "timeout");
 			EmitSignal(SignalName.PlayerDied, live);
 			live--;
@@ -67,6 +70,7 @@ public partial class gameController : Node
 		}
 		else if (Health <= 0 && live < 2)
 		{
+      explosionSoundPlayer.Play();
 			await ToSignal(GetTree().CreateTimer(1), "timeout");
 			playerDead = true;
 			EmitSignal(SignalName.PlayerDead, playerDead);
