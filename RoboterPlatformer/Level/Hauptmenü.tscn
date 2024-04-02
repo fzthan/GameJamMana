@@ -1,10 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7sr1eplgtsx0"]
+[gd_scene load_steps=9 format=3 uid="uid://c7sr1eplgtsx0"]
 
 [ext_resource type="Script" path="res://Level/CanvasLayer.gd" id="1_useih"]
 [ext_resource type="Texture2D" uid="uid://truq33vsa2pk" path="res://UI/Resources/kenney/on_screen_controls/flatLight11.png" id="2_4g1o1"]
 [ext_resource type="PackedScene" uid="uid://dqrqas34dk2pf" path="res://Prefabs/Level_Elements/Menu/menu_bot.tscn" id="3_yug5b"]
+[ext_resource type="AudioStream" uid="uid://b3bmlrl1tcigj" path="res://OriginalAudio/MainStart.wav" id="6_0nkyo"]
+[ext_resource type="AudioStream" uid="uid://bwlww6d1l2b6o" path="res://OriginalAudio/MainLoop.wav" id="7_xcfby"]
 [ext_resource type="PackedScene" uid="uid://bcvse2gohmf1u" path="res://Prefabs/Particles/Explosion_Engine/RocketEngineParticles.tscn" id="10_152ar"]
 [ext_resource type="PackedScene" uid="uid://dt4mtf7c1iafx" path="res://Prefabs/Particles/Clouds/Enviroment/Enviroment.tscn" id="11_10nvq"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_kry4y"]
+clip_count = 2
+clip_0/name = &"Start"
+clip_0/stream = ExtResource("6_0nkyo")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Loop"
+clip_1/stream = ExtResource("7_xcfby")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 2,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(1, 1): {
+"fade_beats": 1,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 1
+}
+}
 
 [node name="Hauptmenü" type="Node3D"]
 
@@ -187,31 +213,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.6266, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.938866, -0.242474, 0.244411, 0, 0.709915, 0.704287, -0.344282, -0.661232, 0.666515, 0, -2.15045, 0)
 
-[node name="AkBank" type="AkBank" parent="."]
-bank = {
-"id": 1355168291,
-"name": "Init"
-}
-load_on = 1
-unload_on = 3
-
-[node name="AkBank" type="AkBank" parent="AkBank"]
-bank = {
-"id": 3161908922,
-"name": "Main"
-}
-load_on = 1
-unload_on = 3
-
-[node name="AkEvent3D" type="AkEvent3D" parent="AkBank/AkBank"]
-event = {
-"id": 161991979,
-"name": "Main_Start"
-}
-trigger_on = 1
-stop_on = 3
-
-[node name="AkListener3D" type="AkListener3D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_kry4y")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/New Game" to="CanvasLayer" method="onNewGame"]
 [connection signal="pressed" from="CanvasLayer/Exit" to="CanvasLayer" method="onExit"]
