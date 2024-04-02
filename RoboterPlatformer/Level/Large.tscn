@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://wa11714jq61"]
+[gd_scene load_steps=19 format=3 uid="uid://wa11714jq61"]
 
 [ext_resource type="PackedScene" uid="uid://barrpd4ea5wy5" path="res://gameController/gameController.tscn" id="1_hxclj"]
 [ext_resource type="PackedScene" uid="uid://dt4mtf7c1iafx" path="res://Prefabs/Particles/Clouds/Enviroment/Enviroment.tscn" id="1_i2t7c"]
@@ -15,6 +15,18 @@
 [ext_resource type="PackedScene" uid="uid://nm3oi1edk43q" path="res://Prefabs/Level_Elements/Fan/fan.tscn" id="10_f1aq7"]
 [ext_resource type="PackedScene" uid="uid://dm1abhwfs6uhi" path="res://Prefabs/Level_Elements/Checkpoint/checkpoint.tscn" id="11_d3wwp"]
 [ext_resource type="PackedScene" uid="uid://bspkla8wvxsmw" path="res://Prefabs/Level_Elements/Finish/Finish.tscn" id="13_2d1ww"]
+[ext_resource type="AudioStream" uid="uid://tln7b68mdme3" path="res://OriginalAudio/LevelMusicStart.wav" id="16_1hc3w"]
+[ext_resource type="AudioStream" uid="uid://c202b4g2ygkk8" path="res://OriginalAudio/LevelMusicLoop.wav" id="17_pr28v"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_p1sc4"]
+clip_count = 2
+clip_0/name = &"Start"
+clip_0/stream = ExtResource("16_1hc3w")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Loop"
+clip_1/stream = ExtResource("17_pr28v")
+clip_1/auto_advance = 0
 
 [node name="Level0" type="Node"]
 
@@ -241,3 +253,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 213, 2
 
 [node name="Finish" parent="." instance=ExtResource("13_2d1ww")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.997, 21.9809, -92.0015)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_p1sc4")
+autoplay = true
