@@ -2,6 +2,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	161991979	Main_Start			\Default Work Unit\Main_Start	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	131509933	MainStart	F:\Godot\Projekte\GameJamMana\RoboterPlatformer\RoboPlatformWwise\.cache\Windows\SFX\MainStart_FBC78EF0.wem		\Interactive Music Hierarchy\Music\MainPlaylistContainer\MainStart\MainStart		6227304
-	324841009	MainLoop	F:\Godot\Projekte\GameJamMana\RoboterPlatformer\RoboPlatformWwise\.cache\Windows\SFX\MainLoop_FBC78EF0.wem		\Interactive Music Hierarchy\Music\MainPlaylistContainer\MainLoop\MainLoop		6707304
+	131509933	MainStart	C:\Users\Janma\Git\GameJamMana\RoboterPlatformer\RoboPlatformWwise\.cache\Windows\SFX\MainStart_FBC78EF0.wem		\Interactive Music Hierarchy\Music\MainPlaylistContainer\MainStart\MainStart		6227304
+	324841009	MainLoop	C:\Users\Janma\Git\GameJamMana\RoboterPlatformer\RoboPlatformWwise\.cache\Windows\SFX\MainLoop_FBC78EF0.wem		\Interactive Music Hierarchy\Music\MainPlaylistContainer\MainLoop\MainLoop		6707304
 

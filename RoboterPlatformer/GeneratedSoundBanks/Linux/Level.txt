@@ -1,0 +1,11 @@
+Event	ID	Name			Wwise Object Path	Notes
+	352576276	Level_Start			\Default Work Unit\Level_Start	
+	2264495988	Play_Idle_Jet			\Player\Play_Idle_Jet	
+	2912748806	Play_On_Death			\Player\Play_On_Death	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	352216835	LevelMusicLoop	C:\Users\Janma\Git\GameJamMana\RoboterPlatformer\RoboPlatformWwise\.cache\Linux\SFX\LevelMusicLoop_FBC78EF0.wem		\Interactive Music Hierarchy\Music\LevelPlaylistContainer\LevelMusicLoop\LevelMusicLoop		18509416
+	697110714	sfx_plyr_loc_idle_jet	C:\Users\Janma\Git\GameJamMana\RoboterPlatformer\RoboPlatformWwise\.cache\Linux\SFX\Idle_Jet_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\sfx_plyr_loc_idle_jet		272156
+	805579572	Player_Explosion	C:\Users\Janma\Git\GameJamMana\RoboterPlatformer\RoboPlatformWwise\.cache\Linux\SFX\Player_Explosion_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Player_Explosion		356760
+	974611646	LevelMusicStart	C:\Users\Janma\Git\GameJamMana\RoboterPlatformer\RoboPlatformWwise\.cache\Linux\SFX\LevelMusicStart_FBC78EF0.wem		\Interactive Music Hierarchy\Music\LevelPlaylistContainer\LevelMusicStart\LevelMusicStart		22349360
+
