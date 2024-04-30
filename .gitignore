@@ -17,3 +17,5 @@ mono_crash.*.json
 *.blend1
 
 RoboterPlatformer/addons/Wwise/native/lib/win64/debug/~libwwise.windows.template_debug.dll
+
+*.old
